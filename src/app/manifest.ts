@@ -1,9 +1,11 @@
 import type { MetadataRoute } from "next";
 import { THEME_COLOR } from "@/constants/app";
 import { getTranslations } from "next-intl/server";
+import { getUserLocale } from "@/i18n/utils";
 
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
   const t = await getTranslations({ namespace: "Metadata" });
+  const locale = await getUserLocale();
 
   return {
     name: t("appName"),
@@ -74,16 +76,64 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
     orientation: "portrait-primary",
     screenshots: [
       {
-        src: "screenshots/shot-mobile.png",
-        sizes: "400x822",
+        src: `screenshots/${locale}/desktop-1.png`,
+        sizes: "1148x800",
+        type: "image/png",
+        form_factor: "wide",
+      },
+      {
+        src: `screenshots/${locale}/desktop-2.png`,
+        sizes: "1148x800",
+        type: "image/png",
+        form_factor: "wide",
+      },
+      {
+        src: `screenshots/${locale}/desktop-3.png`,
+        sizes: "1148x800",
+        type: "image/png",
+        form_factor: "wide",
+      },
+      {
+        src: `screenshots/${locale}/desktop-4.png`,
+        sizes: "1148x800",
+        type: "image/png",
+        form_factor: "wide",
+      },
+      {
+        src: `screenshots/${locale}/desktop-5.png`,
+        sizes: "1148x800",
+        type: "image/png",
+        form_factor: "wide",
+      },
+      {
+        src: `screenshots/${locale}/mobile-1.png`,
+        sizes: "390x844",
         type: "image/png",
         form_factor: "narrow",
       },
       {
-        src: "screenshots/shot-desktop.png",
-        sizes: "1280x676",
+        src: `screenshots/${locale}/mobile-2.png`,
+        sizes: "390x844",
         type: "image/png",
-        form_factor: "wide",
+        form_factor: "narrow",
+      },
+      {
+        src: `screenshots/${locale}/mobile-3.png`,
+        sizes: "390x844",
+        type: "image/png",
+        form_factor: "narrow",
+      },
+      {
+        src: `screenshots/${locale}/mobile-4.png`,
+        sizes: "390x844",
+        type: "image/png",
+        form_factor: "narrow",
+      },
+      {
+        src: `screenshots/${locale}/mobile-5.png`,
+        sizes: "390x844",
+        type: "image/png",
+        form_factor: "narrow",
       },
     ],
     categories: ["games"],
