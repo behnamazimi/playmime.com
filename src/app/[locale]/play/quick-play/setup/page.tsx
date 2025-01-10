@@ -4,7 +4,6 @@ import SetupSection from "@/components/Setup/SetupSection/SetupSection";
 import BaseButton from "@/components/shared/Button/BaseButton";
 import { PlayIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { useBacklinkHref } from "@/contexts/BacklinkHrefContext";
 import { useQuickPlayGame } from "@/contexts/games/QuickPlayGameContext";
 import PageTitle from "@/components/shared/PageTitle";
 import { useTranslations } from "next-intl";
@@ -14,7 +13,6 @@ const minTeams = 2;
 const minTime = 15;
 
 export default function PlaySetup() {
-  useBacklinkHref({ backlinkHref: "/play" });
   const t = useTranslations("play");
   const { initializeGame } = useQuickPlayGame();
   const [numberOfTeams, setNumberOfTeams] = useState(2);
@@ -25,6 +23,7 @@ export default function PlaySetup() {
       <PageTitle
         title={t("quickPlay.setup.title")}
         subtitle={t("quickPlay.setup.subtitle")}
+        backlinkHref="/play"
       />
 
       <div className="grid grid-cols-1 items-center justify-center gap-12">

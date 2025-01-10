@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <div className="max-w-2xl mx-auto md:px-4 pt-12 pb-8 animate-fade-in">
       <div className="mb-12">
-        <h2 className="text-5xl mb-2 font-light">{t(`title`)}</h2>
-        <h2 className="text-5xl font-bold">{t("subtitle")}</h2>
+        <h2 className="text-4xl mb-2 font-light">{t(`title`)}</h2>
+        <h2 className="text-4xl font-bold">{t("subtitle")}</h2>
       </div>
 
       <div className="space-y-4">

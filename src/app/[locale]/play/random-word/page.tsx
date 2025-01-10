@@ -1,6 +1,5 @@
 "use client";
 
-import { useBacklinkHref } from "@/contexts/BacklinkHrefContext";
 import BaseButton from "@/components/shared/Button/BaseButton";
 import { useCallback, useEffect, useState } from "react";
 import { Word } from "@/types";
@@ -10,12 +9,13 @@ import { useCookies } from "react-cookie";
 import { getRandomWord } from "@/utils/indexedDb";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import PageTitle from "@/components/shared/PageTitle";
+import { useHideLanguageSwitcherToggle } from "@/contexts/LanguageSwitcherContext";
 
 export default function RandomWordPage() {
-  useBacklinkHref({ backlinkHref: "/play" });
   const [word, setWord] = useState<Word | null>(null);
   const [loading, setLoading] = useState(true);
   const t = useTranslations("RandomWord");
+  useHideLanguageSwitcherToggle();
   const [{ [LOCALE_COOKIE_NAME]: language }] = useCookies([LOCALE_COOKIE_NAME]);
 
   const getWord = useCallback(async () => {
@@ -30,7 +30,11 @@ export default function RandomWordPage() {
 
   return (
     <div className={`max-w-2xl mx-auto md:px-4 pt-8 pb-8 animate-fade-in`}>
-      <PageTitle title={t("title")} subtitle={t("subtitle")} />
+      <PageTitle
+        title={t("title")}
+        subtitle={t("subtitle")}
+        backlinkHref="/play"
+      />
 
       <div className="space-y-8">
         <div

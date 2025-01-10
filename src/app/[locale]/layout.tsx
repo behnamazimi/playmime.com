@@ -1,6 +1,6 @@
 import type { Viewport } from "next";
 import Providers from "@/app/[locale]/providers";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import Header from "@/components/Header";
@@ -11,6 +11,8 @@ import { getTranslations } from "next-intl/server";
 import Document from "@/components/shared/Document/Document";
 import isValidLocale from "@/utils/isValidLocale";
 import { notFound } from "next/navigation";
+import { locales } from "@/i18n/config";
+import LanguageSwitcherModal from "@/components/shared/LanguageSwitcherModal";
 
 export const generateMetadata = async () => {
   const t = await getTranslations({ namespace: "Metadata" });
@@ -51,6 +53,10 @@ export const generateMetadata = async () => {
   };
 };
 
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
 export const viewport: Viewport = {
   themeColor: THEME_COLOR,
 };
@@ -63,9 +69,9 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  if (isValidLocale(locale)) {
-    await setRequestLocale(locale);
-  } else {
+  await setRequestLocale(locale);
+
+  if (!isValidLocale(locale)) {
     notFound();
   }
 
@@ -86,6 +92,7 @@ export default async function RootLayout({
           <Header />
           <main>{children}</main>
           <Footer />
+          <LanguageSwitcherModal />
         </Providers>
       </NextIntlClientProvider>
     </Document>

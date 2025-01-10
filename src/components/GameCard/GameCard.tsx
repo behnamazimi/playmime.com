@@ -3,7 +3,6 @@
 import React from "react";
 import Button from "@/components/shared/Button";
 import Link from "@/i18n/routing/Link";
-import { useBacklinkHref } from "@/contexts/BacklinkHrefContext";
 
 interface GameCardProps {
   icon: React.ReactNode;
@@ -13,7 +12,6 @@ interface GameCardProps {
   href: string;
 }
 const GameCard = ({ icon, title, description, color, href }: GameCardProps) => {
-  useBacklinkHref({ backlinkHref: "/", hideBacklink: true });
   const colorsMap = {
     purple: ["bg-purple-300", "bg-purple-400", "text-purple-200"],
     orange: ["bg-orange-300", "bg-orange-400", "text-orange-200"],

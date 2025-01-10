@@ -3,8 +3,8 @@
 import { FC, PropsWithChildren } from "react";
 import { Cookies, CookiesProvider } from "react-cookie";
 import { OneWordPerTurnGameProvider } from "@/contexts/games/OneWordPerTurnGameContext";
-import { BacklinkHrefProvider } from "@/contexts/BacklinkHrefContext";
 import { QuickPlayGameProvider } from "@/contexts/games/QuickPlayGameContext";
+import { LanguageSwitcherProvider } from "@/contexts/LanguageSwitcherContext";
 
 const Providers: FC<
   PropsWithChildren & {
@@ -13,11 +13,11 @@ const Providers: FC<
 > = ({ children, cookies }) => {
   return (
     <CookiesProvider cookies={new Cookies(cookies)}>
-      <BacklinkHrefProvider>
+      <LanguageSwitcherProvider>
         <QuickPlayGameProvider>
           <OneWordPerTurnGameProvider>{children}</OneWordPerTurnGameProvider>
         </QuickPlayGameProvider>
-      </BacklinkHrefProvider>
+      </LanguageSwitcherProvider>
     </CookiesProvider>
   );
 };

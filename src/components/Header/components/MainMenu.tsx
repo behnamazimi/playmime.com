@@ -5,12 +5,13 @@ import Button from "@/components/shared/Button";
 import InstallAppCTA from "@/components/shared/InstallAppCTA";
 import { Menu } from "@ark-ui/react/menu";
 import { useTranslations } from "next-intl";
-import Link from "@/i18n/routing/Link";
 import { LOCALE_COOKIE_NAME } from "@/i18n/config";
 import { useCookies } from "react-cookie";
+import { useLanguageSwitcher } from "@/contexts/LanguageSwitcherContext";
 
 const MainMenu = () => {
   const t = useTranslations("shared");
+  const { setIsOpen, isToggleVisible } = useLanguageSwitcher();
 
   const [{ [LOCALE_COOKIE_NAME]: locale }] = useCookies([LOCALE_COOKIE_NAME]);
   const direction = locale === "fa" ? "rtl" : "ltr";
@@ -19,7 +20,14 @@ const MainMenu = () => {
     <>
       <div className="hidden sm:flex gap-4 items-center">
         <InstallAppCTA />
-        <Button as={Link} href="/select-language" icon={<LanguageIcon />} />
+        {isToggleVisible && (
+          <Button
+            onClick={() => {
+              setIsOpen(true);
+            }}
+            icon={<LanguageIcon />}
+          />
+        )}
       </div>
 
       <div className="sm:hidden">
@@ -32,16 +40,19 @@ const MainMenu = () => {
 
           <Menu.Positioner className="relative z-100" style={{ zIndex: 100 }}>
             <Menu.Content className="mt-1 w-60 bg-gray-50 rounded-sm shadow-lg border-0 overflow-hidden">
-              <Menu.Item value="language-switcher" style={{ direction }}>
-                <Button
-                  as={Link}
-                  href={"/select-language"}
-                  icon={<LanguageIcon />}
-                  className={"shadow-none w-full rounded-none py-4"}
-                >
-                  {t("changeLanguage")}
-                </Button>
-              </Menu.Item>
+              {isToggleVisible && (
+                <Menu.Item value="language-switcher" style={{ direction }}>
+                  <Button
+                    icon={<LanguageIcon />}
+                    className={"shadow-none w-full rounded-none py-4"}
+                    onClick={() => {
+                      setIsOpen(true);
+                    }}
+                  >
+                    {t("changeLanguage")}
+                  </Button>
+                </Menu.Item>
+              )}
               <Menu.Item value="install-now" style={{ direction }}>
                 <InstallAppCTA
                   className={"shadow-none w-full rounded-none py-4"}

@@ -7,13 +7,12 @@ import {
 } from "@heroicons/react/24/outline";
 import BaseButton from "@/components/shared/Button/BaseButton";
 import { useOneWordPerTurnGame } from "@/contexts/games/OneWordPerTurnGameContext";
-import { useBacklinkHref } from "@/contexts/BacklinkHrefContext";
 import PageTitle from "@/components/shared/PageTitle";
 import { useTranslations } from "next-intl";
 import redirect from "@/i18n/routing/redirect";
+import { useHideLanguageSwitcherToggle } from "@/contexts/LanguageSwitcherContext";
 
 export default function PlayOneWord() {
-  useBacklinkHref({ backlinkHref: "/play", hideBacklink: true });
   const t = useTranslations("play");
   const {
     state,
@@ -23,10 +22,11 @@ export default function PlayOneWord() {
     cancelGame,
     getCurrentTeam,
   } = useOneWordPerTurnGame();
+  useHideLanguageSwitcherToggle();
   const currentTeam = getCurrentTeam();
 
   if (!currentTeam) {
-    redirect("/");
+    redirect("/play");
   }
 
   if (state.status === "finalized") {

@@ -5,7 +5,6 @@ import BaseButton from "@/components/shared/Button/BaseButton";
 import { PlayIcon } from "@heroicons/react/24/outline";
 import { useOneWordPerTurnGame } from "@/contexts/games/OneWordPerTurnGameContext";
 import { useState } from "react";
-import { useBacklinkHref } from "@/contexts/BacklinkHrefContext";
 import PageTitle from "@/components/shared/PageTitle";
 import { useTranslations } from "next-intl";
 import Link from "@/i18n/routing/Link";
@@ -15,7 +14,6 @@ const minRounds = 1;
 const minTime = 15;
 
 export default function PlaySetup() {
-  useBacklinkHref({ backlinkHref: "/play" });
   const t = useTranslations("play");
   const { initializeGame } = useOneWordPerTurnGame();
   const [numberOfTeams, setNumberOfTeams] = useState(2);
@@ -27,6 +25,7 @@ export default function PlaySetup() {
       <PageTitle
         title={t("oneWordPerTurn.setup.title")}
         subtitle={t("oneWordPerTurn.setup.subtitle")}
+        backlinkHref="/play"
       />
 
       <div className="grid grid-cols-1 items-center justify-center gap-12">

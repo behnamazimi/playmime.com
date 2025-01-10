@@ -1,7 +1,6 @@
 "use client";
 
 import { useOneWordPerTurnGame } from "@/contexts/games/OneWordPerTurnGameContext";
-import { useBacklinkHref } from "@/contexts/BacklinkHrefContext";
 import PageTitle from "@/components/shared/PageTitle";
 import TeamResult from "@/components/shared/TeamResult";
 import BackToHomeCTA from "@/components/shared/BackToHomeCTA";
@@ -9,7 +8,6 @@ import { useTranslations } from "next-intl";
 import redirect from "@/i18n/routing/redirect";
 
 export default function OneWordPerTurnGameResults() {
-  useBacklinkHref({ backlinkHref: "/play" });
   const t = useTranslations("play");
 
   const {
@@ -25,6 +23,7 @@ export default function OneWordPerTurnGameResults() {
       <PageTitle
         title={t("oneWordPerTurn.results.title")}
         subtitle={t("oneWordPerTurn.results.subtitle")}
+        backlinkHref="/play"
       />
       <div className="space-y-4">
         {teams.map((team, index) => (

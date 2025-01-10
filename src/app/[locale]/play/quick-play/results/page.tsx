@@ -1,6 +1,5 @@
 "use client";
 
-import { useBacklinkHref } from "@/contexts/BacklinkHrefContext";
 import { useQuickPlayGame } from "@/contexts/games/QuickPlayGameContext";
 import PageTitle from "@/components/shared/PageTitle";
 import TeamResult from "@/components/shared/TeamResult";
@@ -9,7 +8,6 @@ import { useTranslations } from "next-intl";
 import redirect from "@/i18n/routing/redirect";
 
 export default function QuickPlayGameResults() {
-  useBacklinkHref({ backlinkHref: "/play" });
   const t = useTranslations("play");
   const {
     state: { status, teams },
@@ -23,6 +21,7 @@ export default function QuickPlayGameResults() {
       <PageTitle
         title={t("quickPlay.results.title")}
         subtitle={t("quickPlay.results.subtitle")}
+        backlinkHref="/play"
       />
       <div className="space-y-4">
         {teams.map((team, index) => (

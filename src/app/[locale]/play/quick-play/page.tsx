@@ -7,10 +7,10 @@ import {
 } from "@heroicons/react/24/outline";
 import BaseButton from "@/components/shared/Button/BaseButton";
 import { useQuickPlayGame } from "@/contexts/games/QuickPlayGameContext";
-import { useBacklinkHref } from "@/contexts/BacklinkHrefContext";
 import PageTitle from "@/components/shared/PageTitle";
 import { useTranslations } from "next-intl";
 import redirect from "@/i18n/routing/redirect";
+import { useHideLanguageSwitcherToggle } from "@/contexts/LanguageSwitcherContext";
 
 export default function QuickPlay() {
   const {
@@ -21,11 +21,11 @@ export default function QuickPlay() {
     cancelGame,
     getCurrentTeam,
   } = useQuickPlayGame();
-  useBacklinkHref({ backlinkHref: "/play", hideBacklink: true });
   const t = useTranslations("play");
+  useHideLanguageSwitcherToggle();
   const currentTeam = getCurrentTeam();
   if (!currentTeam) {
-    redirect("/");
+    redirect("/play");
   }
 
   if (state.status === "finalized") {
