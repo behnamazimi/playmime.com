@@ -6,9 +6,15 @@ import InstallAppCTA from "@/components/shared/InstallAppCTA";
 import { Menu } from "@ark-ui/react/menu";
 import { useTranslations } from "next-intl";
 import Link from "@/i18n/routing/Link";
+import { LOCALE_COOKIE_NAME } from "@/i18n/config";
+import { useCookies } from "react-cookie";
 
 const MainMenu = () => {
   const t = useTranslations("shared");
+
+  const [{ [LOCALE_COOKIE_NAME]: locale }] = useCookies([LOCALE_COOKIE_NAME]);
+  const direction = locale === "fa" ? "rtl" : "ltr";
+
   return (
     <>
       <div className="hidden sm:flex gap-4 items-center">
@@ -26,7 +32,7 @@ const MainMenu = () => {
 
           <Menu.Positioner className="relative z-100" style={{ zIndex: 100 }}>
             <Menu.Content className="mt-1 w-60 bg-gray-50 rounded-sm shadow-lg border-0 overflow-hidden">
-              <Menu.Item value="language-switcher" className="">
+              <Menu.Item value="language-switcher" style={{ direction }}>
                 <Button
                   as={Link}
                   href={"/select-language"}
@@ -36,7 +42,7 @@ const MainMenu = () => {
                   {t("changeLanguage")}
                 </Button>
               </Menu.Item>
-              <Menu.Item value="install-now">
+              <Menu.Item value="install-now" style={{ direction }}>
                 <InstallAppCTA
                   className={"shadow-none w-full rounded-none py-4"}
                 />
