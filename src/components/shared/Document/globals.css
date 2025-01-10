@@ -64,6 +64,10 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
+  body[data-scroll-lock] {
+    padding-right: 1rem!important;
+  }
+
   svg {
     min-width: 100%;
   }
