@@ -21,7 +21,7 @@ export const LanguageSwitcherProvider: React.FC<{
 }> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isToggleVisible, setIsToggleVisible] = useState(true);
-  console.log({ isToggleVisible });
+
   const value = useMemo(
     () => ({
       isOpen,
