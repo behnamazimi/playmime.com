@@ -1,0 +1,155 @@
+{
+  "Metadata": {
+    "appName": "Playmime",
+    "defaultTitle": "Playmime",
+    "titleTemplate": "%s - Playmime",
+    "description": "With Playmime quick access to exciting charades game modes, endless laughter, and random word inspiration. Play offline anytime, anywhere.",
+    "descriptionPwa": "Install Playmime to your device for quick access to exciting charades game modes, endless laughter, and random word inspiration. Play offline anytime, anywhere. Install now and let the fun begin!"
+  },
+  "shared": {
+    "loading": "Loading...",
+    "installNow": "Install Now",
+    "changeLanguage": "Change Language",
+    "backButton": "Back"
+  },
+  "HomePage": {
+    "title": "Let's",
+    "subtitle": "Play & Joy!",
+    "cards": {
+      "quickPlay": {
+        "title": "Quick Play",
+        "description": "Guess as many words as possible before time runs out!"
+      },
+      "oneWordPerTurn": {
+        "title": "One Word Per Turn",
+        "description": "Take turns and play one word at a time!"
+      },
+      "randomWord": {
+        "title": "Random Word",
+        "description": "Need a word to act out? Get a random word instantly!"
+      }
+    }
+  },
+  "LanguageSwitcher": {
+    "title": "Choose your language",
+    "en": "English",
+    "fa": "فارسی"
+  },
+  "RandomWord": {
+    "title": "Random Word",
+    "subtitle": "Don't get out of ideas!",
+    "getNewWordButton": "Get another one"
+  },
+  "play": {
+    "shared": {
+      "teams": "Teams",
+      "rounds": "Rounds",
+      "time": "Time per team",
+      "next": "Next",
+      "cancelGameButton": "Cancel Game",
+      "finalizeGameButton": "Finalize Game",
+      "teamName": "Team {team}",
+      "teamScore": "Score: {score}",
+      "correctLabel": "Correct: {score}",
+      "timeRemaining": "Time Remaining: {time} sec",
+      "hiddenWordTitle": "Team {team} turn",
+      "seconds": "sec",
+      "correctButton": "Correct",
+      "timeRemainingLabel": "Time Remaining",
+      "timeRemainingValue": "{time} seconds"
+    },
+    "oneWordPerTurn": {
+      "setup": {
+        "title": "One Word Per Turn",
+        "subtitle": "Setup"
+      },
+      "play": {
+        "title": "One Word Per Turn",
+        "subtitle": "Play",
+        "passToNextTeamButton": "Pass to Next Team",
+        "startTurnButton": "Team {team} starts",
+        "roundsStatus": "Round {current} of {total}"
+      },
+      "results": {
+        "title": "One Word Per Turn",
+        "subtitle": "Results",
+        "teamScore": "Team {team} Score",
+        "totalScore": "Total Score",
+        "playAgainButton": "Play Again"
+      }
+    },
+    "quickPlay": {
+      "setup": {
+        "title": "Quick Play",
+        "subtitle": "Setup"
+      },
+      "play": {
+        "title": "Quick Play",
+        "subtitle": "Play",
+        "nextWordButton": "Next Word",
+        "startTurnButton": "Team {team} starts"
+      },
+      "results": {
+        "title": "Quick Play",
+        "subtitle": "Results"
+      }
+    }
+  },
+  "BackToHomeCTA": {
+    "text": "Back to Home"
+  },
+  "SyncWords": {
+    "title": "Sync Status",
+    "lastSync": "Last Sync",
+    "language": "Language",
+    "status": "Status",
+    "successful": "Successful",
+    "failed": "Failed",
+    "wordsInBank": "Words in Bank",
+    "close": "Close",
+    "syncAgainButton": "Sync Again"
+  },
+  "LandingPage": {
+    "Hero": {
+      "tagline": "Fun for Everyone",
+      "heading": "The Ultimate Party Game Experience",
+      "description": "Bring your parties to life with Playmime - the perfect game for friends and family. Act, guess, and laugh together!",
+      "buttons": {
+        "start": "Start Playing Now",
+        "howToPlay": "How to Play"
+      }
+    },
+    "Features": {
+      "heading": "Packed with Features",
+      "subheading": "Everything you need for the perfect party game experience",
+      "first": {
+        "title": "Multiple Languages",
+        "description": "Play in your preferred language with our multi-language support."
+      },
+      "second": {
+        "title": "Custom Timers",
+        "description": "Set your own time limits for each round of play."
+      },
+      "third": {
+        "title": "Score Tracking",
+        "description": "Keep track of points and crown the winning team."
+      }
+    },
+    "GameModes": {
+      "heading": "Choose Your Game Mode",
+      "subheading": "Multiple ways to play, endless fun to be had",
+      "quickPlay": {
+        "title": "Quick Play",
+        "description": "Race against time! Guess as many words as possible before the timer runs out."
+      },
+      "oneWordPerTurn": {
+        "title": "One Word Per Turn",
+        "description": "Take turns acting out one word at a time in exciting rounds."
+      },
+      "randomWord": {
+        "title": "Random Word",
+        "description": "Get instant inspiration with randomly generated words to act out."
+      }
+    }
+  }
+}

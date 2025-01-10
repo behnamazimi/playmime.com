@@ -1,0 +1,155 @@
+{
+  "Metadata": {
+    "appName": "پلی‌میم",
+    "defaultTitle": "پلی‌میم",
+    "titleTemplate": "%s - پلی‌میم",
+    "description": "با پلی‌میم پانتومیم رو در حالت‌های مختلف بازی کن و ایده‌های تصادفی برای کلمات داشته باش. هرجا و هرزمان، حتی آفلاین بازی کن!",
+    "descriptionPwa": "با نصب پلی‌میم پانتومیم رو در حالت‌های مختلف بازی کن و ایده‌های تصادفی برای کلمات داشته باش. هرجا و هرزمان، حتی آفلاین بازی کن! همین الان نصب کن."
+  },
+  "shared": {
+    "loading": "در حال بارگذاری...",
+    "installNow": "نصب کن",
+    "changeLanguage": "زبان رو عوض کن",
+    "backButton": "برگرد"
+  },
+  "HomePage": {
+    "title": "ادابازی",
+    "subtitle": "ساده و هیجان‌انگیز!",
+    "cards": {
+      "quickPlay": {
+        "title": "بازی سریع",
+        "description": "با زمان مسابقه بده و هرچقدر می‌تونی کلمه حدس بزن!"
+      },
+      "oneWordPerTurn": {
+        "title": "یک کلمه در هر نوبت",
+        "description": "نوبتی بازی کن و هر دفعه یه کلمه اجرا کن!"
+      },
+      "randomWord": {
+        "title": "کلمه تصادفی",
+        "description": "یه کلمه برای اجرا می‌خوای؟ همین الان یه کلمه تصادفی بگیر!"
+      }
+    }
+  },
+  "LanguageSwitcher": {
+    "title": "زبان مورد علاقت رو انتخاب کن",
+    "en": "English",
+    "fa": "فارسی"
+  },
+  "RandomWord": {
+    "title": "کلمه تصادفی",
+    "subtitle": "هیچ وقت لنگ کلمه نمون!",
+    "getNewWordButton": "کلمه جدید"
+  },
+  "play": {
+    "shared": {
+      "teams": "تعداد تیم‌ها",
+      "rounds": "تعداد دورها",
+      "time": "زمان برای هر تیم",
+      "next": "شروع بازی",
+      "cancelGameButton": "بازی رو لغو کن",
+      "finalizeGameButton": "بازی رو تموم کن",
+      "teamName": "تیم {team}",
+      "teamScore": "امتیاز: {score}",
+      "correctLabel": "درست: {score}",
+      "timeRemaining": "زمان باقی‌مونده: {time} ثانیه",
+      "hiddenWordTitle": "نوبت تیم {team}",
+      "seconds": "ثانیه",
+      "correctButton": "درست",
+      "timeRemainingLabel": "زمان باقی‌مونده",
+      "timeRemainingValue": "{time} ثانیه"
+    },
+    "oneWordPerTurn": {
+      "setup": {
+        "title": "یک کلمه در هر نوبت",
+        "subtitle": "تنظیمات"
+      },
+      "play": {
+        "title": "یک کلمه در هر نوبت",
+        "subtitle": "بازی",
+        "passToNextTeamButton": "برو به تیم بعدی",
+        "startTurnButton": "تیم {team} شروع می‌کنه",
+        "roundsStatus": "دور {current} از {total}"
+      },
+      "results": {
+        "title": "یک کلمه در هر نوبت",
+        "subtitle": "نتایج",
+        "teamScore": "امتیاز تیم {team}",
+        "totalScore": "امتیاز کل",
+        "playAgainButton": "دوباره بازی کن"
+      }
+    },
+    "quickPlay": {
+      "setup": {
+        "title": "بازی سریع",
+        "subtitle": "تنظیمات"
+      },
+      "play": {
+        "title": "بازی سریع",
+        "subtitle": "بازی",
+        "nextWordButton": "کلمه بعدی",
+        "startTurnButton": "تیم {team} شروع می‌کنه"
+      },
+      "results": {
+        "title": "بازی سریع",
+        "subtitle": "نتایج"
+      }
+    }
+  },
+  "BackToHomeCTA": {
+    "text": "برگرد به صفحه اصلی"
+  },
+  "SyncWords": {
+    "title": "وضعیت همگام‌سازی",
+    "lastSync": "آخرین همگام‌سازی",
+    "language": "زبان",
+    "status": "وضعیت",
+    "successful": "موفق",
+    "failed": "ناموفق",
+    "wordsInBank": "کلمات در بانک",
+    "close": "بستن",
+    "syncAgainButton": "دوباره همگام‌سازی کن"
+  },
+  "LandingPage": {
+    "Hero": {
+      "tagline": "سرگرمی برای همه",
+      "heading": "پانتومیم؛ جمع‌های دوستانه؛ خاطره‌های قشنگ",
+      "description": "با بازی پانتومیم، لحظات فراموش‌نشدنی رو با دوستان و خانواده تجربه کن. بخند، حدس بزن، و با هم لذت ببرین!",
+      "buttons": {
+        "start": "بازی رو شروع کن",
+        "howToPlay": "چطور بازی کنم"
+      }
+    },
+    "Features": {
+      "heading": "چرا اینجا بازی کنی؟",
+      "subheading": "تمام چیزی که برای یک بازی جذاب نیاز داری",
+      "first": {
+        "title": "زبان‌های مختلف",
+        "description": "بازی رو به زبانی که راحتی انجام بده. بالای هزار کلمه برای هر زبان بدون اینکه لنگ کلمه باشی بازی رو انجام بده!"
+      },
+      "second": {
+        "title": "ساده و دم دست",
+        "description": "پانتومیم در حین سادگی همه‌ی ویژگی‌هایی که برای بازی نیاز داری رو داره!"
+      },
+      "third": {
+        "title": "جواب درست در زمان درست",
+        "description": "آخر بازی لیست امتیازات تیم‌ها رو ببین. حدس‌های درست بیشتر در زمان کوتاه‌تر برنده بازیه!"
+      }
+    },
+    "GameModes": {
+      "heading": "حالت‌های مختلف بازی",
+      "subheading": "چندین راه برای بازی و هیجان بی‌پایان",
+      "quickPlay": {
+        "title": "بازی سریع",
+        "description": "زمان محدود داری! هر چه سریع‌تر کلمات رو حدس بزن، پیش برو و امتیاز بگیر."
+      },
+      "oneWordPerTurn": {
+        "title": "یک کلمه در هر نوبت",
+        "description": "تو هر نوبت فقط یک کلمه رو بازی کن. نوبت بعدی رو از دست نده!"
+      },
+      "randomWord": {
+        "title": "کلمه تصادفی",
+        "description": "کلمات تصادفی بهت الهام می‌ده که سریع شروع کنی و هیجان بازی رو تجربه کنی."
+      }
+    }
+  }
+}
