@@ -167,7 +167,11 @@ export default function PlayOneWord() {
           navGuard.reject?.();
         }}
         title={t("shared.leaveGame.title")}
-        description={t("shared.leaveGame.description")}
+        description={
+          isCancelable
+            ? t("shared.leaveGame.cancelDescription")
+            : t("shared.leaveGame.description")
+        }
         rejectCtaText={t("shared.leaveGame.rejectCtaText")}
         acceptCtaText={t("shared.leaveGame.acceptCtaText")}
       />

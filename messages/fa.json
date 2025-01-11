@@ -59,7 +59,8 @@
       "timeRemainingValue": "{time} ثانیه",
       "leaveGame": {
         "title": "ترک بازی",
-        "description": "آیا مطمئنی می‌خوای بازی رو ترک کنی؟ هر چی تا اینجا بازی کردین می‌پره!",
+        "cancelDescription": "آیا مطمئنی می‌خوای بازی رو لغو کنی؟",
+        "description": "بازی هنوز ادامه داره! مطمئنی می‌خوای بازی رو تموم کنی؟",
         "rejectCtaText": "ادامه بازی",
         "acceptCtaText": "ترک بازی"
       }

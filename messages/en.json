@@ -59,7 +59,8 @@
       "timeRemainingValue": "{time} seconds",
       "leaveGame": {
         "title": "Leave Game",
-        "description": "Are you sure you want to leave the game? All progress will be lost.",
+        "cancelDescription": "Are you sure you want to cancel the game?",
+        "description": "The game is still ongoing! Are you sure you want to finalize it?",
         "rejectCtaText": "Continue Playing",
         "acceptCtaText": "Leave"
       }
