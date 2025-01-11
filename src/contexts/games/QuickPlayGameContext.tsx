@@ -26,6 +26,7 @@ export type Action =
       type: "SUBMIT_RESULT";
       payload: boolean;
     }
+  | { type: "CHANGE_WORD" }
   | { type: "TICK" }
   | { type: "FINALIZE_GAME" }
   | { type: "CANCEL_GAME" };
@@ -105,6 +106,20 @@ const gameReducer = (
       };
     }
 
+    case "CHANGE_WORD": {
+      // Get the last item from wordPool
+      const currentWord = state.wordPool[state.wordPool.length - 1];
+
+      const newWordPool = state.wordPool.slice(0, state.wordPool.length - 1);
+
+      return {
+        ...state,
+        currentWord,
+        // Reinitialize wordPool by removing the last item and placing it at the front
+        wordPool: [currentWord, ...newWordPool],
+      };
+    }
+
     case "TICK": {
       const teamId = state.currentTurnTeamId;
       const updatedTeams = state.teams.map((team) =>
@@ -165,6 +180,7 @@ const QuickPlayGameContext = createContext<{
   finalizeGame: () => void;
   cancelGame: () => void;
   getCurrentTeam: () => QuickPlayTeam | null;
+  changeWord: () => void;
 }>({
   state: defaultState,
   initializeGame: () => {},
@@ -173,6 +189,7 @@ const QuickPlayGameContext = createContext<{
   finalizeGame: () => {},
   cancelGame: () => {},
   getCurrentTeam: () => null,
+  changeWord: () => {},
 });
 
 // Provider
@@ -219,6 +236,10 @@ export const QuickPlayGameProvider = ({
     dispatch({ type: "CANCEL_GAME" });
   }, []);
 
+  const changeWord = useCallback(() => {
+    dispatch({ type: "CHANGE_WORD" });
+  }, []);
+
   // Timer management
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
@@ -247,6 +268,7 @@ export const QuickPlayGameProvider = ({
       getCurrentTeam: () =>
         state.teams.find((team) => team.teamId === state.currentTurnTeamId) ||
         null,
+      changeWord,
     }),
     [
       state,
@@ -255,6 +277,7 @@ export const QuickPlayGameProvider = ({
       submitResult,
       finalizeGame,
       cancelGame,
+      changeWord,
     ]
   );
 

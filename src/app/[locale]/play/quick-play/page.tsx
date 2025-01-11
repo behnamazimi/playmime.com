@@ -4,6 +4,7 @@ import {
   CheckIcon,
   EyeSlashIcon,
   XMarkIcon,
+  ArrowPathRoundedSquareIcon,
 } from "@heroicons/react/24/outline";
 import BaseButton from "@/components/shared/Button/BaseButton";
 import { useQuickPlayGame } from "@/contexts/games/QuickPlayGameContext";
@@ -15,6 +16,7 @@ import PageLeaveConfirmModal from "@/components/shared/PageLeaveConfirmModal";
 import { useNavigationGuard } from "next-navigation-guard";
 import { useState } from "react";
 import useRouter from "@/i18n/routing/useRouter";
+import Button from "@/components/shared/Button";
 
 export default function QuickPlay() {
   const {
@@ -24,6 +26,7 @@ export default function QuickPlay() {
     finalizeGame,
     cancelGame,
     getCurrentTeam,
+    changeWord,
   } = useQuickPlayGame();
   const t = useTranslations("play");
   useHideLanguageSwitcherToggle();
@@ -59,9 +62,22 @@ export default function QuickPlay() {
         className={`relative flex justify-center items-center p-2 py-12 w-full text-gray-500 h-40 rounded-sm ${isRunning ? "bg-blue-50" : "bg-gray-50"}`}
       >
         {isRunning ? (
-          <span className="absolute w-full p-2 flex items-center justify-center text-3xl font-semibold">
-            {state.currentWord}
-          </span>
+          <>
+            <span className="absolute w-full p-2 flex items-center justify-center text-3xl font-semibold">
+              {state.currentWord}
+            </span>
+
+            <div className="absolute right-4 bottom-4">
+              <Button
+                color="primary"
+                onClick={() => {
+                  changeWord();
+                }}
+                vibrateOnTap
+                icon={<ArrowPathRoundedSquareIcon />}
+              />
+            </div>
+          </>
         ) : (
           <span className="flex flex-col gap-4">
             <span className="text-xl font-semibold">
