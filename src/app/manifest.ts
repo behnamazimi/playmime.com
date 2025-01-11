@@ -67,7 +67,7 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
     theme_color: THEME_COLOR,
     background_color: THEME_COLOR,
     dir: "auto",
-    start_url: "/",
+    start_url: "/pwa-landing-page",
     launch_handler: {
       client_mode: ["navigate-existing", "auto"],
     },
