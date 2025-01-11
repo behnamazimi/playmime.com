@@ -15,6 +15,7 @@ import PageLeaveConfirmModal from "@/components/shared/PageLeaveConfirmModal";
 import { useNavigationGuard } from "next-navigation-guard";
 import { useState } from "react";
 import useRouter from "@/i18n/routing/useRouter";
+import useKeepScreenAwake from "@/hooks/useKeepScreenAwake";
 
 export default function PlayOneWord() {
   const t = useTranslations("play");
@@ -32,7 +33,7 @@ export default function PlayOneWord() {
   const router = useRouter();
 
   const currentTeam = getCurrentTeam();
-
+  useKeepScreenAwake(!!currentTeam);
   if (!currentTeam) {
     redirect("/play");
   }

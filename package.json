@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ark-ui/react": "^4.6.0",
+    "@capacitor-community/keep-awake": "^5.0.1",
     "@heroicons/react": "^2.2.0",
     "@sentry/nextjs": "^8.47.0",
     "@serwist/next": "^9.0.11",

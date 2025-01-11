@@ -16,6 +16,7 @@ import { useNavigationGuard } from "next-navigation-guard";
 import { useState } from "react";
 import useRouter from "@/i18n/routing/useRouter";
 import Button from "@/components/shared/Button";
+import useKeepScreenAwake from "@/hooks/useKeepScreenAwake";
 
 export default function QuickPlay() {
   const {
@@ -34,6 +35,7 @@ export default function QuickPlay() {
   const router = useRouter();
 
   const currentTeam = getCurrentTeam();
+  useKeepScreenAwake(!!currentTeam);
   if (!currentTeam) {
     redirect("/play");
   }
