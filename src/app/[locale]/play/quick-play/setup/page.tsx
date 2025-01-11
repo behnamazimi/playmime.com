@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useQuickPlayGame } from "@/contexts/games/QuickPlayGameContext";
 import PageTitle from "@/components/shared/PageTitle";
 import { useTranslations } from "next-intl";
-import Link from "@/i18n/routing/Link";
+import useRouter from "@/i18n/routing/useRouter";
 
 const minTeams = 2;
 const minTime = 15;
@@ -17,6 +17,7 @@ export default function PlaySetup() {
   const { initializeGame } = useQuickPlayGame();
   const [numberOfTeams, setNumberOfTeams] = useState(2);
   const [timePerTeam, setTimePerTeam] = useState(120);
+  const router = useRouter();
 
   return (
     <div className={`max-w-2xl mx-auto md:px-4 pt-2 pb-8 animate-fade-in`}>
@@ -50,14 +51,13 @@ export default function PlaySetup() {
             icon={<PlayIcon />}
             size="large"
             color="primary"
-            as={Link}
-            href="/play/quick-play"
             className="w-full max-w-60"
             onClick={() => {
               initializeGame({
                 numberOfTeams,
                 timePerTeam,
               });
+              router.replace("/play/quick-play");
             }}
           >
             {t("shared.next")}

@@ -7,7 +7,7 @@ import { useOneWordPerTurnGame } from "@/contexts/games/OneWordPerTurnGameContex
 import { useState } from "react";
 import PageTitle from "@/components/shared/PageTitle";
 import { useTranslations } from "next-intl";
-import Link from "@/i18n/routing/Link";
+import useRouter from "@/i18n/routing/useRouter";
 
 const minTeams = 2;
 const minRounds = 1;
@@ -19,6 +19,7 @@ export default function PlaySetup() {
   const [numberOfTeams, setNumberOfTeams] = useState(2);
   const [numberOfRounds, setNumberOfRounds] = useState(5);
   const [timePerTeam, setTimePerTeam] = useState(120);
+  const router = useRouter();
 
   return (
     <div className={`max-w-2xl mx-auto md:px-4 pt-2 pb-8 animate-fade-in`}>
@@ -57,8 +58,6 @@ export default function PlaySetup() {
             icon={<PlayIcon />}
             size="large"
             color="primary"
-            as={Link}
-            href={"/play/one-word-per-turn"}
             className="w-full max-w-60"
             onClick={() => {
               initializeGame({
@@ -66,6 +65,8 @@ export default function PlaySetup() {
                 numberOfRounds,
                 timePerTeam,
               });
+
+              router.replace("/play/one-word-per-turn");
             }}
           >
             {t("shared.next")}
