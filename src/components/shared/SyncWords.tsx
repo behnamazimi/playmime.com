@@ -3,8 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { syncWordBank } from "@/utils/syncManager";
 import useIsOnline from "@/hooks/useIsOnline";
-import { useCookies } from "react-cookie";
-import { LOCALE_COOKIE_NAME } from "@/i18n/config";
+import { Locale } from "@/i18n/config";
 import { RecentSyncDetails } from "@/types";
 import {
   clearAllDataByLanguage,
@@ -21,6 +20,7 @@ import { Dialog } from "@ark-ui/react/dialog";
 import { Portal } from "@ark-ui/react/portal";
 import { useFormatter, useTranslations } from "next-intl";
 import isValidLocale from "@/utils/isValidLocale";
+import { useParams } from "next/navigation";
 
 const SyncWords = () => {
   const t = useTranslations("SyncWords");
@@ -29,34 +29,31 @@ const SyncWords = () => {
   const [isSyncing, setIsSyncing] = useState(true);
   const [lastSync, setLastSync] = useState<RecentSyncDetails | null>(null);
   const [wordsCount, setWordsCount] = useState(0);
-  const [{ [LOCALE_COOKIE_NAME]: language }] = useCookies([LOCALE_COOKIE_NAME]);
+  const { locale } = useParams<{ locale: Locale }>();
   const syncInProgressRef = useRef(false);
   const abortControllerRef = useRef<AbortController>(new AbortController());
   const format = useFormatter();
 
   const updateState = useCallback(() => {
-    if (isValidLocale(language)) {
-      Promise.all([
-        getRecentSyncDetails(language),
-        getWordsByLanguage(language),
-      ])
+    if (isValidLocale(locale)) {
+      Promise.all([getRecentSyncDetails(locale), getWordsByLanguage(locale)])
         .then(([lastSync, words]) => {
           setLastSync(lastSync);
           setWordsCount(words.length);
         })
         .finally(() => setIsSyncing(false));
     }
-  }, [language]);
+  }, [locale]);
 
   useEffect(() => {
-    if (language) {
+    if (locale) {
       if (!syncInProgressRef.current && isOnline) {
         syncInProgressRef.current = true;
 
         const controller = new AbortController();
         abortControllerRef.current = controller;
 
-        syncWordBank(language, controller.signal).then(() => {
+        syncWordBank(locale, controller.signal).then(() => {
           syncInProgressRef.current = false;
           updateState();
         });
@@ -70,7 +67,7 @@ const SyncWords = () => {
         abortControllerRef.current.abort();
       }
     };
-  }, [isOnline, language, updateState]);
+  }, [isOnline, locale, updateState]);
 
   const onReSync = useCallback(async () => {
     // Abort any ongoing sync
@@ -82,14 +79,14 @@ const SyncWords = () => {
     abortControllerRef.current = controller;
 
     setIsSyncing(true);
-    await clearAllDataByLanguage(language);
-    syncWordBank(language, controller.signal).finally(() => {
+    await clearAllDataByLanguage(locale);
+    syncWordBank(locale, controller.signal).finally(() => {
       setIsSyncing(false);
       updateState();
     });
-  }, [language, updateState]);
+  }, [locale, updateState]);
 
-  const isRTL = language === "fa";
+  const isRTL = locale === "fa";
 
   return (
     <div className={"relative"}>
@@ -128,9 +125,9 @@ const SyncWords = () => {
                   </li>
                   <li>
                     <strong>{t("language")}:</strong>{" "}
-                    {language && lastSync ? (
+                    {locale && lastSync ? (
                       <span>
-                        {tLanguageSwitcher(language)} {lastSync.lastVersion} - (
+                        {tLanguageSwitcher(locale)} {lastSync.lastVersion} - (
                         {lastSync.dataStructureVersion})
                       </span>
                     ) : (
