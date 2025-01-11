@@ -3,7 +3,6 @@
 import {
   CheckIcon,
   EyeSlashIcon,
-  XMarkIcon,
   ArrowPathRoundedSquareIcon,
 } from "@heroicons/react/24/outline";
 import BaseButton from "@/components/shared/Button/BaseButton";
@@ -101,12 +100,12 @@ export default function QuickPlay() {
         {isRunning ? (
           <div className="flex gap-4">
             <BaseButton
-              icon={<XMarkIcon />}
-              color="danger"
+              icon={<ArrowPathRoundedSquareIcon />}
+              color="primary"
               size="large"
               className="w-1/2"
               onClick={() => {
-                submitResult(false);
+                changeWord();
               }}
               disabled={!isRunning}
               vibrateOnTap
