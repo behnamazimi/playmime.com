@@ -56,7 +56,13 @@
       "seconds": "ثانیه",
       "correctButton": "درست",
       "timeRemainingLabel": "زمان باقی‌مونده",
-      "timeRemainingValue": "{time} ثانیه"
+      "timeRemainingValue": "{time} ثانیه",
+      "leaveGame": {
+        "title": "ترک بازی",
+        "description": "آیا مطمئنی می‌خوای بازی رو ترک کنی؟ هر چی تا اینجا بازی کردین می‌پره!",
+        "rejectCtaText": "ادامه بازی",
+        "acceptCtaText": "ترک بازی"
+      }
     },
     "oneWordPerTurn": {
       "setup": {

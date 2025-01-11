@@ -11,6 +11,9 @@ import PageTitle from "@/components/shared/PageTitle";
 import { useTranslations } from "next-intl";
 import redirect from "@/i18n/routing/redirect";
 import { useHideLanguageSwitcherToggle } from "@/contexts/LanguageSwitcherContext";
+import PageLeaveConfirmModal from "@/components/shared/PageLeaveConfirmModal";
+import { useNavigationGuard } from "next-navigation-guard";
+import { useState } from "react";
 
 export default function QuickPlay() {
   const {
@@ -23,6 +26,9 @@ export default function QuickPlay() {
   } = useQuickPlayGame();
   const t = useTranslations("play");
   useHideLanguageSwitcherToggle();
+  const navGuard = useNavigationGuard({ enabled: true });
+  const [isLeaving, setIsLeaving] = useState(false);
+
   const currentTeam = getCurrentTeam();
   if (!currentTeam) {
     redirect("/play");
@@ -122,11 +128,7 @@ export default function QuickPlay() {
           size="large"
           className="justify-center"
           onClick={() => {
-            if (isCancelable) {
-              cancelGame();
-            } else {
-              finalizeGame();
-            }
+            setIsLeaving(true);
           }}
           vibrateOnTap
         >
@@ -135,6 +137,25 @@ export default function QuickPlay() {
             : t("shared.finalizeGameButton")}
         </BaseButton>
       </div>
+      <PageLeaveConfirmModal
+        open={isLeaving || navGuard.active}
+        onLeave={() => {
+          if (isCancelable) {
+            cancelGame();
+          } else {
+            finalizeGame();
+          }
+          navGuard.accept?.();
+        }}
+        onStay={() => {
+          setIsLeaving(false);
+          navGuard.reject?.();
+        }}
+        title={t("shared.leaveGame.title")}
+        description={t("shared.leaveGame.description")}
+        rejectCtaText={t("shared.leaveGame.rejectCtaText")}
+        acceptCtaText={t("shared.leaveGame.acceptCtaText")}
+      />
     </div>
   );
 }

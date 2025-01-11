@@ -56,7 +56,13 @@
       "seconds": "sec",
       "correctButton": "Correct",
       "timeRemainingLabel": "Time Remaining",
-      "timeRemainingValue": "{time} seconds"
+      "timeRemainingValue": "{time} seconds",
+      "leaveGame": {
+        "title": "Leave Game",
+        "description": "Are you sure you want to leave the game? All progress will be lost.",
+        "rejectCtaText": "Continue Playing",
+        "acceptCtaText": "Leave"
+      }
     },
     "oneWordPerTurn": {
       "setup": {
