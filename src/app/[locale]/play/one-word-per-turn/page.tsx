@@ -14,6 +14,7 @@ import { useHideLanguageSwitcherToggle } from "@/contexts/LanguageSwitcherContex
 import PageLeaveConfirmModal from "@/components/shared/PageLeaveConfirmModal";
 import { useNavigationGuard } from "next-navigation-guard";
 import { useState } from "react";
+import useRouter from "@/i18n/routing/useRouter";
 
 export default function PlayOneWord() {
   const t = useTranslations("play");
@@ -28,6 +29,7 @@ export default function PlayOneWord() {
   useHideLanguageSwitcherToggle();
   const navGuard = useNavigationGuard({ enabled: true });
   const [isLeaving, setIsLeaving] = useState(false);
+  const router = useRouter();
 
   const currentTeam = getCurrentTeam();
 
@@ -154,7 +156,11 @@ export default function PlayOneWord() {
           } else {
             finalizeGame();
           }
-          navGuard.accept?.();
+          if (navGuard.active) {
+            navGuard.accept?.();
+          } else {
+            router.push("/play");
+          }
         }}
         onStay={() => {
           setIsLeaving(false);
