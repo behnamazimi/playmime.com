@@ -30,14 +30,14 @@ const GameCard = ({ icon, title, description, color, href }: GameCardProps) => {
       className={`group relative w-full p-0 overflow-hidden rounded-2xl ${backgroundColor} hover:${backgroundColor} shadow-sm transform transition duration-150 ease-in-out active:scale-95 active:shadow-none whitespace-pre`}
       vibrateOnTap
     >
-      <div className="px-4 md:px-6 py-4 relative flex items-center justify-between gap-6 z-10 whitespace-pre max-w-full min-w-full">
-        <div className="whitespace-normal">
+      <div className="px-4 md:px-6 py-4 relative flex items-center justify-between gap-6 z-10 max-w-full min-w-full">
+        <div className="whitespace-normal flex-1">
           <h3 className="text-lg md:text-xl font-semibold text-gray-600">
             {title}
           </h3>
           <p className="md:text-lg text-gray-600 font-light">{description}</p>
         </div>
-        <span className={`h-12 md:w-14 ${iconColor} ml-2 scale-150`}>
+        <span className={`block h-12 w-12 md:w-14 ${iconColor} ml-2 scale-150`}>
           {icon}
         </span>
       </div>
