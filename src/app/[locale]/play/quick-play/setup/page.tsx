@@ -18,7 +18,7 @@ export default function PlaySetup() {
   const { initializeGame } = useQuickPlayGame();
   const [numberOfTeams, setNumberOfTeams] = useState(2);
   const [numberOfRounds, setNumberOfRounds] = useState(2);
-  const [timePerTeam, setTimePerTeam] = useState(50);
+  const [timePerTeam, setTimePerTeam] = useState(60);
   const router = useRouter();
 
   return (
