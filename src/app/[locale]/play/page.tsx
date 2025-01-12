@@ -1,10 +1,10 @@
 import { useTranslations } from "next-intl";
-import GameCard from "@/components/GameCard";
 import {
   FireIcon,
   LightBulbIcon,
   RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
+import GameCard from "@/components/pages/play/components/GameCard";
 
 export default function Home() {
   const t = useTranslations("HomePage");

@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/shared/Button";
+import Button from "@/components/common/Button";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 type AdjustCounterProps = {

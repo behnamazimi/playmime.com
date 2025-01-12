@@ -1,4 +1,4 @@
-import Button from "@/components/shared/Button";
+import Button from "@/components/common/Button";
 import { useTranslations } from "next-intl";
 import redirect from "@/i18n/routing/redirect";
 

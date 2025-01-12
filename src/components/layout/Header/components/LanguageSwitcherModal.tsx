@@ -9,7 +9,7 @@ import { Dialog } from "@ark-ui/react/dialog";
 import { Portal } from "@ark-ui/react/portal";
 import { useLanguageSwitcher } from "@/contexts/LanguageSwitcherContext";
 import { useCookies } from "react-cookie";
-import Button from "@/components/shared/Button";
+import Button from "@/components/common/Button";
 
 export default function LanguageSwitcherModal() {
   const t = useTranslations("LanguageSwitcher");

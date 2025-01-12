@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Button from "@/components/shared/Button";
+import Button from "@/components/common/Button";
 import Link from "@/i18n/routing/Link";
 
 interface GameCardProps {

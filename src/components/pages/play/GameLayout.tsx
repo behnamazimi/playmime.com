@@ -1,12 +1,12 @@
 "use client";
-import PageTitle from "@/components/shared/PageTitle";
-import PageLeaveConfirmModal from "@/components/shared/PageLeaveConfirmModal";
+import PageTitle from "@/components/common/PageTitle";
 import { useNavigationGuard } from "next-navigation-guard";
 import { ReactNode, useState } from "react";
 import useRouter from "@/i18n/routing/useRouter";
 import useKeepScreenAwake from "@/hooks/useKeepScreenAwake";
 import { useTranslations } from "next-intl";
-import BaseButton from "@/components/shared/Button/BaseButton";
+import BaseButton from "@/components/common/Button/BaseButton";
+import PageLeaveConfirmModal from "./components/PageLeaveConfirmModal";
 
 type GameLayoutProps = {
   title: string;

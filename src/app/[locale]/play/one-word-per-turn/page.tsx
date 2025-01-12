@@ -1,14 +1,14 @@
 "use client";
 
 import { CheckIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import BaseButton from "@/components/shared/Button/BaseButton";
+import BaseButton from "@/components/common/Button/BaseButton";
 import { useOneWordPerTurnGame } from "@/contexts/games/OneWordPerTurnGameContext";
 import { useTranslations } from "next-intl";
 import redirect from "@/i18n/routing/redirect";
 import { useHideLanguageSwitcherToggle } from "@/contexts/LanguageSwitcherContext";
 import useKeepScreenAwake from "@/hooks/useKeepScreenAwake";
-import GameLayout from "@/components/play/GameLayout";
-import GameStatus from "@/components/play/GameStatus";
+import GameLayout from "@/components/pages/play/GameLayout";
+import GameStatus from "@/components/pages/play/GameStatus";
 
 export default function PlayOneWord() {
   const t = useTranslations("play");

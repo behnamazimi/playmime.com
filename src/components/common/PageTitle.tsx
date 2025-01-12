@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import Button from "@/components/shared/Button";
+import Button from "@/components/common/Button";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import useRouter from "@/i18n/routing/useRouter";
 

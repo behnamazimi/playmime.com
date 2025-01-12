@@ -1,6 +1,6 @@
-import { Hero } from "@/components/LandingPage/Hero";
-import { GameModes } from "@/components/LandingPage/GameModes";
-import { Features } from "@/components/LandingPage/Features";
+import { Hero } from "@/components/pages/landing/Hero";
+import { GameModes } from "@/components/pages/landing/GameModes";
+import { Features } from "@/components/pages/landing/Features";
 
 const LandingPage = () => {
   return (

@@ -1,5 +1,5 @@
-import { version } from "../../../package.json";
-import SyncWords from "@/components/shared/SyncWords";
+import { version } from "../../../../package.json";
+import SyncWords from "@/components/common/SyncWords";
 import { useTranslations } from "next-intl";
 
 const Footer = () => {

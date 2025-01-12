@@ -1,8 +1,8 @@
 "use client";
 
 import { LanguageIcon, Bars2Icon } from "@heroicons/react/24/outline";
-import Button from "@/components/shared/Button";
-import InstallAppCTA from "@/components/shared/InstallAppCTA";
+import Button from "@/components/common/Button";
+import InstallAppCTA from "@/components/layout/Header/components/InstallAppCTA";
 import { Menu } from "@ark-ui/react/menu";
 import { useTranslations } from "next-intl";
 import { LOCALE_COOKIE_NAME } from "@/i18n/config";

@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import MainMenu from "@/components/Header/components/MainMenu";
 import { useTranslations } from "next-intl";
 import Link from "@/i18n/routing/Link";
+import MainMenu from "./components/MainMenu";
 
 const Header = () => {
   const t = useTranslations();

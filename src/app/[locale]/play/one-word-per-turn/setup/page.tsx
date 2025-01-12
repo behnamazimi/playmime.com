@@ -1,11 +1,11 @@
 "use client";
 
-import SetupSection from "@/components/Setup/SetupSection/SetupSection";
-import BaseButton from "@/components/shared/Button/BaseButton";
+import SetupSection from "@/components/pages/play/components/SetupSection/SetupSection";
+import BaseButton from "@/components/common/Button/BaseButton";
 import { PlayIcon } from "@heroicons/react/24/outline";
 import { useOneWordPerTurnGame } from "@/contexts/games/OneWordPerTurnGameContext";
 import { useState } from "react";
-import PageTitle from "@/components/shared/PageTitle";
+import PageTitle from "@/components/common/PageTitle";
 import { useTranslations } from "next-intl";
 import useRouter from "@/i18n/routing/useRouter";
 

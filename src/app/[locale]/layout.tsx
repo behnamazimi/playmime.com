@@ -3,16 +3,16 @@ import Providers from "@/app/[locale]/providers";
 import React, { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { cookies } from "next/headers";
 import { THEME_COLOR } from "@/constants/app";
 import { getTranslations } from "next-intl/server";
-import Document from "@/components/shared/Document/Document";
 import isValidLocale from "@/utils/isValidLocale";
 import { notFound } from "next/navigation";
 import { locales } from "@/i18n/config";
-import LanguageSwitcherModal from "@/components/shared/LanguageSwitcherModal";
+import LanguageSwitcherModal from "@/components/layout/Header/components/LanguageSwitcherModal";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Document from "@/components/layout/Document";
 
 export const generateMetadata = async () => {
   const t = await getTranslations({ namespace: "Metadata" });

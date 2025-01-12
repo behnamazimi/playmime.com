@@ -10,7 +10,7 @@ import {
   getRecentSyncDetails,
   getWordsByLanguage,
 } from "@/utils/indexedDb";
-import Button from "@/components/shared/Button";
+import Button from "@/components/common/Button";
 import {
   ArrowPathIcon,
   InformationCircleIcon,

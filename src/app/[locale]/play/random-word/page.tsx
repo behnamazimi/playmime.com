@@ -1,6 +1,6 @@
 "use client";
 
-import BaseButton from "@/components/shared/Button/BaseButton";
+import BaseButton from "@/components/common/Button/BaseButton";
 import { useCallback, useEffect, useState } from "react";
 import { Word } from "@/types";
 import { useTranslations } from "next-intl";
@@ -8,7 +8,7 @@ import { LOCALE_COOKIE_NAME } from "@/i18n/config";
 import { useCookies } from "react-cookie";
 import { getRandomWord } from "@/utils/indexedDb";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
-import PageTitle from "@/components/shared/PageTitle";
+import PageTitle from "@/components/common/PageTitle";
 import { useHideLanguageSwitcherToggle } from "@/contexts/LanguageSwitcherContext";
 
 export default function RandomWordPage() {

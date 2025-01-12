@@ -2,7 +2,7 @@
 
 import useInstaller from "@/hooks/useInstaller";
 import useIsOnline from "@/hooks/useIsOnline";
-import Button from "@/components/shared/Button";
+import Button from "@/components/common/Button";
 import { ArrowDownOnSquareIcon } from "@heroicons/react/24/outline";
 import { useTranslations } from "next-intl";
 

@@ -1,9 +1,9 @@
 "use client";
 
 import { useQuickPlayGame } from "@/contexts/games/QuickPlayGameContext";
-import PageTitle from "@/components/shared/PageTitle";
-import TeamResult from "@/components/shared/TeamResult";
-import BackToHomeCTA from "@/components/shared/BackToHomeCTA";
+import PageTitle from "@/components/common/PageTitle";
+import TeamResult from "@/components/pages/play/components/TeamResult";
+import BackToHomeCTA from "@/components/pages/play/components/BackToHomeCTA";
 import { useTranslations } from "next-intl";
 import redirect from "@/i18n/routing/redirect";
 

@@ -2,7 +2,7 @@ import { Dialog } from "@ark-ui/react/dialog";
 import { Portal } from "@ark-ui/react/portal";
 import { LOCALE_COOKIE_NAME } from "@/i18n/config";
 import { useCookies } from "react-cookie";
-import Button from "@/components/shared/Button";
+import Button from "@/components/common/Button";
 import { FC } from "react";
 
 type Props = {

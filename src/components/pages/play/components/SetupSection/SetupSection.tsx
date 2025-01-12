@@ -1,4 +1,4 @@
-import AdjustCounter from "@/components/Setup/AdjustCounter/AdjustCounter";
+import AdjustCounter from "./AdjustCounter";
 
 type SetupSectionProps = {
   title: string;

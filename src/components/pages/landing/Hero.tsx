@@ -1,4 +1,4 @@
-import Button from "@/components/shared/Button";
+import Button from "@/components/common/Button";
 import React from "react";
 import { useTranslations } from "next-intl";
 import Link from "@/i18n/routing/Link";

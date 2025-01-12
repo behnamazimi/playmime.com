@@ -1,4 +1,4 @@
-import Document from "@/components/shared/Document/Document";
+import Document from "@/components/layout/Document";
 import Link from "next/link";
 
 export default function NotFound() {
