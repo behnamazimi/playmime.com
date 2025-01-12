@@ -44,7 +44,7 @@
     "shared": {
       "teams": "Teams",
       "rounds": "Rounds",
-      "time": "Time per team",
+      "time": "Time per round",
       "next": "Next",
       "cancelGameButton": "Cancel Game",
       "finalizeGameButton": "Finalize Game",
@@ -57,6 +57,7 @@
       "correctButton": "Correct",
       "timeRemainingLabel": "Time Remaining",
       "timeRemainingValue": "{time} seconds",
+      "roundsStatus": "Round {current} of {total}",
       "leaveGame": {
         "title": "Leave Game",
         "cancelDescription": "Are you sure you want to cancel the game?",
@@ -74,8 +75,7 @@
         "title": "One Word Per Turn",
         "subtitle": "Play",
         "passToNextTeamButton": "Pass to Next Team",
-        "startTurnButton": "Team {team} starts",
-        "roundsStatus": "Round {current} of {total}"
+        "startTurnButton": "Team {team} starts"
       },
       "results": {
         "title": "One Word Per Turn",

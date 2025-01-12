@@ -3,24 +3,22 @@ export type GameStatus = "initialized" | "waiting" | "running" | "finalized";
 type BaseGameSettings = {
   numberOfTeams: number;
   timePerTeam: number; // in seconds
+  numberOfRounds: number;
 };
 
 type BaseTeam = {
   teamId: number;
   score: number;
   timeRemaining: number; // in seconds
-};
-
-export type OneWordPerTurnGameSettings = BaseGameSettings & {
-  numberOfRounds: number;
-};
-
-export type QuickPlayGameSettings = BaseGameSettings;
-
-export type Team = BaseTeam & {
   hasPlayedInRound: boolean;
   finalScore: string;
 };
+
+export type OneWordPerTurnGameSettings = BaseGameSettings;
+
+export type QuickPlayGameSettings = BaseGameSettings;
+
+export type Team = BaseTeam;
 
 export type QuickPlayTeam = BaseTeam;
 
@@ -32,11 +30,11 @@ export type BaseGameState<TeamType> = {
   teams: TeamType[];
   wordPool: string[];
   currentWord: string | null;
+  currentRound: number;
 };
 
 export type OneWordPerTurnGameState = BaseGameState<Team> & {
   settings: OneWordPerTurnGameSettings;
-  currentRound: number;
 };
 
 export type QuickPlayGameState = BaseGameState<QuickPlayTeam> & {

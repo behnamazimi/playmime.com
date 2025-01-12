@@ -11,12 +11,14 @@ import useRouter from "@/i18n/routing/useRouter";
 
 const minTeams = 2;
 const minTime = 15;
+const minRounds = 1;
 
 export default function PlaySetup() {
   const t = useTranslations("play");
   const { initializeGame } = useQuickPlayGame();
   const [numberOfTeams, setNumberOfTeams] = useState(2);
-  const [timePerTeam, setTimePerTeam] = useState(120);
+  const [numberOfRounds, setNumberOfRounds] = useState(2);
+  const [timePerTeam, setTimePerTeam] = useState(50);
   const router = useRouter();
 
   return (
@@ -30,14 +32,21 @@ export default function PlaySetup() {
       <div className="grid grid-cols-1 items-center justify-center gap-12">
         <SetupSection
           title={t("shared.teams")}
-          initialValue={2}
+          initialValue={numberOfTeams}
           step={1}
           min={minTeams}
           onChange={setNumberOfTeams}
         />
         <SetupSection
+          title={t("shared.rounds")}
+          initialValue={numberOfRounds}
+          step={1}
+          min={minRounds}
+          onChange={setNumberOfRounds}
+        />
+        <SetupSection
           title={t("shared.time")}
-          initialValue={120}
+          initialValue={timePerTeam}
           step={15}
           unit={t("shared.seconds", {
             seconds: timePerTeam,
@@ -45,7 +54,6 @@ export default function PlaySetup() {
           min={minTime}
           onChange={setTimePerTeam}
         />
-
         <div className="flex items-center justify-center">
           <BaseButton
             icon={<PlayIcon />}
@@ -56,6 +64,7 @@ export default function PlaySetup() {
               initializeGame({
                 numberOfTeams,
                 timePerTeam,
+                numberOfRounds,
               });
               router.replace("/play/quick-play");
             }}

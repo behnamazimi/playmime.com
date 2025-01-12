@@ -44,7 +44,7 @@
     "shared": {
       "teams": "تعداد تیم‌ها",
       "rounds": "تعداد دورها",
-      "time": "زمان برای هر تیم",
+      "time": "زمان برای هر دور",
       "next": "شروع بازی",
       "cancelGameButton": "بازی رو لغو کن",
       "finalizeGameButton": "بازی رو تموم کن",
@@ -57,6 +57,7 @@
       "correctButton": "درست",
       "timeRemainingLabel": "زمان باقی‌مونده",
       "timeRemainingValue": "{time} ثانیه",
+      "roundsStatus": "دور {current} از {total}",
       "leaveGame": {
         "title": "ترک بازی",
         "cancelDescription": "آیا مطمئنی می‌خوای بازی رو لغو کنی؟",
@@ -73,9 +74,8 @@
       "play": {
         "title": "یک کلمه در هر نوبت",
         "subtitle": "بازی",
-        "passToNextTeamButton": "برو به تیم بعدی",
-        "startTurnButton": "تیم {team} شروع می‌کنه",
-        "roundsStatus": "دور {current} از {total}"
+        "passToNextTeamButton": "بره به تیم بعدی",
+        "startTurnButton": "تیم {team} شروع می‌کنه"
       },
       "results": {
         "title": "یک کلمه در هر نوبت",

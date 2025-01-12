@@ -54,7 +54,7 @@ export default function PlayOneWord() {
           <span className="flex justify-between">
             <span>{t("shared.teamName", { team: currentTeam.teamId })}</span>
             <span>
-              {t("oneWordPerTurn.play.roundsStatus", {
+              {t("shared.roundsStatus", {
                 current: state.currentRound,
                 total: state.settings.numberOfRounds,
               })}

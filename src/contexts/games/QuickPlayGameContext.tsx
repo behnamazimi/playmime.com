@@ -1,27 +1,32 @@
 import { getRandomWords } from "@/utils/indexedDb";
+
 import React, {
   createContext,
+  useReducer,
+  useEffect,
   ReactNode,
+  useMemo,
   use,
   useCallback,
-  useEffect,
-  useMemo,
-  useReducer,
 } from "react";
 import { Locale } from "@/i18n/config";
 import { useLocale } from "next-intl";
-import {
+import type {
   QuickPlayGameSettings,
+  Team,
   QuickPlayGameState,
-  QuickPlayTeam,
 } from "@/contexts/games/types";
+import {
+  calculateFinalScoreForTeams,
+  nextTurnIdentification,
+} from "@/contexts/games/utils";
 
 export type Action =
   | {
       type: "INITIALIZE_GAME";
       payload: { settings: QuickPlayGameSettings; wordPool: string[] };
     }
-  | { type: "START_TURN" }
+  | { type: "START_NEXT_TURN" }
   | {
       type: "SUBMIT_RESULT";
       payload: boolean;
@@ -34,7 +39,8 @@ export type Action =
 const defaultState: QuickPlayGameState = {
   gameId: "",
   status: "initialized",
-  settings: { numberOfTeams: 0, timePerTeam: 0 },
+  settings: { numberOfTeams: 0, numberOfRounds: 0, timePerTeam: 0 },
+  currentRound: 0,
   currentTurnTeamId: 0,
   teams: [],
   wordPool: [],
@@ -52,18 +58,21 @@ const gameReducer = (
         gameId: `game-${Date.now()}`,
         status: "initialized",
         settings,
+        currentRound: 1,
         currentTurnTeamId: 1,
         teams: Array.from({ length: settings.numberOfTeams }, (_, index) => ({
           teamId: index + 1,
           score: 0,
+          finalScore: "0",
           timeRemaining: settings.timePerTeam,
+          hasPlayedInRound: false,
         })),
         wordPool,
         currentWord: null,
       };
     }
 
-    case "START_TURN": {
+    case "START_NEXT_TURN": {
       // Get the last item from wordPool
       const currentWord = state.wordPool[state.wordPool.length - 1];
 
@@ -128,27 +137,13 @@ const gameReducer = (
           : team
       );
 
-      const updatedState = { ...state, teams: updatedTeams };
+      let updatedState = { ...state, teams: updatedTeams };
 
       const activeTeam = updatedTeams.find((team) => team.teamId === teamId);
+
       // when time is up for the active team
       if (activeTeam?.timeRemaining === 0) {
-        // find next team that not played in current round
-        const nextTeam = updatedState.teams.find(
-          (team) => team.timeRemaining > 0
-        );
-
-        // when there is no team left to play in current round
-        if (!nextTeam) {
-          // when all teams have played all rounds
-          updatedState.status = "finalized";
-          // sort teams by score
-          updatedState.teams.sort((a, b) => b.score - a.score);
-        } else {
-          // when there are still teams left to play in current round
-          updatedState.currentTurnTeamId = nextTeam.teamId;
-          updatedState.status = "waiting";
-        }
+        updatedState = nextTurnIdentification(updatedState, true);
       }
 
       return updatedState;
@@ -158,8 +153,11 @@ const gameReducer = (
       return {
         ...state,
         status: "finalized",
-        // sort teams by score
-        teams: state.teams.sort((a, b) => b.score - a.score),
+        teams: calculateFinalScoreForTeams(
+          state.teams,
+          state.settings.timePerTeam,
+          state.settings.numberOfRounds
+        ),
       };
     }
 
@@ -179,7 +177,7 @@ const QuickPlayGameContext = createContext<{
   submitResult: (guessedCorrectly: boolean) => void;
   finalizeGame: () => void;
   cancelGame: () => void;
-  getCurrentTeam: () => QuickPlayTeam | null;
+  getCurrentTeam: () => Team | null;
   changeWord: () => void;
 }>({
   state: defaultState,
@@ -202,17 +200,21 @@ export const QuickPlayGameProvider = ({
   const language = useLocale() as Locale;
 
   const initializeGame = useCallback(
-    async ({ numberOfTeams, timePerTeam }: QuickPlayGameSettings) => {
+    async ({
+      numberOfTeams,
+      numberOfRounds,
+      timePerTeam,
+    }: QuickPlayGameSettings) => {
       const randomWords = await getRandomWords(
         language,
-        numberOfTeams * timePerTeam * 2 // times 2 to have enough words
+        numberOfRounds * numberOfTeams * 15 // times 15 to have enough words
       );
       const wordPool = randomWords.map((word) => word.word);
 
       dispatch({
         type: "INITIALIZE_GAME",
         payload: {
-          settings: { numberOfTeams, timePerTeam },
+          settings: { numberOfTeams, numberOfRounds, timePerTeam },
           wordPool,
         },
       });
@@ -221,7 +223,7 @@ export const QuickPlayGameProvider = ({
   );
 
   const startNextTurn = useCallback(() => {
-    dispatch({ type: "START_TURN" });
+    dispatch({ type: "START_NEXT_TURN" });
   }, []);
 
   const submitResult = useCallback((guessedCorrectly: boolean) => {

@@ -54,7 +54,12 @@ export default function QuickPlay() {
         subtitle={
           <span className="flex justify-between">
             <span>{t("shared.teamName", { team: currentTeam.teamId })}</span>
-            <span>{t("shared.teamScore", { score: currentTeam.score })}</span>
+            <span>
+              {t("shared.roundsStatus", {
+                current: state.currentRound,
+                total: state.settings.numberOfRounds,
+              })}
+            </span>
           </span>
         }
       />
