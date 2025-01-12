@@ -10,7 +10,8 @@
     "loading": "Loading...",
     "installNow": "Install Now",
     "changeLanguage": "Change Language",
-    "backButton": "Back"
+    "backButton": "Back",
+    "installPromptIos": "Install this app on your phone: tap <bold>Share</bold> and then <bold>Add to Home Screen</bold>."
   },
   "HomePage": {
     "title": "Let's",

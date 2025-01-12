@@ -13,6 +13,7 @@ import LanguageSwitcherModal from "@/components/layout/Header/components/Languag
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Document from "@/components/layout/Document";
+import InstallPromptIos from "@/components/layout/InstallPromptIos";
 
 export const generateMetadata = async () => {
   const t = await getTranslations({ namespace: "Metadata" });
@@ -93,6 +94,7 @@ export default async function RootLayout({
           <main>{children}</main>
           <Footer />
           <LanguageSwitcherModal />
+          <InstallPromptIos />
         </Providers>
       </NextIntlClientProvider>
     </Document>
