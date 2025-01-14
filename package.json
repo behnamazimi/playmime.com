@@ -8,7 +8,7 @@
     "start": "next start",
     "test": "jest",
     "lint": "eslint . --fix --fix-type problem,suggestion,layout",
-    "validate-words": "node scripts/validateWords.mjs"
+    "validate-words": "node scripts/validateWords.mjs --fix"
   },
   "dependencies": {
     "@ark-ui/react": "^4.6.0",
