@@ -1,133 +1,31 @@
 # Actions
-# Movies/TV Shows
-# Songs
-# Objects
-# Professions
-# Books
-# Animals
-# Games/Sports
-# Emotions
-# Science
-# Miscellaneous
-Airplane
-Boat
-Baby
-Ears
-Scissors
 Cough
 Cold
-Phone
 Laugh
 Blink
-Hairbrush
 Sneeze
 Spin
-Hammer
-Book
-Toothbrush
 Jump
 Clap
 Slap
-Archer
-Ghost
 Balance
-Shoelaces
-Sick
-Balloon
-Banana peel
-Monster
 Hiccup
 Stomp
 Hurt
 Hungry
 Slip
 Karate
-Ladder
 Scare
 Fishing
 Dizzy
 Read
 Hot
-Birthday
-Apartment
-Cradle
-Coffee
-Trampoline
-Waterfall
-Window
-Proud
-Stuck-up
-Flashlight
 Marry
 Overwhelm
 Judge
-Shadow
-Halo
 Measure
-Clown
 Chomp
 Slither
-The Lion King
-Let it go!
-Bambi
-Drink me
-Lady and the Tramp
-On a magic carpet ride
-Hakuna matata
-The Little Mermaid
-A spoonful of sugar helps the medicine go down
-Cinderella
-Elvis
-Taylor Swift
-One Direction
-Michael Jackson
-Rock star
-Drums
-Shout!
-Rolling Stones
-Singin’ in the Rain
-The hills are alive
-With the sound of music
-Britney Spears
-No Woman
-No Cry
-James Taylor
-Guitar
-Archery
-Basketball
-Figure skating
-Hockey
-Baseball
-Croquet
-Golf
-Horseback riding
-Cheerleading
-Football
-Soccer
-Darts
-Roller derby
-Table tennis
-Handball
-Whale
-Snake
-Elephant
-Giraffe
-Dog
-Cat
-Ant
-Rabbit
-Groundhog
-Hyena
-Kangaroo
-Shark
-Fish
-Polar Bear
-Caterpillar
-Cockroach
-Ram
-Monkey
-Jaguar
-Rooster
 Cycling
 Watching TV
 Swimming
@@ -153,362 +51,10 @@ Brushing teeth
 Showering
 Meditating
 Singing
-Up
-Fight Club
-Jaws
-Ran
-Back to the Future
-Home
-2 Guns
-The Lord of the Rings
-Jurassic Park
-Man of Steel
-The Hunchback of Notre Dame
-Star Wars
-Cars
-The Jungle Book
-Seven
-First Man
-The Godfather
-Good Boys
-Spider-man
-Tenet
-Marriage Story
-Airplane!
-Monsters Inc.
-Taxi Driver
-Inception
-Saving Private Ryan
-The Terminator
-On the Waterfront
-Once Upon a Time in America
-Vertigo
-Alice in Wonderland
-The Hobbit
-Ratatouille
-American Beauty
-The Dark Knight Rises
-Brave
-The Shining
-Forrest Gump
-Honey
-I Shrunk the Kids
-The Prestige
-Oblivion
-Hereditary
-Ad Astra
-The Shawshank Redemption
-Shazam!
-Three Billboards Outside Ebbing Missouri
-Gangs of New York
-Black Widow
-There Will Be Blood
-Heaven (Bryan Adams)
-Outside (Catfish and the Bottlemen)
-Sorry (Justin Bieber)
-Dance
-Dance (Fall Out Boy)
-Right Now (One Direction)
-Side to Side (Ariana Grande)
-Don’t Look Back in Anger (Oasis)
-Dancing Queen (ABBA)
-My Hero (Foo Fighters)
-Umbrella (Rihanna)
-Eye of the Tiger (Survivor)
-Jumpman (Drake)
-Hello (Adele)
-Roses (The Chainsmokers)
-My House (Flo Rida)
-7 Rings (Ariana Grande)
-I’m the One (DJ Khalid)
-Singin’ in the Rain (Gene Kelly)
-Shape of You (Ed Sheeran)
-Bad (Michael Jackson)
-Slide (Calvin Harris)
-Your Song (Elton John)
-Bad Guy (Billie Eilish)
-Someone You Loved (Lewis Capaldi)
-Dance Monkey (Tones and I)
-Under Pressure (Queen)
-Perfect (Ed Sheeran)
-Take Me to Church (Hozier)
-Complicated (Avril Lavigne)
-Particles (Nothing But Thieves)
-Stay With Me (Sam Smith)
-I Bet You Look Good on the Dancefloor (Arctic Monkeys)
-Lived a Lie (You Me At Six)
-Total Eclipse of the Heart (Bonnie Tyler)
-Hooked on a Feeling (Blue Swede)
-Boneless (Steve Aoki)
-Scar Tissue (Red Hot Chili Peppers)
-Radioactive (Imagine Dragons)
-You Shook Me All Night Long (AC/DC)
-Tribute (Tenacious D)
-Passionfruit (Drake)
-Raspberry Beret (Prince)
-Better Now (Post Malone)
-Bohemian Rhapsody (Queen)
-Harmony Hall (Vampire Weekend)
-Intentions (Justin Bieber)
-Space Oddity (David Bowie)
-Blinding Lights (The Weeknd)
-Godzilla (Eminem)
-Savage (Megan Thee Stallion)
-Catch-22
-Harry Potter
-The Red and the Black
-The Hunger Games
-Nineteen Eighty-Four
-Frankenstein
-Little Women
-The Scarlet Letter
-The Rainbow
-Dracula
-The Woman in White
-Money
-The Big Sleep
-Men Without Women
-Angels and Demons
-Bad Blood
-Secondhand Time
-The Road
-Doctor Sleep
-Normal People
-White Teeth
-Moneyball
-Night Watch
-Gone Girl
-Pride and Prejudice
-The Adventures of Huckleberry Finn
-The BFG
-Wuthering Heights
-Ulysses
-The DaVinci Code
-The Divine Comedy
-Brave New World
-The Great Gatsby
-Catcher in the Rye
-Atonement
-Charlotte’s Web
-American Pastoral
-LA Confidential
-Tinker Tailor Soldier Spy
-Atomic Habits
-Matilda
-The Tipping Point
-Gilead
-James and the Giant Peach
-Cloud Atlas
-Misery
-The Siege
-True History of the Kelly Gang
-The Constant Gardner
-Ping pong
-Snowball
-Roof
-Fly
-Fang
-Bicycle
-Bear
-Cape
-Puppet
-Piano
-Lipstick
-Salute
-Hula hoop
-Penguin
-Whisper
-Popsicle
-Earthquake
-Yo-yo
-Road
-Rain
-Alarm clock
-Dog leash
-Chop
-Pajamas
-Slam dunk
-Fiddle
-Seashell
-Jog
-Seesaw
-Nap
-Cheerleader
-Blind
-Beg
-Shopping cart
-Limbo
-Newspaper
-Twist
-Rhinoceros
-Cow
-Tickle
-Fetch
-Violin
-Cage
-Cello
-Braid
-Skateboard
-Stairs
-Trumpet
-Mop
-Shovel
-Soap
-Saddle
-Wink
-Tree
-Spider Man
-Think
-Skip
-Jumping jack
-Chicken
-Alligator
-Chair
-Robot
-Head
-Smile
-Bird
-Happy
-Cheek
-Back
-Drink
-Ice cream cone
-Car
-Circle
-Pillow
-Pinch
-Kick
-Sleep
-Camera
-Arm
-Eat
-Prayer
-Doll
-Spider
-Point
-Glasses
-Stop
-Mouth
-Draw
-Telephone
-Pig
-Wave
-Door
-Tail
-Turtle
-Ear
-Hopscotch
-Mosquito
-Ring
-Sun
-Cup
-Flower
-Pie
-Banana
-Snowflake
-Bug
-Jar
-Light
-Lips
-Apple
-Slide
-Socks
-Swing
-Coat
-Shoe
-Water
-Heart
-Hat
-Ocean
-Kite
-Milk
-Duck
-Eyes
-Boy
-Person
-Girl
-Mouse
-Ball
-House
-Star
-Nose
-Bed
-Jacket
-Shirt
-Hippo
-Beach
-Egg
-Face
-Cookie
-Cheese
-Drum
-Spoon
-Worm
-Spider web
-Horse
-Song
-Trip
-Backbone
-Bomb
-Round
-Treasure
-Garbage
-Park
-Pirate
-Ski
-State
-Whistle
-Palace
-Coal
-Queen
-Dominoes
-Photograph
-Computer
-Aircraft
-Hot dog
-Salt and pepper
-Key
-Ipad
-Whisk
-Frog
-Lawnmower
-Mattress
-Pinwheel
-Cake
-Circus
-Battery
-Mailman
-Cowboy
-Password
-Skate
-Electricity
-Lightsaber
-Thief
-Teapot
-Deep
-Spring
-Nature
-Shallow
-Toast
-Outside
-America
-Roller blading
-Gingerbread man
-Bowtie
-Half
-Spare
-Wax
-Light bulb
-Platypus
-Music
 Licking an ice-cream cone
 Going camping
 Juggling
 Hula-hooping
-Turkey
-Parrot
-Bull
-Ice skating
 Calling a time-out
 Playing basketball
 Riding a roller coaster
@@ -717,7 +263,7 @@ Ice fishing
 Climbing a rope
 Giving a high five
 Painting a canvas
-Solving a Rubik’s Cube
+Solving a Rubik's Cube
 Playing marbles
 Juggling fruit
 Sneezing
@@ -835,7 +381,7 @@ Counting money
 Zipping a jacket
 Repairing glasses
 Catching raindrops
-And tying a fishing line
+Tying a fishing line
 Playing frisbee
 Using a remote control
 Zipping a suitcase
@@ -1027,6 +573,315 @@ Playing hacky sack
 Playing pool/billiards
 Bowling
 Shooting a bow and arrow
+
+# Movies/TV Shows
+The Lion King
+Bambi
+Lady and the Tramp
+The Little Mermaid
+Cinderella
+Up
+Fight Club
+Jaws
+Ran
+Back to the Future
+Home
+2 Guns
+The Lord of the Rings
+Jurassic Park
+Man of Steel
+The Hunchback of Notre Dame
+Star Wars
+Cars
+The Jungle Book
+Seven
+First Man
+The Godfather
+Good Boys
+Spider-man
+Tenet
+Marriage Story
+Airplane!
+Monsters Inc.
+Taxi Driver
+Inception
+Saving Private Ryan
+The Terminator
+On the Waterfront
+Once Upon a Time in America
+Vertigo
+Alice in Wonderland
+The Hobbit
+Ratatouille
+American Beauty
+The Dark Knight Rises
+Brave
+The Shining
+Forrest Gump
+Honey, I Shrunk the Kids
+The Prestige
+Oblivion
+Hereditary
+Ad Astra
+The Shawshank Redemption
+Shazam!
+Three Billboards Outside Ebbing Missouri
+Gangs of New York
+Black Widow
+There Will Be Blood
+Friends
+Rugrats
+Peppa Pig
+Teenage Mutant Ninja Turtles
+How I Met Your Mother
+Ben 10
+Sherlock
+Breaking Bad
+Game of Thrones
+House of the Dragon
+Buffy the Vampire Slayer
+Lost
+Doctor Who
+The X Files
+Star Trek
+The Walking Dead
+Batman
+Firefly
+The Office
+Mad Men
+Slow Horses
+
+# Songs
+Let it go!
+On a magic carpet ride
+Hakuna matata
+A spoonful of sugar helps the medicine go down
+Elvis
+Taylor Swift
+One Direction
+Michael Jackson
+Rock star
+Drums
+Shout!
+Rolling Stones
+Singin' in the Rain
+The hills are alive
+With the sound of music
+Britney Spears
+No Woman, No Cry
+James Taylor
+Guitar
+Heaven (Bryan Adams)
+Outside (Catfish and the Bottlemen)
+Sorry (Justin Bieber)
+Dance
+Dance (Fall Out Boy)
+Right Now (One Direction)
+Side to Side (Ariana Grande)
+Don't Look Back in Anger (Oasis)
+Dancing Queen (ABBA)
+My Hero (Foo Fighters)
+Umbrella (Rihanna)
+Eye of the Tiger (Survivor)
+Jumpman (Drake)
+Hello (Adele)
+Roses (The Chainsmokers)
+My House (Flo Rida)
+7 Rings (Ariana Grande)
+I'm the One (DJ Khalid)
+Singin' in the Rain (Gene Kelly)
+Shape of You (Ed Sheeran)
+Bad (Michael Jackson)
+Slide (Calvin Harris)
+Your Song (Elton John)
+Bad Guy (Billie Eilish)
+Someone You Loved (Lewis Capaldi)
+Dance Monkey (Tones and I)
+Under Pressure (Queen)
+Perfect (Ed Sheeran)
+Take Me to Church (Hozier)
+Complicated (Avril Lavigne)
+Particles (Nothing But Thieves)
+Stay With Me (Sam Smith)
+I Bet You Look Good on the Dancefloor (Arctic Monkeys)
+Lived a Lie (You Me At Six)
+Total Eclipse of the Heart (Bonnie Tyler)
+Hooked on a Feeling (Blue Swede)
+Boneless (Steve Aoki)
+Scar Tissue (Red Hot Chili Peppers)
+Radioactive (Imagine Dragons)
+You Shook Me All Night Long (AC/DC)
+Tribute (Tenacious D)
+Passionfruit (Drake)
+Raspberry Beret (Prince)
+Better Now (Post Malone)
+Bohemian Rhapsody (Queen)
+Harmony Hall (Vampire Weekend)
+Intentions (Justin Bieber)
+Space Oddity (David Bowie)
+Blinding Lights (The Weeknd)
+Godzilla (Eminem)
+Savage (Megan Thee Stallion)
+
+# Objects
+Airplane
+Boat
+Baby
+Ears
+Scissors
+Phone
+Hairbrush
+Hammer
+Book
+Toothbrush
+Archer
+Ghost
+Shoelaces
+Balloon
+Banana peel
+Monster
+Ladder
+Apartment
+Cradle
+Coffee
+Trampoline
+Waterfall
+Window
+Flashlight
+Shadow
+Halo
+Clown
+Ping pong
+Snowball
+Roof
+Fly
+Fang
+Bicycle
+Bear
+Cape
+Puppet
+Piano
+Lipstick
+Hula hoop
+Penguin
+Popsicle
+Earthquake
+Yo-yo
+Road
+Rain
+Alarm clock
+Dog leash
+Pajamas
+Fiddle
+Seashell
+Seesaw
+Shopping cart
+Newspaper
+Cage
+Cello
+Skateboard
+Stairs
+Trumpet
+Mop
+Shovel
+Soap
+Saddle
+Tree
+Spider Man
+Chair
+Robot
+Head
+Bird
+Cheek
+Back
+Ice cream cone
+Car
+Circle
+Pillow
+Camera
+Arm
+Prayer
+Doll
+Spider
+Glasses
+Mouth
+Telephone
+Ring
+Sun
+Cup
+Flower
+Pie
+Banana
+Snowflake
+Bug
+Jar
+Light
+Lips
+Apple
+Slide
+Socks
+Swing
+Coat
+Shoe
+Water
+Heart
+Hat
+Ocean
+Kite
+Milk
+Eyes
+Ball
+House
+Star
+Nose
+Bed
+Jacket
+Shirt
+Beach
+Egg
+Face
+Cookie
+Cheese
+Drum
+Spoon
+Worm
+Spider web
+Horse
+Song
+Backbone
+Bomb
+Treasure
+Garbage
+Park
+Palace
+Coal
+Queen
+Dominoes
+Photograph
+Computer
+Aircraft
+Hot dog
+Salt and pepper
+Key
+Ipad
+Whisk
+Lawnmower
+Mattress
+Pinwheel
+Cake
+Circus
+Battery
+Password
+Electricity
+Lightsaber
+Teapot
+Spring
+Toast
+Bowtie
+Light bulb
+Music
+
+# Professions
 Farmer
 Baker
 Florist
@@ -1050,14 +905,65 @@ Valet Driver
 Santa Claus
 Lifeguard
 Music conductor
+
+# Books
+Catch-22
+Harry Potter
+The Red and the Black
+The Hunger Games
+Nineteen Eighty-Four
+Frankenstein
+Little Women
+The Scarlet Letter
+The Rainbow
+Dracula
+The Woman in White
+Money
+The Big Sleep
+Men Without Women
+Angels and Demons
+Bad Blood
+Secondhand Time
+The Road
+Doctor Sleep
+Normal People
+White Teeth
+Moneyball
+Night Watch
+Gone Girl
+Pride and Prejudice
+The Adventures of Huckleberry Finn
+The BFG
+Wuthering Heights
+Ulysses
+The DaVinci Code
+The Divine Comedy
+Brave New World
+The Great Gatsby
+Catcher in the Rye
+Atonement
+Charlotte's Web
+American Pastoral
+LA Confidential
+Tinker Tailor Soldier Spy
+Atomic Habits
+Matilda
+The Tipping Point
+Gilead
+James and the Giant Peach
+Cloud Atlas
+Misery
+The Siege
+True History of the Kelly Gang
+The Constant Gardner
 The Bible
 The Thursday Murder Club
 The Wind in the Willows
-Harry Potter and the Sorcerer’s Stone
-A Midsummer Night’s Dream
+Harry Potter and the Sorcerer's Stone
+A Midsummer Night's Dream
 The Wizard of Oz
 To Kill a Mockingbird
-One Flew Over the Cuckoo’s Nest
+One Flew Over the Cuckoo's Nest
 Macbeth
 The Strange Case of Dr Jekyll and Mr Hyde
 Dune
@@ -1071,24 +977,98 @@ A Tale of Two Cities
 The Picture of Dorian Gray
 Beloved
 The Catcher in the Rye
-Friends
-Rugrats
-Peppa Pig
-Teenage Mutant Ninja Turtles
-How I Met Your Mother
-Ben 10
-Sherlock
-Breaking Bad
-Game of Thrones
-House of the Dragon
-Buffy the Vampire Slayer
-Lost
-Doctor Who
-The X Files
-Star Trek
-The Walking Dead
-Batman
-Firefly
-The Office
-Mad Men
-Slow Horses
+
+# Animals
+Whale
+Snake
+Elephant
+Giraffe
+Dog
+Cat
+Ant
+Rabbit
+Groundhog
+Hyena
+Kangaroo
+Shark
+Fish
+Polar Bear
+Caterpillar
+Cockroach
+Ram
+Monkey
+Jaguar
+Rooster
+Turkey
+Parrot
+Bull
+Duck
+Boy
+Person
+Girl
+Mouse
+Hippo
+Rhinoceros
+Cow
+Chicken
+Alligator
+Pig
+Turtle
+Mosquito
+
+# Games/Sports
+Archery
+Basketball
+Figure skating
+Hockey
+Baseball
+Croquet
+Golf
+Horseback riding
+Cheerleading
+Football
+Soccer
+Darts
+Roller derby
+Table tennis
+Handball
+Ice skating
+
+# Emotions
+Proud
+Stuck-up
+Happy
+Blind
+
+# Science
+Deep
+Nature
+Shallow
+Outside
+America
+Half
+Spare
+Wax
+Sick
+Drink me
+
+# Miscellaneous
+Birthday
+Think
+Trip
+Round
+Pirate
+Ski
+State
+Whistle
+Thief
+Roller blading
+Gingerbread man
+Platypus
+Point
+Stop
+Wave
+Door
+Tail
+Ear
+Hopscotch
