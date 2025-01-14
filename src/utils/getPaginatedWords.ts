@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { Language } from "@/types";
+import { BaseWord, Language } from "@/types";
 
 // Read and parse the words file with pagination
 const getPaginatedWords = (
@@ -8,7 +8,7 @@ const getPaginatedWords = (
   version: string,
   startIndex: number,
   chunkSize: number
-): Promise<{ words: string[]; lastPage: number }> => {
+): Promise<{ words: BaseWord[]; lastPage: number }> => {
   const WORDS_FILE_PATH = path.resolve(
     `data/words/${language}/${version}`,
     "words.txt"
@@ -18,9 +18,8 @@ const getPaginatedWords = (
     // Open the file stream
     const stream = fs.createReadStream(WORDS_FILE_PATH, { encoding: "utf-8" });
     let rawData = "";
-    let words: string[] = [];
+    let words: BaseWord[] = [];
     let lastPage = 1;
-    const isVersionParsed = false;
 
     stream.on("data", (chunk) => {
       rawData += chunk;
@@ -28,16 +27,23 @@ const getPaginatedWords = (
 
     stream.on("end", () => {
       try {
-        if (!isVersionParsed) {
-          words = Array.from(rawData.split("\n"));
-          rawData = "";
-          lastPage = Math.ceil(words.length / chunkSize);
-          resolve({
-            words: words.slice(startIndex, startIndex + chunkSize),
-            lastPage,
-          });
-          words = [];
-        }
+        const lines = Array.from(rawData.split("\n"));
+        let currentCategory = "";
+        lines.forEach((line) => {
+          // Get the category which starts with #
+          if (line.startsWith("#")) {
+            currentCategory = line.slice(1).trim();
+          } else {
+            words.push({ category: currentCategory, word: line });
+          }
+        });
+
+        lastPage = Math.ceil(words.length / chunkSize);
+        resolve({
+          words: words.slice(startIndex, startIndex + chunkSize),
+          lastPage,
+        });
+        words = [];
       } catch {
         reject(new Error("Failed to load the words"));
       }

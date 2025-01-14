@@ -1,4 +1,4 @@
-import { Language, WordBankStatus } from "@/types";
+import { BaseWord, Language, WordBankStatus } from "@/types";
 
 export class ApiService {
   constructor(private readonly signal: AbortSignal) {}
@@ -23,7 +23,11 @@ export class ApiService {
     }
   }
 
-  async fetchWords(language: Language, version: string, page: number) {
+  async fetchWords(
+    language: Language,
+    version: string,
+    page: number
+  ): Promise<{ words: BaseWord[]; lastPage: number; error: string }> {
     try {
       const response = await fetch(
         `/api/words/${language}/${version}?page=${page}`,

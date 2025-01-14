@@ -11,9 +11,13 @@ export type RecentSyncDetails = {
   timestamp: number;
 };
 
-export type Word = {
-  id: number;
+export type BaseWord = {
   word: string;
+  category: string;
+};
+
+export type Word = BaseWord & {
+  id: number;
   lang: Language;
 };
 

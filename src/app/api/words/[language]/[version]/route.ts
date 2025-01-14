@@ -1,6 +1,6 @@
 import getPaginatedWords from "@/utils/getPaginatedWords";
 import sendJsonErrorResponse from "@/utils/sendJsonErrorResponse";
-import { Language } from "@/types";
+import { BaseWord, Language } from "@/types";
 
 export async function GET(
   request: Request,
@@ -21,11 +21,11 @@ export async function GET(
   const chunkSize = parseInt(pageSize);
 
   const requestCacheKey = `words-${language}-${version}-${page}-${pageSize}`;
-  let words: string[] = [];
+  let words: BaseWord[] = [];
   let lastPage = 1;
   try {
     const cachedPaginatedWords:
-      | { words: string[]; lastPage: number }
+      | { words: BaseWord[]; lastPage: number }
       | undefined = global.cacheUser.get(requestCacheKey);
     if (cachedPaginatedWords) {
       words = cachedPaginatedWords.words;
