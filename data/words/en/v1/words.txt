@@ -1,3 +1,14 @@
+# Actions
+# Movies/TV Shows
+# Songs
+# Objects
+# Professions
+# Books
+# Animals
+# Games/Sports
+# Emotions
+# Science
+# Miscellaneous
 Airplane
 Boat
 Baby
