@@ -20,11 +20,12 @@ import {
   calculateFinalScoreForTeams,
   nextTurnIdentification,
 } from "@/contexts/games/utils";
+import { Word } from "@/types";
 
 export type Action =
   | {
       type: "INITIALIZE_GAME";
-      payload: { settings: OneWordPerTurnGameSettings; wordPool: string[] };
+      payload: { settings: OneWordPerTurnGameSettings; wordPool: Word[] };
     }
   | { type: "START_NEXT_TURN" }
   | {
@@ -190,11 +191,10 @@ export const OneWordPerTurnGameProvider = ({
       numberOfRounds,
       timePerTeam,
     }: OneWordPerTurnGameSettings) => {
-      const randomWords = await getRandomWords(
+      const wordPool = await getRandomWords(
         language,
         numberOfRounds * numberOfTeams * 2 // times 2 to have enough words
       );
-      const wordPool = randomWords.map((word) => word.word);
 
       dispatch({
         type: "INITIALIZE_GAME",

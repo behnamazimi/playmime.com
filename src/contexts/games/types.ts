@@ -1,3 +1,5 @@
+import { Word } from "@/types";
+
 export type GameStatus = "initialized" | "waiting" | "running" | "finalized";
 
 type BaseGameSettings = {
@@ -28,8 +30,8 @@ export type BaseGameState<TeamType> = {
   settings: BaseGameSettings;
   currentTurnTeamId: number;
   teams: TeamType[];
-  wordPool: string[];
-  currentWord: string | null;
+  wordPool: Word[];
+  currentWord: Word | null;
   currentRound: number;
 };
 

@@ -1,9 +1,10 @@
 import { EyeSlashIcon } from "@heroicons/react/24/outline";
 import { useTranslations } from "next-intl";
+import { Word } from "@/types";
 
 type GameStatusProps = {
   isRunning: boolean;
-  currentWord: string | null;
+  currentWord: Word | null;
   currentTeam: { teamId: number; timeRemaining: number };
 };
 
@@ -22,9 +23,14 @@ const GameStatus = ({
         }`}
       >
         {isRunning ? (
-          <span className="absolute w-full p-2 flex items-center justify-center text-3xl font-semibold">
-            {currentWord}
-          </span>
+          <>
+            <span className="absolute w-full p-2 flex items-center justify-center text-3xl font-semibold">
+              {currentWord?.word}
+            </span>
+            <span className="word-category absolute bottom-4 right-4 font-normal text-sm">
+              {currentWord?.category}
+            </span>
+          </>
         ) : (
           <span className="flex flex-col gap-4">
             <span className="text-xl font-semibold">

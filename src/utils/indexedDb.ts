@@ -54,7 +54,7 @@ export async function storeWords(language: Language, words: BaseWord[]) {
 
   await Promise.all(
     words.map((word) =>
-      store.add({ word, lang: language, category: word.category })
+      store.add({ word: word.word, lang: language, category: word.category })
     )
   );
 

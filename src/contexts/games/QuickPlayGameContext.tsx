@@ -20,11 +20,12 @@ import {
   calculateFinalScoreForTeams,
   nextTurnIdentification,
 } from "@/contexts/games/utils";
+import { Word } from "@/types";
 
 export type Action =
   | {
       type: "INITIALIZE_GAME";
-      payload: { settings: QuickPlayGameSettings; wordPool: string[] };
+      payload: { settings: QuickPlayGameSettings; wordPool: Word[] };
     }
   | { type: "START_NEXT_TURN" }
   | {
@@ -205,11 +206,10 @@ export const QuickPlayGameProvider = ({
       numberOfRounds,
       timePerTeam,
     }: QuickPlayGameSettings) => {
-      const randomWords = await getRandomWords(
+      const wordPool = await getRandomWords(
         language,
         numberOfRounds * numberOfTeams * 15 // times 15 to have enough words
       );
-      const wordPool = randomWords.map((word) => word.word);
 
       dispatch({
         type: "INITIALIZE_GAME",
