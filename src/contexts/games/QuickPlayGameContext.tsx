@@ -3,7 +3,6 @@ import { getRandomWords } from "@/utils/indexedDb";
 import React, {
   createContext,
   useReducer,
-  useEffect,
   ReactNode,
   useMemo,
   use,
@@ -21,6 +20,7 @@ import {
   nextTurnIdentification,
 } from "@/contexts/games/utils";
 import { Word } from "@/types";
+import useTickEverySecond from "@/contexts/games/hooks/useTickEverySecond";
 
 export type Action =
   | {
@@ -242,22 +242,9 @@ export const QuickPlayGameProvider = ({
     dispatch({ type: "CHANGE_WORD" });
   }, []);
 
-  // Timer management
-  useEffect(() => {
-    let interval: NodeJS.Timeout | null = null;
-
-    if (state.status === "running") {
-      interval = setInterval(() => {
-        dispatch({ type: "TICK" });
-      }, 1000);
-    } else if (interval) {
-      clearInterval(interval);
-    }
-
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [state.status]);
+  useTickEverySecond(state.status === "running", () => {
+    dispatch({ type: "TICK" });
+  });
 
   const value = useMemo(
     () => ({
