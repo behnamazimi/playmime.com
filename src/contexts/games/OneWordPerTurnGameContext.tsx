@@ -21,6 +21,7 @@ import {
 } from "@/contexts/games/utils";
 import { Word } from "@/types";
 import useTickEverySecond from "@/contexts/games/hooks/useTickEverySecond";
+import { useSoundFx } from "@/contexts/SoundFxContext";
 
 export type Action =
   | {
@@ -184,6 +185,7 @@ export const OneWordPerTurnGameProvider = ({
 }) => {
   const [state, dispatch] = useReducer(gameReducer, defaultState);
   const language = useLocale() as Locale;
+  const { playClockTicking, stopClockTicking } = useSoundFx();
 
   const initializeGame = useCallback(
     async ({
@@ -229,6 +231,16 @@ export const OneWordPerTurnGameProvider = ({
 
   useTickEverySecond(state.status === "running", () => {
     dispatch({ type: "TICK" });
+
+    const activeTeam = state.teams.find(
+      (team) => team.teamId === state.currentTurnTeamId
+    );
+    const remainingTime = activeTeam?.timeRemaining || 0;
+    if (remainingTime === 10) {
+      playClockTicking();
+    } else if (remainingTime < 2 || remainingTime > 10) {
+      stopClockTicking();
+    }
   });
 
   const value = useMemo(

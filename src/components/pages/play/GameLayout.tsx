@@ -7,6 +7,7 @@ import useKeepScreenAwake from "@/hooks/useKeepScreenAwake";
 import { useTranslations } from "next-intl";
 import BaseButton from "@/components/common/Button/BaseButton";
 import PageLeaveConfirmModal from "./components/PageLeaveConfirmModal";
+import { useDisplayMuteToggle } from "@/contexts/SoundFxContext";
 
 type GameLayoutProps = {
   title: string;
@@ -31,6 +32,8 @@ const GameLayout = ({
   const navGuard = useNavigationGuard({ enabled: true });
   const [isLeaving, setIsLeaving] = useState(false);
   const router = useRouter();
+
+  useDisplayMuteToggle();
 
   useKeepScreenAwake(!!currentTeam);
 

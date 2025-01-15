@@ -6,6 +6,7 @@ declare global {
 
   interface Window {
     dataLayer: Array<Record<string, any>>; // or Array<any> for less strict typing
+    webkitAudioContext: typeof AudioContext;
   }
 }
 

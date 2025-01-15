@@ -1,6 +1,11 @@
 "use client";
 
-import { LanguageIcon, Bars2Icon } from "@heroicons/react/24/outline";
+import {
+  LanguageIcon,
+  Bars2Icon,
+  SpeakerWaveIcon,
+  SpeakerXMarkIcon,
+} from "@heroicons/react/24/outline";
 import Button from "@/components/common/Button";
 import InstallAppCTA from "@/components/layout/Header/components/InstallAppCTA";
 import { Menu } from "@ark-ui/react/menu";
@@ -8,10 +13,12 @@ import { useTranslations } from "next-intl";
 import { LOCALE_COOKIE_NAME } from "@/i18n/config";
 import { useCookies } from "react-cookie";
 import { useLanguageSwitcher } from "@/contexts/LanguageSwitcherContext";
+import { useSoundFx } from "@/contexts/SoundFxContext";
 
 const MainMenu = () => {
   const t = useTranslations("shared");
   const { setIsOpen, isToggleVisible } = useLanguageSwitcher();
+  const { isMuted, setIsMuted, isMuteToggleDisplayed } = useSoundFx();
 
   const [{ [LOCALE_COOKIE_NAME]: locale }] = useCookies([LOCALE_COOKIE_NAME]);
   const direction = locale === "fa" ? "rtl" : "ltr";
@@ -26,6 +33,15 @@ const MainMenu = () => {
               setIsOpen(true);
             }}
             icon={<LanguageIcon />}
+          />
+        )}
+        {isMuteToggleDisplayed && (
+          <Button
+            onClick={() => {
+              setIsMuted(!isMuted);
+            }}
+            icon={isMuted ? <SpeakerXMarkIcon /> : <SpeakerWaveIcon />}
+            vibrateOnTap
           />
         )}
       </div>
