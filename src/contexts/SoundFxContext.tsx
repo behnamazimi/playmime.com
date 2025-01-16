@@ -37,7 +37,7 @@ export const SoundFxProvider = ({ children }: { children: ReactNode }) => {
           loop: true,
           volume: 1.0,
           rate: 0.85,
-          mute: false,
+          mute: isMuted,
         });
       });
     };
@@ -47,14 +47,16 @@ export const SoundFxProvider = ({ children }: { children: ReactNode }) => {
     } else {
       beepAudioRef.current.mute(isMuted);
     }
+  }, [isMuted]);
 
+  useEffect(() => {
     return () => {
       if (beepAudioRef.current) {
-        beepAudioRef.current?.unload();
+        beepAudioRef.current.unload();
         beepAudioRef.current = null;
       }
     };
-  }, [isMuted]);
+  }, []);
 
   const playClockTicking = useCallback(() => {
     if (!isMuted && beepAudioRef.current && !beepAudioRef.current.playing()) {
