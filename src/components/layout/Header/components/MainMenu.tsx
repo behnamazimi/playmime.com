@@ -23,7 +23,7 @@ const MainMenu = () => {
   const direction = isRTL ? "rtl" : "ltr";
 
   return (
-    <div className="flex space-x-4">
+    <div className="flex gap-4">
       {isMuteToggleDisplayed && (
         <Button
           onClick={() => {
