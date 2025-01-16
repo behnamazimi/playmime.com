@@ -24,7 +24,16 @@ const MainMenu = () => {
   const direction = locale === "fa" ? "rtl" : "ltr";
 
   return (
-    <>
+    <div className="flex space-x-4">
+      {isMuteToggleDisplayed && (
+        <Button
+          onClick={() => {
+            setIsMuted(!isMuted);
+          }}
+          icon={isMuted ? <SpeakerXMarkIcon /> : <SpeakerWaveIcon />}
+          vibrateOnTap
+        />
+      )}
       <div className="hidden sm:flex gap-4 items-center">
         <InstallAppCTA />
         {isToggleVisible && (
@@ -33,15 +42,6 @@ const MainMenu = () => {
               setIsOpen(true);
             }}
             icon={<LanguageIcon />}
-          />
-        )}
-        {isMuteToggleDisplayed && (
-          <Button
-            onClick={() => {
-              setIsMuted(!isMuted);
-            }}
-            icon={isMuted ? <SpeakerXMarkIcon /> : <SpeakerWaveIcon />}
-            vibrateOnTap
           />
         )}
       </div>
@@ -78,7 +78,7 @@ const MainMenu = () => {
           </Menu.Positioner>
         </Menu.Root>
       </div>
-    </>
+    </div>
   );
 };
 

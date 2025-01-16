@@ -25,9 +25,8 @@ const SoundFxContext = createContext<SoundFxContextType | undefined>(undefined);
 export const SoundFxProvider = ({ children }: { children: ReactNode }) => {
   const beepAudioRef = useRef<Howl | null>(null);
 
-  const [isMuted, setIsMuted] = useState(false);
-  const [isMuteToggleDisplayed, setIsMuteToggleDisplayed] =
-    useSsrSafeLocalStorage("mute-fx", false);
+  const [isMuted, setIsMuted] = useSsrSafeLocalStorage("mute-fx", false);
+  const [isMuteToggleDisplayed, setIsMuteToggleDisplayed] = useState(false);
 
   useEffect(() => {
     const initBeefAudio = async () => {
