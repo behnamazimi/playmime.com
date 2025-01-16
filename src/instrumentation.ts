@@ -11,6 +11,7 @@ export async function register() {
 
     global.cacheConfigs = new NodeCache(config);
     global.cacheUser = new NodeCache(config);
+    global.cacheIps = new NodeCache(config);
   }
 
   // Initialize Sentry

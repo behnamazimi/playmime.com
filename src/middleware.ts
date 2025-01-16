@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server";
 import rateLimiter from "@/middlewares/rateLimiter";
 import routing from "@/i18n/routing";
 import createMiddleware from "next-intl/middleware";
+import redirectByCountry from "@/middlewares/redirectByCountry";
 
 const languagePathMatchers = [
   new URLPattern({ pathname: "/fa/*?" }),
@@ -14,6 +15,11 @@ export async function middleware(request: NextRequest) {
   // Rate limit the words API
   if (request.nextUrl.pathname.startsWith("/api/words/")) {
     return rateLimiter(request);
+  }
+
+  // Redirect to the appropriate locale based on the user's country
+  if (request.nextUrl.pathname === "/") {
+    return redirectByCountry(request);
   }
 
   const urlWithoutSearchParams = request.url?.split("?")[0];

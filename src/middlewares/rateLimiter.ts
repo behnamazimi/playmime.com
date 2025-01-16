@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import getIpFromRequest from "@/utils/getIpFromRequest";
 
 type RateLimit = { [key: string]: { timestamp: number; count: number } };
 const rateLimit: RateLimit = {};
 
 export default function rateLimiter(request: NextRequest) {
-  const ip =
-    request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for");
+  const ip = getIpFromRequest(request);
 
   if (ip) {
     if (!rateLimit[ip]) {

@@ -19,6 +19,7 @@
     "@uidotdev/usehooks": "^2.4.1",
     "howler": "^2.2.4",
     "idb": "^8.0.1",
+    "is-ip": "^5.0.1",
     "next": "15.1.2",
     "next-intl": "^3.26.3",
     "next-navigation-guard": "^0.1.2",
