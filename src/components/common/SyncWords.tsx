@@ -21,6 +21,7 @@ import { Portal } from "@ark-ui/react/portal";
 import { useFormatter, useTranslations } from "next-intl";
 import isValidLocale from "@/utils/isValidLocale";
 import { useParams } from "next/navigation";
+import useIsRtl from "@/hooks/useIsRtl";
 
 const SyncWords = () => {
   const t = useTranslations("SyncWords");
@@ -33,6 +34,7 @@ const SyncWords = () => {
   const syncInProgressRef = useRef(false);
   const abortControllerRef = useRef<AbortController>(new AbortController());
   const format = useFormatter();
+  const isRTL = useIsRtl();
 
   const updateState = useCallback(() => {
     if (isValidLocale(locale)) {
@@ -85,8 +87,6 @@ const SyncWords = () => {
       updateState();
     });
   }, [locale, updateState]);
-
-  const isRTL = locale === "fa";
 
   return (
     <div className={"relative"}>

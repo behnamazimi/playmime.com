@@ -8,7 +8,7 @@ import { THEME_COLOR } from "@/constants/app";
 import { getTranslations } from "next-intl/server";
 import isValidLocale from "@/utils/isValidLocale";
 import { notFound } from "next/navigation";
-import { locales } from "@/i18n/config";
+import { Locale, locales } from "@/i18n/config";
 import LanguageSwitcherModal from "@/components/layout/Header/components/LanguageSwitcherModal";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -87,7 +87,7 @@ export default async function RootLayout({
   );
 
   return (
-    <Document locale={locale}>
+    <Document locale={locale as Locale}>
       <NextIntlClientProvider messages={messages}>
         <Providers cookies={cookiesObject}>
           <Header />

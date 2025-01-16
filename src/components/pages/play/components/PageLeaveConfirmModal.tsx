@@ -1,9 +1,8 @@
 import { Dialog } from "@ark-ui/react/dialog";
 import { Portal } from "@ark-ui/react/portal";
-import { LOCALE_COOKIE_NAME } from "@/i18n/config";
-import { useCookies } from "react-cookie";
 import Button from "@/components/common/Button";
 import { FC } from "react";
+import useIsRtl from "@/hooks/useIsRtl";
 
 type Props = {
   title: string;
@@ -24,8 +23,7 @@ const PageLeaveConfirmModal: FC<Props> = ({
   onLeave,
   onStay,
 }) => {
-  const [{ [LOCALE_COOKIE_NAME]: language }] = useCookies([LOCALE_COOKIE_NAME]);
-  const isRTL = language === "fa";
+  const isRTL = useIsRtl();
 
   return (
     <Dialog.Root open={open} onOpenChange={() => onStay?.()}>

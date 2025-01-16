@@ -1,6 +1,6 @@
 "use client";
 
-import { LOCALE_COOKIE_NAME, locales } from "@/i18n/config";
+import { locales } from "@/i18n/config";
 import { useTranslations } from "next-intl";
 import usePathname from "@/i18n/routing/usePathname";
 import { useLocale } from "next-intl";
@@ -8,16 +8,15 @@ import Link from "@/i18n/routing/Link";
 import { Dialog } from "@ark-ui/react/dialog";
 import { Portal } from "@ark-ui/react/portal";
 import { useLanguageSwitcher } from "@/contexts/LanguageSwitcherContext";
-import { useCookies } from "react-cookie";
 import Button from "@/components/common/Button";
+import useIsRtl from "@/hooks/useIsRtl";
 
 export default function LanguageSwitcherModal() {
   const t = useTranslations("LanguageSwitcher");
   const pathname = usePathname();
   const currentLocale = useLocale();
   const { isOpen, setIsOpen } = useLanguageSwitcher();
-  const [{ [LOCALE_COOKIE_NAME]: language }] = useCookies([LOCALE_COOKIE_NAME]);
-  const isRTL = language === "fa";
+  const isRTL = useIsRtl();
 
   return (
     <Dialog.Root open={isOpen} onOpenChange={(e) => setIsOpen(e.open)}>

@@ -1,6 +1,7 @@
 import { Montserrat, Vazirmatn } from "next/font/google";
 import { ReactNode } from "react";
 import Script from "next/script";
+import { Locale, rtlLocales } from "@/i18n/config";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -13,15 +14,15 @@ const vazirMatn = Vazirmatn({
 
 type Props = {
   children: ReactNode;
-  locale: string;
+  locale: Locale;
 };
 
 export default function Document({ children, locale }: Props) {
-  const isRtl = locale === "fa";
-  const fontStyles = isRtl ? vazirMatn.className : montserrat.className;
+  const isRtlLocale = rtlLocales.includes(locale);
+  const fontStyles = isRtlLocale ? vazirMatn.className : montserrat.className;
 
   return (
-    <html lang={locale} dir={isRtl ? "rtl" : "ltr"}>
+    <html lang={locale} dir={isRtlLocale ? "rtl" : "ltr"}>
       <Script id="google-tag-manager">
         {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
