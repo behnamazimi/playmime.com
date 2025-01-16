@@ -33,7 +33,7 @@ const getPaginatedWords = (
           // Get the category which starts with #
           if (line.startsWith("#")) {
             currentCategory = line.slice(1).trim();
-          } else {
+          } else if (line.trim() !== "") {
             words.push({ category: currentCategory, word: line });
           }
         });
