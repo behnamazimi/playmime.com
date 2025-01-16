@@ -3,8 +3,8 @@
 import React, { useEffect } from "react";
 import Button from "@/components/common/Button";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { useLocalStorage } from "@uidotdev/usehooks";
 import { useTranslations } from "next-intl";
+import { useSsrSafeLocalStorage } from "@/hooks/useSsrSafeLocalStorage";
 
 type Visibility = "none" | "visible" | "hidden";
 
@@ -21,7 +21,7 @@ const isInStandaloneMode = () =>
 const InstallPromptIos = () => {
   const t = useTranslations("shared");
   const [showInstallMessage, setShowInstallMessage] =
-    useLocalStorage<Visibility>(PROMPT_STORAGE_KEY, "none");
+    useSsrSafeLocalStorage<Visibility>(PROMPT_STORAGE_KEY, "none");
 
   useEffect(() => {
     if (
