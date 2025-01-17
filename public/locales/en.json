@@ -1,12 +1,13 @@
 {
   "Metadata": {
     "appName": "Playmime",
-    "defaultTitle": "Playmime - Charades Game",
+    "defaultTitle": "Playmime - Brings charades to life",
     "titleTemplate": "%s - Playmime",
-    "description": "With Playmime quick access to exciting charades game modes, endless laughter, and random word inspiration. Play offline anytime, anywhere.",
-    "descriptionPwa": "Install Playmime to your device for quick access to exciting charades game modes, endless laughter, and random word inspiration. Play offline anytime, anywhere. Install now and let the fun begin!"
+    "description": "A simple idea: play the pantomime (also known as charades) in your gatherings and parties without the hassle of finding a pen, paper, or installing a special app to get a fun list of words to play with.",
+    "descriptionPwa": "Install Playmime to play the pantomime (also known as charades) in your gatherings and parties without the hassle of finding a pen, paper, or installing a special app to get a fun list of words to play with!"
   },
   "shared": {
+    "copyright": "© {year} Playmime by <author>@bhnmzm</author>, v{version}",
     "loading": "Loading...",
     "installNow": "Install Now",
     "changeLanguage": "Change Language",

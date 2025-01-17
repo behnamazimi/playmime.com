@@ -4,12 +4,11 @@ import { useTranslations } from "next-intl";
 import Link from "@/i18n/routing/Link";
 
 const Footer = () => {
-  const t = useTranslations("Metadata");
   const tShared = useTranslations("shared");
 
   return (
     <footer className="text-center w-full max-w-2xl mx-auto py-3">
-      <nav className="my-4 flex justify-center space-x-4 text-sm">
+      <nav className="mt-4 flex justify-center text-sm gap-4 text-gray-500">
         <Link href="/about" className="hover:underline">
           {tShared("about")}
         </Link>
@@ -26,8 +25,20 @@ const Footer = () => {
       </nav>
 
       <div className="flex items-center justify-center gap-2">
-        <p className="text-gray-500 text-sm">
-          © {new Date().getFullYear()} {t("appName")}. v{version}
+        <p className="text-gray-400 text-xs">
+          {tShared.rich("copyright", {
+            year: new Date().getFullYear(),
+            author: (children) => (
+              <a
+                href="https://bhnmzm.com"
+                target="_blank"
+                className="hover:underline"
+              >
+                {children}
+              </a>
+            ),
+            version,
+          })}
         </p>
         <SyncWords />
       </div>
