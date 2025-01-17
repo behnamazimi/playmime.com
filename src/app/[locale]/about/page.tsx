@@ -1,10 +1,8 @@
 import { Locale, locales } from "@/i18n/config";
-import Button from "@/components/common/Button";
-import Link from "@/i18n/routing/Link";
 import getPageContent from "@/utils/getPageContent";
 
-const getHowToPlayContent = (locale: Locale) => {
-  return getPageContent(locale, "how-to-play");
+const getAboutContent = (locale: Locale) => {
+  return getPageContent(locale, "about");
 };
 
 export function generateStaticParams() {
@@ -16,7 +14,7 @@ export const generateMetadata = async ({
 }: {
   params: Promise<{ locale: Locale }>;
 }) => {
-  const { metadata } = await getHowToPlayContent((await params).locale);
+  const { metadata } = await getAboutContent((await params).locale);
 
   return {
     title: metadata.title,
@@ -26,15 +24,15 @@ export const generateMetadata = async ({
 
 export const dynamicParams = false;
 
-export default async function HowToPlayPage({
+export default async function AboutPage({
   params,
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
   const {
-    content: HowToPlayContent,
-    metadata: { title, description, startPlayingNowCTA },
-  } = await getHowToPlayContent((await params).locale);
+    content: AboutContent,
+    metadata: { title, description },
+  } = await getAboutContent((await params).locale);
 
   return (
     <div className="max-w-2xl mx-auto md:px-4 pt-12 pb-8 animate-fade-in">
@@ -44,14 +42,8 @@ export default async function HowToPlayPage({
           <h3>{description}</h3>
         </div>
 
-        <HowToPlayContent />
+        <AboutContent />
       </article>
-
-      <div className="mt-8 flex justify-center items-center">
-        <Button as={Link} href="/play" color="primary">
-          {startPlayingNowCTA}
-        </Button>
-      </div>
     </div>
   );
 }
