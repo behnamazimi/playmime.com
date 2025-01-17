@@ -10,9 +10,17 @@ const Footer = () => {
   return (
     <footer className="text-center w-full max-w-2xl mx-auto py-3">
       <nav className="my-4 flex justify-center space-x-4 text-sm">
-        <Link href="/about">{tShared("about")}</Link>
-        <Link href="/how-to-play">{tShared("howToPlay")}</Link>
-        <a href="https://github.com/behnamazimi/playmime.com" target="_blank">
+        <Link href="/about" className="hover:underline">
+          {tShared("about")}
+        </Link>
+        <Link href="/how-to-play" className="hover:underline">
+          {tShared("howToPlay")}
+        </Link>
+        <a
+          href="https://github.com/behnamazimi/playmime.com"
+          target="_blank"
+          className="hover:underline"
+        >
           Github
         </a>
       </nav>
