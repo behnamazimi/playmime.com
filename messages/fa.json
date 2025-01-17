@@ -11,7 +11,9 @@
     "installNow": "نصب کن",
     "changeLanguage": "زبان رو عوض کن",
     "backButton": "برگرد",
-    "installPromptIos": "این برنامه رو روی گوشیت نصب کن: روی <bold>Share</bold> بزن و بعد <bold>Add to Home Screen</bold>."
+    "installPromptIos": "این برنامه رو روی گوشیت نصب کن: روی <bold>Share</bold> بزن و بعد <bold>Add to Home Screen</bold>.",
+    "about": "درباره پلی‌میم",
+    "howToPlay": "چطور بازی کنیم؟"
   },
   "HomePage": {
     "title": "ادابازی",
