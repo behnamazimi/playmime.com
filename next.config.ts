@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 import withSerwistInit from "@serwist/next";
 import createNextIntlPlugin from "next-intl/plugin";
 import { withSentryConfig } from "@sentry/nextjs";
+import createMDX from "@next/mdx";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
+import remarkFrontmatter from "remark-frontmatter";
 
 const withSerwist = withSerwistInit({
   // Note: This is only an example. If you use Pages Router,
@@ -13,18 +16,27 @@ const withSerwist = withSerwistInit({
 
 const withNextIntl = createNextIntlPlugin("src/i18n/request.ts");
 
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+  },
+});
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
 // Combine the wrappers
-export default withSentryConfig(withSerwist(withNextIntl(nextConfig)), {
-  org: "sureyoudoio",
+export default withSentryConfig(
+  withSerwist(withNextIntl(withMDX(nextConfig))),
+  {
+    org: "sureyoudoio",
 
-  project: "pantomime-five",
+    project: "pantomime-five",
 
-  // An auth token is required for uploading source maps.
-  authToken: process.env.SENTRY_AUTH_TOKEN,
+    // An auth token is required for uploading source maps.
+    authToken: process.env.SENTRY_AUTH_TOKEN,
 
-  silent: false, // Can be used to suppress logs
-});
+    silent: false, // Can be used to suppress logs
+  }
+);
