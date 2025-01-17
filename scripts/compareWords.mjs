@@ -1,6 +1,6 @@
 import fs from "fs";
 
-function validateWords(sourceFile, dictionaryFile) {
+function compareWords(sourceFile, dictionaryFile) {
   try {
     // Read both files
     const sourceContent = fs.readFileSync(sourceFile, "utf8");
@@ -45,7 +45,7 @@ if (!sourceFile || !dictionaryFile) {
 }
 
 // Run the validation
-const result = validateWords(sourceFile, dictionaryFile);
+const result = compareWords(sourceFile, dictionaryFile);
 
 // Output results
 console.log("\nValidation Results:");
