@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "appName": "Playmime",
-    "defaultTitle": "Playmime - Brings charades to life",
+    "defaultTitle": "Playmime - A Go-To Tool for Playing Charades",
     "titleTemplate": "%s - Playmime",
     "description": "A simple idea: play the pantomime (also known as charades) in your gatherings and parties without the hassle of finding a pen, paper, or installing a special app to get a fun list of words to play with.",
     "descriptionPwa": "Install Playmime to play the pantomime (also known as charades) in your gatherings and parties without the hassle of finding a pen, paper, or installing a special app to get a fun list of words to play with!"
@@ -123,8 +123,8 @@
   "LandingPage": {
     "Hero": {
       "tagline": "Fun for Everyone",
-      "heading": "The Ultimate Party Game Experience",
-      "description": "Playmime takes charades to the next level with 10,000+ fun words and phrases – the ultimate game for friends and family to act, guess, and laugh together!",
+      "heading": "Playmime: Your Go-To Tool for Charades",
+      "description": "No prep, no downloads—just pick a word list and start playing with 10,000+ fun words and phrases!",
       "buttons": {
         "start": "Start Playing Now",
         "howToPlay": "How to Play"
