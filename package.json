@@ -10,6 +10,7 @@
     "lint": "eslint . --fix --fix-type problem,suggestion,layout",
     "validate-words": "node scripts/validateWords.mjs",
     "validate-words:fix": "node scripts/validateWords.mjs --fix",
+    "validate-translations": "node scripts/validate-translations.mjs",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
