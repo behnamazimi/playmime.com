@@ -1,6 +1,10 @@
 {
   "name": "playmime",
   "version": "1.8.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/behnamazimi/playmime.com"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -7,7 +7,7 @@ We love your input! We want to make contributing to Playmime as easy and transpa
 1. Fork the repo
 2. Clone your fork:
    ```bash
-   git clone https://github.com/<YOUR_USERNAME>/playmime.com.git
+   git clone https://github.com/behnamazimi/playmime.com.git
    ```
 3. Install dependencies:
    ```bash
