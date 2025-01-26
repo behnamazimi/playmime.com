@@ -27,11 +27,10 @@ Playmime currently supports the following languages:
 
 We welcome contributions to make Playmime even better! Here’s what you can help with:
 
-- Adding new word to the existing languages
-- Adding support for new languages.
-- Fixing bugs or refining existing features.
-- Suggesting or implementing new features.
-- Enhancing the user interface and accessibility.
+- [Adding new word to the existing languages](CONTRIBUTING.md#adding-new-words-to-existing-languages).
+- [Adding support for new languages](CONTRIBUTING.md#adding-a-new-language).
+- [Fixing bugs or refining existing features](CONTRIBUTING.md#fixing-bugs).
+- [Suggesting or implementing new features](CONTRIBUTING.md#implementing-new-features).
 
 Refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information on how to contribute.
 
