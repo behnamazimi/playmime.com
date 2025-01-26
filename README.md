@@ -33,6 +33,8 @@ We welcome contributions to make Playmime even better! Here’s what you can hel
 - Suggesting or implementing new features.
 - Enhancing the user interface and accessibility.
 
+Refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information on how to contribute.
+
 ### Community 💬
 
 Got feedback or ideas? Let’s collaborate!
