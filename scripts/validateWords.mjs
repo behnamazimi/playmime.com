@@ -144,18 +144,55 @@ const validateAndFixWordsFile = (lang, version, fix = false) => {
   }
 };
 
+// Function to validate language categories against filesystem
+const validateLanguageCategories = () => {
+  const languagesInFS = fs.readdirSync(BASE_PATH);
+  const languagesInConfig = Object.keys(LANGUAGE_CATEGORIES);
+
+  // Check for languages in filesystem but not in config
+  const missingFromConfig = languagesInFS.filter(
+    (lang) => !languagesInConfig.includes(lang)
+  );
+
+  if (missingFromConfig.length > 0) {
+    console.error(
+      "Error: Found languages in filesystem without category definitions:"
+    );
+    console.error(` - ${missingFromConfig.join("\n - ")}`);
+    return false;
+  }
+
+  // Check for languages in config but not in filesystem
+  const missingFromFS = languagesInConfig.filter(
+    (lang) => !languagesInFS.includes(lang)
+  );
+
+  if (missingFromFS.length > 0) {
+    console.warn(
+      "Error: Found category definitions for non-existent languages:"
+    );
+    console.warn(` - ${missingFromFS.join("\n - ")}`);
+
+    return false;
+  }
+
+  return true;
+};
+
 // Function to validate all words files in the base directory for each language and version
 const validateAllWordsFiles = (fix = false) => {
+  // Validate language categories first
+  if (!validateLanguageCategories()) {
+    console.error(
+      "Language categories validation failed. Please fix LANGUAGE_CATEGORIES."
+    );
+    process.exit(1);
+  }
+
   // Read all languages from the base directory
   const languages = fs.readdirSync(BASE_PATH);
 
   languages.forEach((lang) => {
-    // Check if the language has predefined categories
-    if (!LANGUAGE_CATEGORIES[lang]) {
-      console.warn(`No predefined categories for language: ${lang}`);
-      return;
-    }
-
     // Read all versions for the current language
     const versions = fs.readdirSync(path.join(BASE_PATH, lang));
 
