@@ -2,7 +2,7 @@
 
 import { useQuickPlayGame } from "@/contexts/games/QuickPlayGameContext";
 import PageTitle from "@/components/common/PageTitle";
-import TeamResult from "@/components/pages/play/components/TeamResult";
+import TeamResult from "@/components/pages/play/components/ResultItem";
 import BackToHomeCTA from "@/components/pages/play/components/BackToHomeCTA";
 import { useTranslations } from "next-intl";
 import redirect from "@/i18n/routing/redirect";
@@ -27,7 +27,7 @@ export default function QuickPlayGameResults() {
         {teams.map((team, index) => (
           <TeamResult
             key={team.teamId}
-            teamId={team.teamId}
+            name={t("shared.teamName", { team: team.teamId })}
             rank={index}
             score={team.score}
             quickPlayResult

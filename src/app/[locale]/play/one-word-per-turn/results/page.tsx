@@ -2,7 +2,7 @@
 
 import { useOneWordPerTurnGame } from "@/contexts/games/OneWordPerTurnGameContext";
 import PageTitle from "@/components/common/PageTitle";
-import TeamResult from "@/components/pages/play/components/TeamResult";
+import ResultItem from "@/components/pages/play/components/ResultItem";
 import BackToHomeCTA from "@/components/pages/play/components/BackToHomeCTA";
 import { useTranslations } from "next-intl";
 import redirect from "@/i18n/routing/redirect";
@@ -27,9 +27,9 @@ export default function OneWordPerTurnGameResults() {
       />
       <div className="space-y-4">
         {teams.map((team, index) => (
-          <TeamResult
+          <ResultItem
             key={team.teamId}
-            teamId={team.teamId}
+            name={t("shared.teamName", { team: team.teamId })}
             rank={index}
             score={team.score}
             finalScore={team.finalScore}
