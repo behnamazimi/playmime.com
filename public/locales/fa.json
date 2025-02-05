@@ -21,8 +21,12 @@
     "subtitle": "ساده و هیجان‌انگیز!",
     "cards": {
       "quickPlay": {
-        "title": "بازی سریع",
+        "title": "پانتومیم سریع",
         "description": "با زمان مسابقه بده و هرچقدر می‌تونی کلمه حدس بزن!"
+      },
+      "headsUp": {
+        "title": "حدس کلمه",
+        "description": "کلمه‌ی روی پیشونیته رو حدس بزن!"
       },
       "oneWordPerTurn": {
         "title": "یک کلمه در هر نوبت",
@@ -53,10 +57,11 @@
       "cancelGameButton": "بازی رو لغو کن",
       "finalizeGameButton": "بازی رو تموم کن",
       "teamName": "تیم {team}",
+      "playerName": "بازیکن {player}",
       "teamScore": "امتیاز: {score}",
       "correctLabel": "درست: {score}",
       "timeRemaining": "زمان باقی‌مونده: {time} ثانیه",
-      "hiddenWordTitle": "نوبت تیم {team}",
+      "hiddenWordTitleForTeam": "نوبت تیم {team}",
       "seconds": "ثانیه",
       "correctButton": "درست",
       "timeRemainingLabel": "زمان باقی‌مونده",
@@ -68,6 +73,10 @@
         "description": "بازی هنوز ادامه داره! مطمئنی می‌خوای بازی رو تموم کنی؟",
         "rejectCtaText": "ادامه بازی",
         "acceptCtaText": "ترک بازی"
+      },
+      "nonMobileMessage": {
+        "title": "This game is only available on mobile devices",
+        "subtitle": "Please open this page on your mobile device to play the game."
       }
     },
     "oneWordPerTurn": {
@@ -103,6 +112,29 @@
       "results": {
         "title": "بازی سریع",
         "subtitle": "نتایج"
+      }
+    },
+    "headsUp": {
+      "setup": {
+        "title": "حدس کلمه",
+        "subtitle": "تنظیمات",
+        "players": "تعداد بازیکنان"
+      },
+      "play": {
+        "startTurnMessage": "برای شروع گوشی رو به سمت پایین کج کن",
+        "turnMessage": "نوبت بازیکن {player}",
+        "rotateDevice": "برای تجربه بهتر، در حالت افقی بازی کنید"
+      },
+      "results": {
+        "title": "حدس کلمه",
+        "subtitle": "نتایج"
+      },
+      "instructions": {
+        "title": "نحوه بازی حدس کلمه",
+        "description": "حدس‌زننده گوشی را روی پیشانی خود نگه می دارد، در حالی که بقیه با انجام حرکات یا گفتن کلمات مرتبط به او سرنخ می دهند. حدس زننده باید کلمه را بدون نگاه کردن حدس بزند.",
+        "startTurn": "برای شروع نوبت خود، گوشی را به پایین بچرخانید",
+        "correctGuess": "برای حدس‌های درست، گوشی را به پایین بچرخانید",
+        "passWord": "برای رد کردن کلمه فعلی، گوشی را به بالا بچرخانید"
       }
     }
   },
@@ -156,6 +188,10 @@
       "oneWordPerTurn": {
         "title": "یک کلمه در هر نوبت",
         "description": "تو هر نوبت فقط یک کلمه رو بازی کن. نوبت بعدی رو از دست نده!"
+      },
+      "headsUp": {
+        "title": "حدس کلمه",
+        "description": "کلمه‌ای که روی پیشونیت هست رو با سرنخ دوستات حدس بزن!"
       },
       "randomWord": {
         "title": "کلمه تصادفی",

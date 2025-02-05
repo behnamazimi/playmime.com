@@ -24,6 +24,10 @@
         "title": "Quick Play",
         "description": "Guess as many words as possible before time runs out!"
       },
+      "headsUp": {
+        "title": "Heads Up",
+        "description": "Your friends give you hints to guess the word on your forehead!"
+      },
       "oneWordPerTurn": {
         "title": "One Word Per Turn",
         "description": "Take turns and play one word at a time!"
@@ -53,10 +57,11 @@
       "cancelGameButton": "Cancel Game",
       "finalizeGameButton": "Finalize Game",
       "teamName": "Team {team}",
+      "playerName": "Player {player}",
       "teamScore": "Score: {score}",
       "correctLabel": "Correct: {score}",
       "timeRemaining": "Time Remaining: {time} sec",
-      "hiddenWordTitle": "Team {team} turn",
+      "hiddenWordTitleForTeam": "Team {team} turn",
       "seconds": "sec",
       "correctButton": "Correct",
       "timeRemainingLabel": "Time Remaining",
@@ -68,6 +73,10 @@
         "description": "The game is still ongoing! Are you sure you want to finalize it?",
         "rejectCtaText": "Continue Playing",
         "acceptCtaText": "Leave"
+      },
+      "nonMobileMessage": {
+        "title": "This game is only available on mobile devices",
+        "subtitle": "Please open this page on your mobile device to play the game."
       }
     },
     "oneWordPerTurn": {
@@ -103,6 +112,29 @@
       "results": {
         "title": "Quick Play",
         "subtitle": "Results"
+      }
+    },
+    "headsUp": {
+      "setup": {
+        "title": "Heads Up",
+        "subtitle": "Setup",
+        "players": "Players"
+      },
+      "play": {
+        "startTurnMessage": "Tilt your phone down to start your turn",
+        "turnMessage": "Player {player}'s turn",
+        "rotateDevice": "Rotate your device to landscape mode for the best experience."
+      },
+      "results": {
+        "title": "Heads Up",
+        "subtitle": "Results"
+      },
+      "instructions": {
+        "title": "How to Play Heads Up",
+        "description": "The guesser holds the phone on their forehead while others give hints—either by acting or saying related words. The guesser must guess the word without looking.",
+        "startTurn": "Tilt your phone down to start the turn",
+        "correctGuess": "Tilt down for correct guesses",
+        "passWord": "Tilt up to skip the current word"
       }
     }
   },
@@ -156,6 +188,10 @@
       "oneWordPerTurn": {
         "title": "One Word Per Turn",
         "description": "Take turns acting out one word at a time in exciting rounds."
+      },
+      "headsUp": {
+        "title": "Heads Up",
+        "description": "Get your friends to give you hints to guess the word on your forehead."
       },
       "randomWord": {
         "title": "Random Word",

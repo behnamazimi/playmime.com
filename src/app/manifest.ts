@@ -73,7 +73,7 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
     },
     prefer_related_applications: false,
     display: "standalone",
-    orientation: "portrait-primary",
+    orientation: "any",
     screenshots: [
       {
         src: `screenshots/${locale}/desktop-1.png`,

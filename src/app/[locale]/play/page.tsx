@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import {
+  EyeSlashIcon,
   FireIcon,
   LightBulbIcon,
   RocketLaunchIcon,
@@ -8,10 +9,9 @@ import GameCard from "@/components/pages/play/components/GameCard";
 
 export default function Home() {
   const t = useTranslations("HomePage");
-
   return (
-    <div className="max-w-2xl mx-auto md:px-4 pt-12 pb-8 animate-fade-in">
-      <div className="mb-12">
+    <div className="max-w-2xl mx-auto md:px-4 pt-6 pb-4 animate-fade-in">
+      <div className="mb-8">
         <h2 className="text-4xl mb-2 font-light">{t(`title`)}</h2>
         <h2 className="text-4xl font-bold">{t("subtitle")}</h2>
       </div>
@@ -30,6 +30,13 @@ export default function Home() {
           title={t("cards.oneWordPerTurn.title")}
           description={t("cards.oneWordPerTurn.description")}
           color="orange"
+        />
+        <GameCard
+          href={"/play/heads-up/setup"}
+          icon={<EyeSlashIcon className={"stroke-1 w-full h-full"} />}
+          title={t("cards.headsUp.title")}
+          description={t("cards.headsUp.description")}
+          color="green"
         />
         <GameCard
           href={"/play/random-word"}
