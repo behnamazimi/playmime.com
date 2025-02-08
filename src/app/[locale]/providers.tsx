@@ -7,6 +7,7 @@ import { QuickPlayGameProvider } from "@/contexts/games/QuickPlayGameContext";
 import { LanguageSwitcherProvider } from "@/contexts/LanguageSwitcherContext";
 import { NavigationGuardProvider } from "next-navigation-guard";
 import { SoundFxProvider } from "@/contexts/SoundFxContext";
+import { HeadsUpGameProvider } from "@/contexts/games/HeadsUpGameContext";
 
 const Providers: FC<
   PropsWithChildren & {
@@ -18,11 +19,13 @@ const Providers: FC<
       <CookiesProvider cookies={new Cookies(cookies)}>
         <SoundFxProvider>
           <LanguageSwitcherProvider>
-            <QuickPlayGameProvider>
-              <OneWordPerTurnGameProvider>
-                {children}
-              </OneWordPerTurnGameProvider>
-            </QuickPlayGameProvider>
+            <HeadsUpGameProvider>
+              <QuickPlayGameProvider>
+                <OneWordPerTurnGameProvider>
+                  {children}
+                </OneWordPerTurnGameProvider>
+              </QuickPlayGameProvider>
+            </HeadsUpGameProvider>
           </LanguageSwitcherProvider>
         </SoundFxProvider>
       </CookiesProvider>

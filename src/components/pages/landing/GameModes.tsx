@@ -1,4 +1,5 @@
 import {
+  EyeSlashIcon,
   FireIcon,
   LightBulbIcon,
   RocketLaunchIcon,
@@ -29,6 +30,15 @@ export const GameModes = () => {
         border: "border-orange-100",
         bg: "bg-orange-50",
         link: "/play/one-word-per-turn/setup",
+      },
+      {
+        title: t("headsUp.title"),
+        description: t("headsUp.description"),
+        icon: EyeSlashIcon,
+        iconBg: "bg-green-300",
+        border: "border-green-100",
+        bg: "bg-green-50",
+        link: "/play/heads-up",
       },
       {
         title: t("randomWord.title"),

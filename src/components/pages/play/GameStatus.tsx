@@ -1,6 +1,7 @@
 import { EyeSlashIcon } from "@heroicons/react/24/outline";
 import { useTranslations } from "next-intl";
 import { Word } from "@/types";
+import RemainingTime from "@/components/pages/play/components/RemainingTime";
 
 type GameStatusProps = {
   isRunning: boolean;
@@ -34,21 +35,14 @@ const GameStatus = ({
         ) : (
           <span className="flex flex-col gap-4">
             <span className="text-xl font-semibold">
-              {t("shared.hiddenWordTitle", { team: currentTeam.teamId })}
+              {t("shared.hiddenWordTitleForTeam", { team: currentTeam.teamId })}
             </span>
             <EyeSlashIcon className="h-10 w-10 text-gray-500" />
           </span>
         )}
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-2 my-8">
-        <h3 className="text-xl font-light">{t("shared.timeRemainingLabel")}</h3>
-        <span className="text-2xl font-bold">
-          {t("shared.timeRemainingValue", {
-            time: currentTeam.timeRemaining,
-          })}
-        </span>
-      </div>
+      <RemainingTime time={currentTeam.timeRemaining} />
     </>
   );
 };

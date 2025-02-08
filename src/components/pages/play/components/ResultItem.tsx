@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 
-type TeamResultProps = {
-  teamId: number;
+type ResultItemProps = {
+  name: string;
   rank: number;
   score: number;
   finalScore?: string;
@@ -10,15 +10,15 @@ type TeamResultProps = {
   quickPlayResult?: boolean;
 };
 
-const TeamResult = ({
-  teamId,
+const ResultItem = ({
+  name,
   rank,
   score,
   finalScore,
   correct,
   timeRemaining,
   quickPlayResult,
-}: TeamResultProps) => {
+}: ResultItemProps) => {
   const t = useTranslations("play");
   const firstThreeStyles: Record<number, string[]> = {
     0: ["from-yellow-400 to-yellow-200", "text-yellow-600"],
@@ -37,7 +37,7 @@ const TeamResult = ({
       </span>
       <div className="flex flex-col justify-center items-start ml-2 flex-1">
         <div className="flex justify-between flex-1 w-full">
-          <strong>{t("shared.teamName", { team: teamId })}</strong>
+          <strong>{name}</strong>
           <span className="ml-4 font-semibold">
             {t("shared.teamScore", {
               score: quickPlayResult ? score : finalScore,
@@ -61,4 +61,4 @@ const TeamResult = ({
   );
 };
 
-export default TeamResult;
+export default ResultItem;

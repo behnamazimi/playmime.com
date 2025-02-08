@@ -8,13 +8,14 @@ interface GameCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
-  color: "purple" | "orange" | "blue";
+  color: "purple" | "orange" | "blue" | "green";
   href: string;
 }
 const GameCard = ({ icon, title, description, color, href }: GameCardProps) => {
   const colorsMap = {
     purple: ["bg-purple-300", "bg-purple-400", "text-purple-200"],
     orange: ["bg-orange-300", "bg-orange-400", "text-orange-200"],
+    green: ["bg-green-300", "bg-green-400", "text-green-200"],
     blue: ["bg-blue-300", "bg-blue-400", "text-blue-200"],
   };
   const backgroundColor = colorsMap[color][0];

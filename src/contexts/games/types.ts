@@ -42,3 +42,22 @@ export type OneWordPerTurnGameState = BaseGameState<Team> & {
 export type QuickPlayGameState = BaseGameState<QuickPlayTeam> & {
   settings: QuickPlayGameSettings;
 };
+
+export type Player = Omit<BaseTeam, "teamId" | "finalScore"> & {
+  playerId: number;
+};
+
+export type HeadsUpGameSettings = {
+  numberOfPlayers: number;
+  timePerPlayer: number;
+};
+
+export type HeadsUpGameState = {
+  gameId: string;
+  status: GameStatus;
+  wordPool: Word[];
+  currentWord: Word | null;
+  settings: HeadsUpGameSettings;
+  currentTurnPlayerId: number;
+  players: Player[];
+};

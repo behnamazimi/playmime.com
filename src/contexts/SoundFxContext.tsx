@@ -14,6 +14,8 @@ import useLocalStorage from "@/hooks/useLocalStorage";
 type SoundFxContextType = {
   playClockTicking: () => void;
   stopClockTicking: () => void;
+  playSuccess: () => void;
+  stopSuccess: () => void;
   isMuted: boolean;
   setIsMuted: (isMuted: boolean) => void;
   isMuteToggleDisplayed: boolean;
@@ -24,28 +26,55 @@ const SoundFxContext = createContext<SoundFxContextType | undefined>(undefined);
 
 export const SoundFxProvider = ({ children }: { children: ReactNode }) => {
   const beepAudioRef = useRef<Howl | null>(null);
+  const successAudioRef = useRef<Howl | null>(null);
 
   const [isMuted, setIsMuted] = useLocalStorage("mute-fx", false);
   const [isMuteToggleDisplayed, setIsMuteToggleDisplayed] = useState(false);
 
   useEffect(() => {
-    const initBeefAudio = async () => {
+    const initBeefAudio = async ({
+      initBeep,
+      initSuccess,
+    }: {
+      initBeep: boolean;
+      initSuccess: boolean;
+    }) => {
       await import("howler").then(({ Howl }) => {
-        beepAudioRef.current = new Howl({
-          src: ["/sounds/clock-ticking.mp3"],
-          autoplay: false,
-          loop: true,
-          volume: 1.0,
-          rate: 0.85,
-          mute: isMuted,
-        });
+        if (initBeep) {
+          beepAudioRef.current = new Howl({
+            src: ["/sounds/clock-ticking.mp3"],
+            autoplay: false,
+            loop: true,
+            volume: 1.0,
+            rate: 0.85,
+            mute: isMuted,
+          });
+        }
+        if (initSuccess) {
+          successAudioRef.current = new Howl({
+            src: ["/sounds/success.mp3"],
+            autoplay: false,
+            loop: false,
+            volume: 0.7,
+            rate: 0.85,
+            mute: isMuted,
+          });
+        }
       });
     };
 
-    if (!beepAudioRef.current) {
-      initBeefAudio();
-    } else {
+    if (!beepAudioRef.current || !successAudioRef.current) {
+      initBeefAudio({
+        initBeep: !beepAudioRef.current,
+        initSuccess: !successAudioRef.current,
+      });
+    }
+
+    if (beepAudioRef.current) {
       beepAudioRef.current.mute(isMuted);
+    }
+    if (successAudioRef.current) {
+      successAudioRef.current.mute(isMuted);
     }
   }, [isMuted]);
 
@@ -54,6 +83,11 @@ export const SoundFxProvider = ({ children }: { children: ReactNode }) => {
       if (beepAudioRef.current) {
         beepAudioRef.current.unload();
         beepAudioRef.current = null;
+      }
+
+      if (successAudioRef.current) {
+        successAudioRef.current.unload();
+        successAudioRef.current = null;
       }
     };
   }, []);
@@ -70,10 +104,24 @@ export const SoundFxProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
+  const playSuccess = useCallback(() => {
+    if (!isMuted && successAudioRef.current) {
+      successAudioRef.current.play();
+    }
+  }, [isMuted]);
+
+  const stopSuccess = useCallback(() => {
+    if (successAudioRef.current) {
+      successAudioRef.current.stop();
+    }
+  }, []);
+
   const value = useMemo(
     () => ({
       playClockTicking,
       stopClockTicking,
+      playSuccess,
+      stopSuccess,
       isMuted,
       setIsMuted,
       isMuteToggleDisplayed,
@@ -82,6 +130,8 @@ export const SoundFxProvider = ({ children }: { children: ReactNode }) => {
     [
       playClockTicking,
       stopClockTicking,
+      playSuccess,
+      stopSuccess,
       isMuted,
       setIsMuted,
       isMuteToggleDisplayed,
