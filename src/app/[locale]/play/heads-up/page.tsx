@@ -108,45 +108,37 @@ export default function HeadsUpGame() {
 
   return (
     <div
-      className={`transition-colors duration-300 ${gameScreenBgStyles[bgAnimation]} ${isFullscreen ? "fixed inset-0 z-50" : "h-[calc(100vh-16rem)]"}`}
+      className={`transition-colors duration-300 ${gameScreenBgStyles[bgAnimation]} ${isFullscreen ? "fixed inset-0 z-50" : "h-[calc(100vh-8rem)] lg:h-[calc(100vh-16rem)]"}`}
     >
       <div className="relative h-full flex flex-col">
-        <div className="absolute top-8 right-8 z-10 flex gap-4">
-          <BaseButton
-            onClick={() => setShowInstructions(true)}
-            vibrateOnTap
-            icon={<InformationCircleIcon className="h-6 w-6" />}
-          />
-          <BaseButton
-            onClick={() => {
-              setIsLeaving(true);
-            }}
-            vibrateOnTap
-            icon={<XMarkIcon className="h-6 w-6" />}
-          />
-        </div>
-
-        <div className="flex items-center justify-center p-4 mt-4">
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-semibold">
-              {t("headsUp.play.turnMessage", {
-                player: currentPlayer?.playerId,
-              })}
-            </span>
+        <div className="flex items-center justify-between p-2 mt-4">
+          <div className="flex items-center justify-center">
+            <div className="flex items-center gap-2">
+              <span className="text-xl font-semibold">
+                {t("headsUp.play.turnMessage", {
+                  player: currentPlayer?.playerId,
+                })}
+              </span>
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <BaseButton
+              onClick={() => setShowInstructions(true)}
+              vibrateOnTap
+              icon={<InformationCircleIcon className="h-6 w-6" />}
+            />
+            <BaseButton
+              onClick={() => {
+                setIsLeaving(true);
+              }}
+              vibrateOnTap
+              icon={<XMarkIcon className="h-6 w-6" />}
+            />
           </div>
         </div>
 
         <div className="flex-1 flex items-center justify-center">
-          <div
-            className="text-center"
-            onClick={() => {
-              if (state.status === "running") {
-                submitResult(true);
-              } else {
-                startNextTurn();
-              }
-            }}
-          >
+          <div className="text-center">
             {isRunning ? (
               <>
                 <span className="text-4xl font-semibold">

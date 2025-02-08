@@ -1,11 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import useLocalStorage from "@/hooks/useLocalStorage";
 import Toast from "@/components/common/Toast";
-
-type Visibility = "none" | "visible" | "hidden";
 
 const PROMPT_STORAGE_KEY = "install-prompt-ios";
 
@@ -19,26 +16,23 @@ const isInStandaloneMode = () =>
 
 const InstallPromptIos = () => {
   const t = useTranslations("shared");
-  const [showInstallMessage, setShowInstallMessage] =
-    useLocalStorage<Visibility>(PROMPT_STORAGE_KEY, "none");
+  const [showInstallMessage, setShowInstallMessage] = useState(false);
 
   useEffect(() => {
-    if (
-      isIosDevice() &&
-      !isInStandaloneMode() &&
-      showInstallMessage !== "hidden"
-    ) {
-      setShowInstallMessage("visible");
+    const isShownBefore = localStorage.getItem(PROMPT_STORAGE_KEY);
+    if (isIosDevice() && !isInStandaloneMode() && !isShownBefore) {
+      setShowInstallMessage(true);
+      localStorage.setItem(PROMPT_STORAGE_KEY, "true");
     }
   }, [showInstallMessage, setShowInstallMessage]);
 
-  if (showInstallMessage !== "visible") return null;
+  if (!showInstallMessage) return null;
 
   return (
     <Toast
-      visible={showInstallMessage === "visible"}
+      visible={showInstallMessage}
       onClose={() => {
-        setShowInstallMessage("hidden");
+        setShowInstallMessage(false);
       }}
     >
       {t.rich("installPromptIos", {
