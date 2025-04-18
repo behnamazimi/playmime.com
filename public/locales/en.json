@@ -14,7 +14,8 @@
     "backButton": "Back",
     "installPromptIos": "Install this app on your phone: tap <bold>Share</bold> and then <bold>Add to Home Screen</bold>.",
     "about": "About",
-    "howToPlay": "How To Play"
+    "howToPlay": "How To Play",
+    "moreResources": "More Resources"
   },
   "HomePage": {
     "title": "Let's",
