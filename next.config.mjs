@@ -1,4 +1,3 @@
-import type { NextConfig } from "next";
 import withSerwistInit from "@serwist/next";
 import createNextIntlPlugin from "next-intl/plugin";
 import { withSentryConfig } from "@sentry/nextjs";
@@ -22,7 +21,7 @@ const withMDX = createMDX({
   },
 });
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
