@@ -26,7 +26,7 @@ export const Hero = () => {
           {t("tagline")}
         </span>
 
-        <h1 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight rtl:leading-1">
+        <h1 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight rtl:leading-snug">
           {t("heading")}
         </h1>
 

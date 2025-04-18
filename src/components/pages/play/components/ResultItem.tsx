@@ -40,7 +40,7 @@ const ResultItem = ({
           <strong>{name}</strong>
           <span className="ml-4 font-semibold">
             {t("shared.teamScore", {
-              score: quickPlayResult ? score : finalScore,
+              score: (quickPlayResult ? score : finalScore) || "",
             })}
           </span>
         </div>
@@ -48,11 +48,11 @@ const ResultItem = ({
           <div className="flex justify-between text-sm opacity-50 w-full flex-1">
             <span>
               {t("shared.correctLabel", {
-                score: quickPlayResult ? finalScore : correct,
+                score: (quickPlayResult ? finalScore : correct) || "",
               })}
             </span>
             <span className="ml-4">
-              {t("shared.timeRemaining", { time: timeRemaining })}
+              {t("shared.timeRemaining", { time: timeRemaining || "" })}
             </span>
           </div>
         )}

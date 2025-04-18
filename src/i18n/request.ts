@@ -1,19 +1,21 @@
 import { getRequestConfig } from "next-intl/server";
 import { getUserLocale } from "@/i18n/utils";
-import { defaultLocale, Locale, locales } from "@/i18n/config";
+import { hasLocale } from "next-intl";
+import routing from "@/i18n/routing";
 
 export default getRequestConfig(async ({ requestLocale }) => {
-  let locale = await requestLocale;
+  let requested = await requestLocale;
 
-  if (!locale) {
+  if (!requested) {
     // The user is logged in
-    locale = await getUserLocale();
+    requested = await getUserLocale();
   }
 
   // Ensure that the incoming locale is valid
-  if (!locales.includes(locale as Locale)) {
-    locale = defaultLocale;
-  }
+  const locale = hasLocale(routing.locales, requested)
+    ? requested
+    : routing.defaultLocale;
+
   return {
     locale,
     messages: (await import(`../../public/locales/${locale}.json`)).default,

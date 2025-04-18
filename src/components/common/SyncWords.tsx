@@ -18,7 +18,7 @@ import {
 
 import { Dialog } from "@ark-ui/react/dialog";
 import { Portal } from "@ark-ui/react/portal";
-import { useFormatter, useTranslations } from "next-intl";
+import { useFormatter, useNow, useTranslations } from "next-intl";
 import isValidLocale from "@/utils/isValidLocale";
 import { useParams } from "next/navigation";
 import useIsRtl from "@/hooks/useIsRtl";
@@ -35,6 +35,7 @@ const SyncWords = () => {
   const abortControllerRef = useRef<AbortController>(new AbortController());
   const format = useFormatter();
   const isRTL = useIsRtl();
+  const now = useNow();
 
   const updateState = useCallback(() => {
     if (isValidLocale(locale)) {
@@ -119,7 +120,7 @@ const SyncWords = () => {
                     <strong>{t("lastSync")}:</strong>{" "}
                     <span>
                       {lastSync?.timestamp
-                        ? format.relativeTime(lastSync.timestamp)
+                        ? format.relativeTime(lastSync.timestamp, now)
                         : "N/A"}
                     </span>
                   </li>
