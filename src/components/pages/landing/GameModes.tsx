@@ -61,7 +61,7 @@ export const GameModes = () => {
           <p className="text-muted-foreground">{t("subheading")}</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-8">
           {modes.map((mode) => (
             <Link
               href={mode.link}
