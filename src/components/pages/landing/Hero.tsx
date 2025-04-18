@@ -9,7 +9,7 @@ export const Hero = () => {
 
   return (
     <section className="group py-16 flex flex-col items-center justify-center px-4 relative overflow-hidden rounded-2xl">
-      <div className="absolute inset-0 bg-gradient-to-b opacity-75 from-purple-50 to-transparent z-0" />
+      <div className="absolute inset-0 bg-linear-to-b opacity-75 from-purple-50 to-transparent z-0" />
       <span className="effect absolute w-full h-full left-0 top-0 overflow-hidden z-10">
         <span
           className={`absolute w-72 h-72 bg-orange-200 opacity-20 rounded-full -bottom-16 ltr:-left-8 rtl:-right-8 group-hover:scale-125 ${effectAnimationClasses}`}

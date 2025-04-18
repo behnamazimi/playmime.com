@@ -33,7 +33,7 @@ const BaseButton = <T extends React.ElementType = "button">({
   ...props
 }: ButtonProps<T>) => {
   const baseStyles =
-    "relative shadow-sm whitespace-nowrap focus:outline-none focus-visible:outline-1 rounded-sm inline-flex items-center transition-colors duration-150 ease-in-out active:scale-95 active:shadow-none";
+    "relative shadow-xs whitespace-nowrap focus:outline-hidden focus-visible:outline-1 rounded-sm inline-flex items-center transition-colors duration-150 ease-in-out active:scale-95 active:shadow-none";
 
   const variantStyles = {
     default: "bg-gray-50 hover:bg-gray-100 text-gray-800",

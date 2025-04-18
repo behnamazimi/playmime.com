@@ -21,7 +21,7 @@ export default function LanguageSwitcherModal() {
   return (
     <Dialog.Root open={isOpen} onOpenChange={(e) => setIsOpen(e.open)}>
       <Portal>
-        <Dialog.Backdrop className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40" />
+        <Dialog.Backdrop className="fixed inset-0 bg-black/30 backdrop-blur-xs z-40" />
         <Dialog.Positioner className="fixed inset-0 flex items-center justify-center z-50">
           <Dialog.Content className="w-full max-w-md bg-white shadow-lg rounded-lg p-6 space-y-4">
             <Dialog.Title

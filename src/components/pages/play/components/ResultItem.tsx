@@ -30,7 +30,7 @@ const ResultItem = ({
 
   return (
     <div
-      className={`rounded-sm bg-gray-50 flex items-center justify-start p-4 ltr:bg-gradient-to-r rtl:bg-gradient-to-l ${styles[0]}`}
+      className={`rounded-sm bg-gray-50 flex items-center justify-start p-4 ltr:bg-linear-to-r rtl:bg-linear-to-l ${styles[0]}`}
     >
       <span className={`mx-4 font-bold text-3xl ${styles[1]}`}>
         #{rank + 1}

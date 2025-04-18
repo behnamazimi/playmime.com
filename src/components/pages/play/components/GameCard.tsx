@@ -28,7 +28,7 @@ const GameCard = ({ icon, title, description, color, href }: GameCardProps) => {
     <Button
       as={Link}
       href={href}
-      className={`group relative w-full p-0 overflow-hidden rounded-2xl ${backgroundColor} hover:${backgroundColor} shadow-sm transform transition duration-150 ease-in-out active:scale-95 active:shadow-none whitespace-pre`}
+      className={`group relative w-full p-0 overflow-hidden rounded-2xl ${backgroundColor} hover:${backgroundColor} shadow-xs transform transition duration-150 ease-in-out active:scale-95 active:shadow-none whitespace-pre`}
       vibrateOnTap
     >
       <div className="px-4 md:px-6 py-4 relative flex items-center justify-between gap-6 z-10 max-w-full min-w-full">

@@ -66,7 +66,7 @@ export const GameModes = () => {
             <Link
               href={mode.link}
               key={mode.title}
-              className={`cursor-pointer group p-6 rounded-2xl backdrop-blur-sm bg-accent/30 border-2 ${mode.bg} ${mode.border} transition duration-300`}
+              className={`cursor-pointer group p-6 rounded-2xl backdrop-blur-xs bg-accent/30 border-2 ${mode.bg} ${mode.border} transition duration-300`}
             >
               <div
                 className={`w-12 h-12 ${mode.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-90 transition duration-300`}

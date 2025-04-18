@@ -19,7 +19,7 @@ const Toast: FC<Props> = ({ children, onClose, visible }) => {
       aria-live="polite"
     >
       <div className="flex gap-4 items-center">
-        <div className="text-gray-800 text-sm flex-grow">{children}</div>
+        <div className="text-gray-800 text-sm grow">{children}</div>
         <Button
           onClick={onClose}
           icon={<XMarkIcon />}
