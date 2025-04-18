@@ -15,6 +15,9 @@ const Footer = () => {
         <Link href="/how-to-play" className="hover:underline">
           {tShared("howToPlay")}
         </Link>
+        <Link href="/blog" className="hover:underline">
+          {tShared("blog")}
+        </Link>
         <a
           href="https://github.com/behnamazimi/playmime.com"
           target="_blank"

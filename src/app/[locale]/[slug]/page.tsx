@@ -4,13 +4,11 @@ import Link from "@/i18n/routing/Link";
 import getPageContent from "@/utils/getPageContent";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-
-// Define valid content slugs
-const validSlugs = ["hard-charades-words-for-adults"];
+import { BLOG_ITEMS } from "@/constants/blog";
 
 // Function to get content based on locale and slug
 const getContentBySlug = async (locale: Locale, slug: string) => {
-  if (!validSlugs.includes(slug)) {
+  if (!BLOG_ITEMS.includes(slug)) {
     return null;
   }
 
@@ -25,7 +23,7 @@ const getContentBySlug = async (locale: Locale, slug: string) => {
 // Generate all possible static paths for this dynamic route
 export async function generateStaticParams() {
   return locales.flatMap((locale) =>
-    validSlugs.map((slug) => ({
+    BLOG_ITEMS.map((slug) => ({
       locale,
       slug,
     }))
@@ -61,7 +59,7 @@ export const generateMetadata = async ({
 export const dynamicParams = false;
 
 // The page component
-export default async function ContentPage({
+export default async function BlogPostPage({
   params,
 }: {
   params: Promise<{ locale: Locale; slug: string }>;
@@ -82,7 +80,7 @@ export default async function ContentPage({
     metadata: { title, description, cta },
   } = content;
 
-  const relatedSlugs = validSlugs.filter((s) => s !== resolvedParams.slug);
+  const relatedSlugs = BLOG_ITEMS.filter((s) => s !== resolvedParams.slug);
 
   return (
     <div className="max-w-2xl mx-auto md:px-4 pt-12 pb-8 animate-fade-in">

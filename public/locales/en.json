@@ -15,7 +15,14 @@
     "installPromptIos": "Install this app on your phone: tap <bold>Share</bold> and then <bold>Add to Home Screen</bold>.",
     "about": "About",
     "howToPlay": "How To Play",
+    "blog": "Blog",
     "moreResources": "More Resources"
+  },
+  "BlogPage": {
+    "title": "Blog",
+    "description": "Explore our blog for tips, tricks, and ideas to enhance your charades experience.",
+    "readMore": "Read more",
+    "noContentAvailable": "No content articles are currently available in your language."
   },
   "HomePage": {
     "title": "Let's",

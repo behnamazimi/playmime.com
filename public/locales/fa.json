@@ -15,7 +15,14 @@
     "installPromptIos": "این برنامه رو روی گوشیت نصب کن: روی <bold>Share</bold> بزن و بعد <bold>Add to Home Screen</bold>.",
     "about": "درباره پلی‌میم",
     "howToPlay": "چطور بازی کنیم",
+    "blog": "بلاگ",
     "moreResources": "پست‌های مرتبط"
+  },
+  "BlogPage": {
+    "title": "بلاگ",
+    "description": "شامل نکات، ترفندها و ایده‌ها برای بازی پانتومیم",
+    "readMore": "ادامه مطلب",
+    "noContentAvailable": "محتوایی برای نمایش یافت نشد."
   },
   "HomePage": {
     "title": "ادابازی",
