@@ -8,7 +8,7 @@ const enabled =
 export const sharedConfigs = {
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
   enabled,
-  tracesSampleRate: 1.0,
-  sampleRate: 1.0,
+  tracesSampleRate: 0.5,
+  sampleRate: 0.5,
   debug: false,
 };
