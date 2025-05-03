@@ -5,6 +5,7 @@ import getPageContent from "@/utils/getPageContent";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { BLOG_ITEMS } from "@/constants/blog";
+import BlogList from "@/components/common/BlogList";
 
 // Function to get content based on locale and slug
 const getContentBySlug = async (locale: Locale, slug: string) => {
@@ -80,8 +81,6 @@ export default async function BlogPostPage({
     metadata: { title, description, cta },
   } = content;
 
-  const relatedSlugs = BLOG_ITEMS.filter((s) => s !== resolvedParams.slug);
-
   return (
     <div className="max-w-2xl mx-auto md:px-4 pt-12 pb-8 animate-fade-in">
       <article className="prose prose-headings:mt-4 prose-headings:font-semibold prose-headings:text-black prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-base dark:prose-headings:text-white">
@@ -101,26 +100,11 @@ export default async function BlogPostPage({
         </div>
       )}
 
-      {relatedSlugs.length > 0 && (
-        <div className="mt-12 border-t pt-6 text-sm text-gray-500">
-          <h4 className="text-base font-semibold mb-4">{t("moreResources")}</h4>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            {relatedSlugs.map((slug) => (
-              <li key={slug}>
-                <Link
-                  href={`/${slug}`}
-                  className="hover:text-primary transition-colors"
-                >
-                  {slug
-                    .split("-")
-                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                    .join(" ")}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <BlogList
+        title={t("moreResources")}
+        excludeSlug={resolvedParams.slug}
+        className="mt-12"
+      />
     </div>
   );
 }

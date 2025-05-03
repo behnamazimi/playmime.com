@@ -2,6 +2,8 @@ import { Locale, locales } from "@/i18n/config";
 import Button from "@/components/common/Button";
 import Link from "@/i18n/routing/Link";
 import getPageContent from "@/utils/getPageContent";
+import BlogList from "@/components/common/BlogList";
+import { getTranslations } from "next-intl/server";
 
 const getHowToPlayContent = (locale: Locale) => {
   return getPageContent(locale, "how-to-play");
@@ -31,6 +33,7 @@ export default async function HowToPlayPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
+  const t = await getTranslations("shared");
   const {
     content: HowToPlayContent,
     metadata: { title, description, startPlayingNowCTA },
@@ -52,6 +55,8 @@ export default async function HowToPlayPage({
           {startPlayingNowCTA}
         </Button>
       </div>
+
+      <BlogList title={t("moreResources")} className="mt-12" />
     </div>
   );
 }
