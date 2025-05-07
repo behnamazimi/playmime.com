@@ -8,7 +8,7 @@ import { getTranslations } from "next-intl/server";
 const getAllContentMetadata = async (locale: Locale) => {
   const contentList = [];
 
-  for (const slug of BLOG_ITEMS) {
+  for (const slug of BLOG_ITEMS[locale]) {
     try {
       const content = await getPageContent(locale, slug);
       contentList.push({

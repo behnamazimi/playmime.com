@@ -1,9 +1,24 @@
+import { BLOG_ITEMS } from "@/constants/blog";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   const lastModified = new Date();
+
+  const enBlogItems = BLOG_ITEMS.en.map((slug) => ({
+    url: `${baseUrl}/en/blog/${slug}`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
+
+  const faBlogItems = BLOG_ITEMS.fa.map((slug) => ({
+    url: `${baseUrl}/fa/blog/${slug}`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
 
   return [
     {
@@ -66,5 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
+    ...enBlogItems,
+    ...faBlogItems,
   ];
 }

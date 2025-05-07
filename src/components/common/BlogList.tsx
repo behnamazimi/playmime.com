@@ -1,5 +1,6 @@
 import Link from "@/i18n/routing/Link";
 import { BLOG_ITEMS } from "@/constants/blog";
+import { useLocale } from "next-intl";
 
 interface BlogListProps {
   title: string;
@@ -12,9 +13,10 @@ export default function BlogList({
   excludeSlug,
   className = "",
 }: BlogListProps) {
+  const locale = useLocale();
   const slugs = excludeSlug
-    ? BLOG_ITEMS.filter((slug) => slug !== excludeSlug)
-    : BLOG_ITEMS;
+    ? BLOG_ITEMS[locale].filter((slug) => slug !== excludeSlug)
+    : BLOG_ITEMS[locale];
 
   if (slugs.length === 0) return null;
 

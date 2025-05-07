@@ -9,7 +9,7 @@ import BlogList from "@/components/common/BlogList";
 
 // Function to get content based on locale and slug
 const getContentBySlug = async (locale: Locale, slug: string) => {
-  if (!BLOG_ITEMS.includes(slug)) {
+  if (!BLOG_ITEMS[locale].includes(slug)) {
     return null;
   }
 
@@ -24,7 +24,7 @@ const getContentBySlug = async (locale: Locale, slug: string) => {
 // Generate all possible static paths for this dynamic route
 export async function generateStaticParams() {
   return locales.flatMap((locale) =>
-    BLOG_ITEMS.map((slug) => ({
+    BLOG_ITEMS[locale].map((slug) => ({
       locale,
       slug,
     }))
