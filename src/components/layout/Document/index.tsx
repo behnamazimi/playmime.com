@@ -1,10 +1,10 @@
-import { Montserrat, Vazirmatn } from "next/font/google";
+import { Nunito, Vazirmatn } from "next/font/google";
 import { ReactNode } from "react";
 import Script from "next/script";
 import { Locale, rtlLocales } from "@/i18n/config";
 import "./globals.css";
 
-const montserrat = Montserrat({
+const nunito = Nunito({
   subsets: ["latin"],
 });
 
@@ -19,7 +19,7 @@ type Props = {
 
 export default function Document({ children, locale }: Props) {
   const isRtlLocale = rtlLocales.includes(locale);
-  const fontStyles = isRtlLocale ? vazirMatn.className : montserrat.className;
+  const fontStyles = isRtlLocale ? vazirMatn.className : nunito.className;
 
   return (
     <html lang={locale} dir={isRtlLocale ? "rtl" : "ltr"}>
