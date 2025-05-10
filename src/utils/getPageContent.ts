@@ -1,21 +1,37 @@
 import { Locale } from "@/i18n/config";
 import { MDXContent } from "mdx/types";
 
-const getPageContent = async <Metadata = { [key: string]: string }>(
-  locale: Locale,
-  slug: string
-): Promise<{
+type PageContent<T> = {
   content: MDXContent;
-  metadata: Metadata;
-}> => {
-  const { default: content, frontmatter } = await import(
-    `@/content/${locale}/${slug}.mdx`
-  );
-
-  return {
-    content,
-    metadata: frontmatter,
-  };
+  metadata: T;
 };
 
-export default getPageContent;
+export const getPageContent = async <T = { [key: string]: string }>(
+  locale: Locale,
+  slug: string
+): Promise<PageContent<T>> => {
+  try {
+    const { default: content, frontmatter } = await import(
+      `@/content/${locale}/${slug}.mdx`
+    );
+    return { content, metadata: frontmatter };
+  } catch (error) {
+    console.error(`Failed to load content for ${slug}:`, error);
+    throw new Error(`Content not found for slug: ${slug}`);
+  }
+};
+
+export const getBlogPageContent = async <T = { [key: string]: string }>(
+  locale: Locale,
+  slug: string
+): Promise<PageContent<T>> => {
+  try {
+    const { default: content, frontmatter } = await import(
+      `@/content/${locale}/blog/${slug}.mdx`
+    );
+    return { content, metadata: frontmatter };
+  } catch (error) {
+    console.error(`Failed to load blog content for ${slug}:`, error);
+    throw new Error(`Blog content not found for slug: ${slug}`);
+  }
+};

@@ -1,7 +1,7 @@
 import { Locale, locales } from "@/i18n/config";
 import Button from "@/components/common/Button";
 import Link from "@/i18n/routing/Link";
-import getPageContent from "@/utils/getPageContent";
+import { getPageContent } from "@/utils/getPageContent";
 import BlogList from "@/components/common/BlogList";
 import { getTranslations } from "next-intl/server";
 

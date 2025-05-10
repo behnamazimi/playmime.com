@@ -1,7 +1,7 @@
 import { Locale, locales } from "@/i18n/config";
 import Button from "@/components/common/Button";
 import Link from "@/i18n/routing/Link";
-import getPageContent from "@/utils/getPageContent";
+import { getBlogPageContent } from "@/utils/getPageContent";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { BLOG_ITEMS } from "@/constants/blog";
@@ -14,7 +14,7 @@ const getContentBySlug = async (locale: Locale, slug: string) => {
   }
 
   try {
-    return await getPageContent(locale, slug);
+    return await getBlogPageContent(locale, slug);
   } catch (error) {
     console.error(`Failed to load content for ${slug}:`, error);
     return null;
@@ -84,7 +84,7 @@ export default async function BlogPostPage({
   return (
     <div className="max-w-2xl mx-auto md:px-4 pt-12 pb-8 animate-fade-in">
       <article className="prose prose-headings:mt-4 prose-headings:font-semibold prose-headings:text-black prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-base dark:prose-headings:text-white">
-        <div className="mb-12">
+        <div className="mb-12 border-b-1 pb-4">
           <h1>{title}</h1>
           <h3>{description}</h3>
         </div>

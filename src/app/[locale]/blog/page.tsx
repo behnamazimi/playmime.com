@@ -1,7 +1,7 @@
 import { BLOG_ITEMS } from "@/constants/blog";
 import { Locale, locales } from "@/i18n/config";
 import Link from "@/i18n/routing/Link";
-import getPageContent from "@/utils/getPageContent";
+import { getBlogPageContent } from "@/utils/getPageContent";
 import { getTranslations } from "next-intl/server";
 
 // Function to get content metadata for all valid slugs
@@ -10,7 +10,7 @@ const getAllContentMetadata = async (locale: Locale) => {
 
   for (const slug of BLOG_ITEMS[locale]) {
     try {
-      const content = await getPageContent(locale, slug);
+      const content = await getBlogPageContent(locale, slug);
       contentList.push({
         slug,
         title: content.metadata.title,

@@ -1,5 +1,5 @@
 import { Locale, locales } from "@/i18n/config";
-import getPageContent from "@/utils/getPageContent";
+import { getPageContent } from "@/utils/getPageContent";
 
 const getAboutContent = (locale: Locale) => {
   return getPageContent(locale, "about");
