@@ -7,6 +7,7 @@ export const BLOG_ITEMS: Record<Locale, string[]> = {
     "how-to-play-charades-with-kids-guide",
     "funny-charades-words-for-adults",
     "charades-rules-for-beginners",
+    "hard-charades-ideas-for-adults",
   ],
   fa: [],
 };
