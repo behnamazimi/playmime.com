@@ -37,7 +37,7 @@ const eslintConfig = [
     rules: {
       "react/prop-types": "off",
       "no-unused-expressions": [
-        2,
+        "error",
         {
           allowTernary: true,
         },
