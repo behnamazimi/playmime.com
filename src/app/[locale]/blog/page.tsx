@@ -3,6 +3,7 @@ import { Locale, locales } from "@/i18n/config";
 import Link from "@/i18n/routing/Link";
 import { getBlogPageContent } from "@/utils/getPageContent";
 import { getTranslations } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 // Function to get content metadata for all valid slugs
 const getAllContentMetadata = async (locale: Locale) => {
@@ -30,7 +31,13 @@ export function generateStaticParams() {
 }
 
 // Generate metadata for the page
-export const generateMetadata = async () => {
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) => {
+  const { locale } = await params;
+  await setRequestLocale(locale);
   const t = await getTranslations("BlogPage");
 
   return {
@@ -46,10 +53,10 @@ export default async function BlogPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
-  const resolvedParams = await params;
+  const { locale } = await params;
   const t = await getTranslations("BlogPage");
 
-  const contentList = await getAllContentMetadata(resolvedParams.locale);
+  const contentList = await getAllContentMetadata(locale);
 
   return (
     <main className="max-w-2xl mx-auto md:px-4 pt-8 pb-8 animate-fade-in">

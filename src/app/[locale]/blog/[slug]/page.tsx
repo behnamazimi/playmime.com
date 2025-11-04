@@ -22,7 +22,7 @@ const getContentBySlug = async (locale: Locale, slug: string) => {
 };
 
 // Generate all possible static paths for this dynamic route
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return locales.flatMap((locale) =>
     BLOG_ITEMS[locale].map((slug) => ({
       locale,
@@ -37,11 +37,8 @@ export const generateMetadata = async ({
 }: {
   params: Promise<{ locale: Locale; slug: string }>;
 }) => {
-  const resolvedParams = await params;
-  const content = await getContentBySlug(
-    resolvedParams.locale,
-    resolvedParams.slug
-  );
+  const { locale, slug } = await params;
+  const content = await getContentBySlug(locale, slug);
 
   if (!content) {
     return {
@@ -65,12 +62,9 @@ export default async function BlogPostPage({
 }: {
   params: Promise<{ locale: Locale; slug: string }>;
 }) {
-  const resolvedParams = await params;
+  const { locale, slug } = await params;
   const t = await getTranslations("shared");
-  const content = await getContentBySlug(
-    resolvedParams.locale,
-    resolvedParams.slug
-  );
+  const content = await getContentBySlug(locale, slug);
 
   if (!content) {
     notFound();
@@ -102,7 +96,7 @@ export default async function BlogPostPage({
 
       <BlogList
         title={t("moreResources")}
-        excludeSlug={resolvedParams.slug}
+        excludeSlug={slug}
         className="mt-12"
       />
     </div>

@@ -18,7 +18,8 @@ export const generateMetadata = async ({
 }: {
   params: Promise<{ locale: Locale }>;
 }) => {
-  const { metadata } = await getHowToPlayContent((await params).locale);
+  const { locale } = await params;
+  const { metadata } = await getHowToPlayContent(locale);
 
   return {
     title: metadata.title,
@@ -33,11 +34,12 @@ export default async function HowToPlayPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
+  const { locale } = await params;
   const t = await getTranslations("shared");
   const {
     content: HowToPlayContent,
     metadata: { title, description, startPlayingNowCTA },
-  } = await getHowToPlayContent((await params).locale);
+  } = await getHowToPlayContent(locale);
 
   return (
     <div className="max-w-2xl mx-auto md:px-4 pt-12 pb-8 animate-fade-in">

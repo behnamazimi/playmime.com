@@ -12,7 +12,7 @@ import { useHeadsUpGame } from "@/contexts/games/HeadsUpGameContext";
 const minPlayers = 2;
 const minTime = 5;
 
-export default function PlaySetup() {
+export default function HeadsUpSetup() {
   const t = useTranslations("play");
   const { initializeGame } = useHeadsUpGame();
   const [numberOfPlayers, setNumberOfPlayers] = useState(2);
