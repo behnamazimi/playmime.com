@@ -25,7 +25,7 @@
     "@heroicons/react": "^2.2.0",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
-    "@next/mdx": "^15.3.1",
+    "@next/mdx": "^16.0.1",
     "@sentry/nextjs": "^9.13.0",
     "@serwist/next": "^9.0.13",
     "@uidotdev/usehooks": "^2.4.1",
