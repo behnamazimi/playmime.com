@@ -14,7 +14,8 @@ export const generateMetadata = async ({
 }: {
   params: Promise<{ locale: Locale }>;
 }) => {
-  const { metadata } = await getAboutContent((await params).locale);
+  const { locale } = await params;
+  const { metadata } = await getAboutContent(locale);
 
   return {
     title: metadata.title,
@@ -29,10 +30,11 @@ export default async function AboutPage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
+  const { locale } = await params;
   const {
     content: AboutContent,
     metadata: { title, description },
-  } = await getAboutContent((await params).locale);
+  } = await getAboutContent(locale);
 
   return (
     <div className="max-w-2xl mx-auto md:px-4 pt-12 pb-8 animate-fade-in">

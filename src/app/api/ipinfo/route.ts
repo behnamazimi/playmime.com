@@ -1,13 +1,12 @@
 import type { NextRequest } from "next/server";
-import createNextResponse from "@/utils/createNextResponse";
 
 export async function GET(req: NextRequest) {
   try {
     const token = process.env.IPINFO_TOKEN;
     if (!token) {
-      return createNextResponse(
+      return Response.json(
         { error: "Server misconfiguration: Missing IPINFO_TOKEN" },
-        500
+        { status: 500 }
       );
     }
 
@@ -16,7 +15,7 @@ export async function GET(req: NextRequest) {
     const cachedIpInfo = global.cacheIps.get(ipCacheKey);
 
     if (cachedIpInfo) {
-      return createNextResponse(cachedIpInfo, 200);
+      return Response.json(cachedIpInfo);
     }
 
     const ipInfoUrl = `https://ipinfo.io/${ipToLookup}?token=${token}`;
@@ -28,23 +27,26 @@ export async function GET(req: NextRequest) {
       clearTimeout(timeout);
 
       if (!response.ok) {
-        return createNextResponse(
+        return Response.json(
           { error: `IP info lookup failed. Status: ${response.status}` },
-          response.status
+          { status: response.status }
         );
       }
 
       const jsonResponse = await response.json();
       global.cacheIps.set(ipCacheKey, jsonResponse); // Cache the response
-      return createNextResponse(jsonResponse, 200);
+      return Response.json(jsonResponse);
     } catch (fetchError) {
       if (fetchError instanceof Error && fetchError.name === "AbortError") {
-        return createNextResponse({ error: "IP info lookup timed out" }, 504);
+        return Response.json(
+          { error: "IP info lookup timed out" },
+          { status: 504 }
+        );
       }
       throw fetchError;
     }
   } catch (error) {
     console.error("Error fetching IP info:", error);
-    return createNextResponse({ error: "Internal Server Error" }, 500);
+    return Response.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }

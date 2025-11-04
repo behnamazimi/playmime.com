@@ -13,7 +13,7 @@ const minTeams = 2;
 const minTime = 15;
 const minRounds = 1;
 
-export default function PlaySetup() {
+export default function QuickPlaySetup() {
   const t = useTranslations("play");
   const { initializeGame } = useQuickPlayGame();
   const [numberOfTeams, setNumberOfTeams] = useState(2);

@@ -13,7 +13,7 @@ const minTeams = 2;
 const minRounds = 1;
 const minTime = 15;
 
-export default function PlaySetup() {
+export default function OneWordPerTurnSetup() {
   const t = useTranslations("play");
   const { initializeGame } = useOneWordPerTurnGame();
   const [numberOfTeams, setNumberOfTeams] = useState(2);
@@ -32,23 +32,25 @@ export default function PlaySetup() {
       <div className="grid grid-cols-1 items-center justify-center gap-12">
         <SetupSection
           title={t("shared.teams")}
-          initialValue={2}
+          initialValue={numberOfTeams}
           step={1}
           min={minTeams}
           onChange={setNumberOfTeams}
         />
         <SetupSection
           title={t("shared.rounds")}
-          initialValue={5}
+          initialValue={numberOfRounds}
           step={1}
           min={minRounds}
           onChange={setNumberOfRounds}
         />
         <SetupSection
           title={t("shared.time")}
-          initialValue={120}
+          initialValue={timePerTeam}
           step={15}
-          unit={t("shared.seconds")}
+          unit={t("shared.seconds", {
+            seconds: timePerTeam,
+          })}
           min={minTime}
           onChange={setTimePerTeam}
         />

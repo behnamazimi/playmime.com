@@ -101,7 +101,7 @@ export default function PlayOneWord() {
             }}
             vibrateOnTap
           >
-            {t("quickPlay.play.startTurnButton", {
+            {t("oneWordPerTurn.play.startTurnButton", {
               team: currentTeam.teamId,
             })}
           </BaseButton>

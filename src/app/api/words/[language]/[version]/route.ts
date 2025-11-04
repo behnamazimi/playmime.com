@@ -1,18 +1,16 @@
 import getPaginatedWords from "@/utils/getPaginatedWords";
-import sendJsonErrorResponse from "@/utils/sendJsonErrorResponse";
 import { BaseWord, Language } from "@/types";
 
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ language: Language; version: string }> }
 ) {
-  const language = (await params).language;
-  const version = (await params).version;
+  const { language, version } = await params;
   if (!version) {
-    return sendJsonErrorResponse({
-      error: "Version parameter is required",
-      status: 500,
-    });
+    return Response.json(
+      { error: "Version parameter is required" },
+      { status: 400 }
+    );
   }
   const { searchParams } = new URL(request.url);
   const page = searchParams.get("page") ?? "1";
@@ -49,9 +47,9 @@ export async function GET(
       words,
     });
   } catch (error) {
-    return sendJsonErrorResponse({
-      error,
-      status: 500,
-    });
+    return Response.json(
+      { error: error instanceof Error ? error.message : String(error) },
+      { status: 500 }
+    );
   }
 }
