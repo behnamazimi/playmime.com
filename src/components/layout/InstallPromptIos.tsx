@@ -36,7 +36,7 @@ const InstallPromptIos = () => {
       }}
     >
       {t.rich("installPromptIos", {
-        bold: (children) => (
+        bold: (children: React.ReactNode) => (
           <strong className="font-semibold">{children}</strong>
         ),
       })}
