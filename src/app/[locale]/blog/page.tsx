@@ -30,15 +30,8 @@ export function generateStaticParams() {
 }
 
 // Generate metadata for the page
-export const generateMetadata = async ({
-  params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}) => {
-  const t = await getTranslations({
-    locale: (await params).locale,
-    namespace: "BlogPage",
-  });
+export const generateMetadata = async () => {
+  const t = await getTranslations("BlogPage");
 
   return {
     title: t("title"),
@@ -54,10 +47,7 @@ export default async function BlogPage({
   params: Promise<{ locale: Locale }>;
 }) {
   const resolvedParams = await params;
-  const t = await getTranslations({
-    locale: resolvedParams.locale,
-    namespace: "BlogPage",
-  });
+  const t = await getTranslations("BlogPage");
 
   const contentList = await getAllContentMetadata(resolvedParams.locale);
 

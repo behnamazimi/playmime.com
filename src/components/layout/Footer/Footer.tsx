@@ -2,6 +2,7 @@ import { version } from "../../../../package.json";
 import SyncWords from "@/components/common/SyncWords";
 import { useTranslations } from "next-intl";
 import Link from "@/i18n/routing/Link";
+import React from "react";
 
 const Footer = () => {
   const tShared = useTranslations("shared");
@@ -31,7 +32,7 @@ const Footer = () => {
         <p className="text-gray-400 text-xs">
           {tShared.rich("copyright", {
             year: new Date().getFullYear(),
-            author: (children) => (
+            author: (children: React.ReactNode) => (
               <a
                 href="https://bhnmzm.com"
                 target="_blank"
