@@ -1,4 +1,4 @@
-import { Locale } from "next-intl";
+import { Locale } from "@/i18n/config";
 
 export const BLOG_ITEMS: Record<Locale, string[]> = {
   en: [
