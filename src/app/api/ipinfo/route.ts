@@ -38,8 +38,7 @@ export async function GET(req: NextRequest) {
       global.cacheIps.set(ipCacheKey, jsonResponse); // Cache the response
       return createNextResponse(jsonResponse, 200);
     } catch (fetchError) {
-      // @ts-expect-error - AbortError is expected
-      if (fetchError.name === "AbortError") {
+      if (fetchError instanceof Error && fetchError.name === "AbortError") {
         return createNextResponse({ error: "IP info lookup timed out" }, 504);
       }
       throw fetchError;
