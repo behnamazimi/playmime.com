@@ -35,10 +35,10 @@ export const generateMetadata = async ({
 }: {
   params: Promise<{ locale: Locale }>;
 }) => {
-  const t = await getTranslations({
+  const t = (await getTranslations({
     locale: (await params).locale,
     namespace: "BlogPage",
-  });
+  })) as any; // eslint-disable-line @typescript-eslint/no-explicit-any
 
   return {
     title: t("title"),
@@ -54,10 +54,10 @@ export default async function BlogPage({
   params: Promise<{ locale: Locale }>;
 }) {
   const resolvedParams = await params;
-  const t = await getTranslations({
+  const t = (await getTranslations({
     locale: resolvedParams.locale,
     namespace: "BlogPage",
-  });
+  })) as any; // eslint-disable-line @typescript-eslint/no-explicit-any
 
   const contentList = await getAllContentMetadata(resolvedParams.locale);
 
