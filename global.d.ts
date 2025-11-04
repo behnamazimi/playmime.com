@@ -1,6 +1,6 @@
 import type NodeCache from 'node-cache';
 import {formats} from '@/i18n/request';
-import en from './public/locales/en.json';
+import en from '@/public/locales/en.json';
 import routing from '@/i18n/routing';
 
 declare global {
