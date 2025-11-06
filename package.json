@@ -42,7 +42,7 @@
     "react": "^19.1.0",
     "react-cookie": "^8.0.1",
     "react-device-detect": "^2.2.3",
-    "react-dom": "^19.1.0",
+    "react-dom": "^19.2.0",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^5.1.0",
     "tailwind-merge": "^3.3.1"
