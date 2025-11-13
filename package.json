@@ -20,7 +20,7 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.6.0",
+    "@ark-ui/react": "^5.27.1",
     "@capacitor-community/keep-awake": "^7.1.0",
     "@heroicons/react": "^2.2.0",
     "@mdx-js/loader": "^3.1.1",
