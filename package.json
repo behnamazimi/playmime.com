@@ -37,7 +37,7 @@
     "next-intl": "^4.5.3",
     "next-navigation-guard": "^0.1.2",
     "node-cache": "^5.1.2",
-    "posthog-js": "^1.290.0",
+    "posthog-js": "^1.292.0",
     "posthog-node": "^5.11.2",
     "react": "^19.2.0",
     "react-cookie": "^8.0.1",
