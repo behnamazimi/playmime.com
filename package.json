@@ -57,7 +57,7 @@
     "@types/howler": "^2.2.12",
     "@types/jest": "^30.0.0",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^22",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
