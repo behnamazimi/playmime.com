@@ -25,8 +25,10 @@ const PageTitle = ({ title, subtitle, backlinkHref }: PageTitleProps) => {
           <Button icon={<ChevronLeftIcon />} onClick={onBackClick} />
         )}
         <div className="flex flex-col flex-1">
-          <h2 className="text-2xl font-bold">{title}</h2>
-          {subtitle && <h2 className="text-3xl font-light">{subtitle}</h2>}
+          <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+          {subtitle && (
+            <h2 className="text-3xl font-light text-foreground">{subtitle}</h2>
+          )}
         </div>
       </div>
     </div>

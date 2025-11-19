@@ -77,10 +77,10 @@ export default async function BlogPostPage({
 
   return (
     <div className="max-w-2xl mx-auto md:px-4 pt-12 pb-8 animate-fade-in">
-      <article className="prose prose-headings:mt-4 prose-headings:font-semibold prose-headings:text-black prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-base dark:prose-headings:text-white">
-        <div className="mb-12 border-b-1 pb-4">
+      <article className="prose prose-headings:mt-4 prose-headings:font-semibold prose-headings:text-foreground prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-base prose-p:text-foreground prose-strong:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-code:text-foreground prose-pre:bg-card prose-blockquote:text-muted-foreground prose-li:text-foreground prose-ul:text-foreground prose-ol:text-foreground">
+        <div className="mb-12 border-b border-primary/20 pb-4">
           <h1>{title}</h1>
-          <h3>{description}</h3>
+          <h3 className="text-muted-foreground">{description}</h3>
         </div>
 
         <PageContent />

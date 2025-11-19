@@ -44,6 +44,11 @@
   --animate-rotate-90: rotate-90 1s infinite alternate both ease-in-out;
   --animate-tilt-down: tilt-down 1.25s ease-in-out infinite alternate;
   --animate-tilt-up: tilt-up 1.25s ease-in-out infinite alternate;
+  --animate-neon-pulse: neon-pulse 2s ease-in-out infinite;
+  --animate-neon-glow: neon-glow 1.5s ease-in-out infinite alternate;
+  --animate-stagger-fade-in: stagger-fade-in 0.6s ease-out forwards;
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-orb-float: orb-float 20s ease-in-out infinite;
 
   @keyframes accordion-down {
     from {
@@ -103,6 +108,53 @@
     }
     100% {
       transform: rotateX(70deg) translateY(-20px) scaleY(0.8);
+    }
+  }
+  @keyframes neon-pulse {
+    0%, 100% {
+      opacity: 1;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 0.8;
+      filter: brightness(1.2);
+    }
+  }
+  @keyframes neon-glow {
+    0% {
+      text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+    }
+    100% {
+      text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor, 0 0 40px currentColor;
+    }
+  }
+  @keyframes stagger-fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes scanline {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+  @keyframes orb-float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
     }
   }
 }
@@ -171,26 +223,45 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Neon-Noir Color Palette */
+    --background: 240 20% 6%;
+    --foreground: 0 0% 88%;
+    --card: 240 15% 10%;
+    --card-foreground: 0 0% 90%;
+    --popover: 240 15% 10%;
+    --popover-foreground: 0 0% 90%;
+    
+    /* Primary Neon: Electric Cyan */
+    --primary: 180 100% 50%;
+    --primary-foreground: 240 20% 6%;
+    
+    /* Secondary Neon: Hot Magenta */
+    --secondary: 300 100% 50%;
+    --secondary-foreground: 240 20% 6%;
+    
+    /* Muted: Dark gray with slight blue tint */
+    --muted: 240 10% 20%;
+    --muted-foreground: 0 0% 65%;
+    
+    /* Accent: Electric Blue */
+    --accent: 210 100% 50%;
+    --accent-foreground: 240 20% 6%;
+    
+    /* Destructive: Neon Red */
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 240 20% 6%;
+    
+    /* Borders: Subtle neon glow */
+    --border: 180 50% 25%;
+    --input: 180 30% 20%;
+    --ring: 180 100% 50%;
     --radius: 1rem;
+    
+    /* Neon color variants for direct use */
+    --neon-cyan: 180 100% 50%;
+    --neon-magenta: 300 100% 50%;
+    --neon-blue: 210 100% 50%;
+    --neon-green: 150 100% 50%;
   }
 
   * {
@@ -202,6 +273,39 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(240 25% 8%) 100%);
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 30%, hsl(var(--neon-cyan) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, hsl(var(--neon-magenta) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, hsl(var(--neon-blue) / 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(0deg, transparent 24%, hsl(var(--neon-cyan) / 0.03) 25%, hsl(var(--neon-cyan) / 0.03) 26%, transparent 27%, transparent 74%, hsl(var(--neon-magenta) / 0.03) 75%, hsl(var(--neon-magenta) / 0.03) 76%, transparent 77%, transparent);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
   }
 
   body[data-scroll-lock] {
@@ -210,5 +314,223 @@
 
   svg {
     min-width: 100%;
+  }
+}
+
+@layer utilities {
+  /* Neon Glow Utilities */
+  .neon-glow {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor,
+      0 0 20px currentColor;
+  }
+  
+  .neon-glow-strong {
+    text-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor,
+      0 0 40px currentColor,
+      0 0 50px currentColor;
+  }
+  
+  .neon-border {
+    border: 1px solid currentColor;
+    box-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      inset 0 0 5px currentColor;
+  }
+  
+  .neon-border-strong {
+    border: 2px solid currentColor;
+    box-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor,
+      inset 0 0 10px currentColor;
+  }
+  
+  /* Glass-morphism Dark Card */
+  .glass-dark {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border) / 0.3);
+    box-shadow: 
+      0 8px 32px 0 hsl(var(--background) / 0.5),
+      inset 0 0 0 1px hsl(var(--neon-cyan) / 0.1);
+  }
+  
+  .glass-dark-strong {
+    background: hsl(var(--card) / 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.5);
+    box-shadow: 
+      0 8px 32px 0 hsl(var(--background) / 0.7),
+      0 0 20px hsl(var(--neon-cyan) / 0.2),
+      inset 0 0 0 1px hsl(var(--neon-cyan) / 0.2);
+  }
+  
+  /* Stagger Animation Delays */
+  .stagger-1 {
+    animation-delay: 0.1s;
+  }
+  
+  .stagger-2 {
+    animation-delay: 0.2s;
+  }
+  
+  .stagger-3 {
+    animation-delay: 0.3s;
+  }
+  
+  .stagger-4 {
+    animation-delay: 0.4s;
+  }
+  
+  .stagger-5 {
+    animation-delay: 0.5s;
+  }
+  
+  .stagger-6 {
+    animation-delay: 0.6s;
+  }
+  
+  /* Neon Color Utilities */
+  .text-neon-cyan {
+    color: hsl(var(--neon-cyan));
+  }
+  
+  .text-neon-magenta {
+    color: hsl(var(--neon-magenta));
+  }
+  
+  .text-neon-blue {
+    color: hsl(var(--neon-blue));
+  }
+  
+  .text-neon-green {
+    color: hsl(var(--neon-green));
+  }
+  
+  .border-neon-cyan {
+    border-color: hsl(var(--neon-cyan));
+  }
+  
+  .border-neon-magenta {
+    border-color: hsl(var(--neon-magenta));
+  }
+  
+  .border-neon-blue {
+    border-color: hsl(var(--neon-blue));
+  }
+  
+  .border-neon-green {
+    border-color: hsl(var(--neon-green));
+  }
+  
+  .bg-neon-cyan {
+    background-color: hsl(var(--neon-cyan));
+  }
+  
+  .bg-neon-magenta {
+    background-color: hsl(var(--neon-magenta));
+  }
+  
+  .bg-neon-blue {
+    background-color: hsl(var(--neon-blue));
+  }
+  
+  .bg-neon-green {
+    background-color: hsl(var(--neon-green));
+  }
+  
+  /* Glow on hover */
+  .hover-glow:hover {
+    box-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  /* Page entrance animation */
+  .page-enter {
+    animation: stagger-fade-in 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  
+  /* Prose (MDX) dark theme styles */
+  .prose {
+    color: hsl(var(--foreground));
+  }
+  
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    color: hsl(var(--foreground));
+  }
+  
+  .prose p {
+    color: hsl(var(--foreground));
+  }
+  
+  .prose strong {
+    color: hsl(var(--foreground));
+  }
+  
+  .prose a {
+    color: hsl(var(--primary));
+  }
+  
+  .prose code {
+    color: hsl(var(--foreground));
+    background: hsl(var(--card));
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+  }
+  
+  .prose pre {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+  }
+  
+  .prose pre code {
+    background: transparent;
+    padding: 0;
+  }
+  
+  .prose blockquote {
+    border-left-color: hsl(var(--primary) / 0.5);
+    color: hsl(var(--muted-foreground));
+  }
+  
+  .prose ul,
+  .prose ol {
+    color: hsl(var(--foreground));
+  }
+  
+  .prose li {
+    color: hsl(var(--foreground));
+  }
+  
+  .prose hr {
+    border-color: hsl(var(--border));
+  }
+  
+  .prose table {
+    color: hsl(var(--foreground));
+  }
+  
+  .prose th {
+    border-color: hsl(var(--border));
+  }
+  
+  .prose td {
+    border-color: hsl(var(--border));
   }
 }

@@ -54,48 +54,48 @@ export default async function BlogPage({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+  await setRequestLocale(locale);
   const t = await getTranslations("BlogPage");
 
   const contentList = await getAllContentMetadata(locale);
 
   return (
-    <main className="max-w-2xl mx-auto md:px-4 pt-8 pb-8 animate-fade-in">
+    <main className="max-w-3xl mx-auto md:px-4 pt-12 pb-16">
+      {/* Header Section */}
       <div className="mb-12">
-        <h1 className="text-3xl font-bold mb-4">{t("title")}</h1>
-        <p className="text-gray-600">{t("description")}</p>
+        <h1 className="text-4xl md:text-5xl font-bold mb-3 text-foreground text-neon-cyan">
+          {t("title")}
+        </h1>
+        <p className="text-muted-foreground">{t("description")}</p>
       </div>
 
-      <ul className="space-y-6 mt-8 list-none p-0">
-        {contentList.map((content) => (
-          <li key={content.slug} className="group">
+      {/* Blog Posts List */}
+      {contentList.length > 0 ? (
+        <div className="space-y-4">
+          {contentList.map((content) => (
             <Link
+              key={content.slug}
               href={`/blog/${content.slug}`}
-              className="block border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="group block glass-dark border border-primary/20 rounded-lg p-5 md:p-6 transition-all duration-300 hover:border-primary/50 hover:bg-card/50"
               aria-labelledby={`title-${content.slug}`}
             >
               <h2
                 id={`title-${content.slug}`}
-                className="text-xl font-semibold mb-2 text-primary group-hover:underline"
+                className="text-xl md:text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors duration-300"
               >
                 {content.title}
               </h2>
-              <p className="text-gray-600 mb-4">{content.description}</p>
-              <div className="text-primary font-medium inline-flex items-center">
-                <span>{t("readMore")}</span>
-                <span aria-hidden="true" className="ml-1">
-                  →
-                </span>
-              </div>
+              <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                {content.description}
+              </p>
             </Link>
-          </li>
-        ))}
-
-        {contentList.length === 0 && (
-          <div className="text-center py-12 text-gray-500" role="status">
-            {t("noContentAvailable")}
-          </div>
-        )}
-      </ul>
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-12">
+          <p className="text-muted-foreground">{t("noContentAvailable")}</p>
+        </div>
+      )}
     </main>
   );
 }

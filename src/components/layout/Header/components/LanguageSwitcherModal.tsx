@@ -21,11 +21,11 @@ export default function LanguageSwitcherModal() {
   return (
     <Dialog.Root open={isOpen} onOpenChange={(e) => setIsOpen(e.open)}>
       <Portal>
-        <Dialog.Backdrop className="fixed inset-0 bg-black/30 backdrop-blur-xs z-40" />
+        <Dialog.Backdrop className="fixed inset-0 bg-black/60 backdrop-blur-md z-40" />
         <Dialog.Positioner className="fixed inset-0 flex items-center justify-center z-50">
-          <Dialog.Content className="w-full max-w-md bg-white shadow-lg rounded-lg p-6 space-y-4">
+          <Dialog.Content className="w-full max-w-md glass-dark-strong border border-primary/50 rounded-xl p-6 space-y-4 shadow-lg">
             <Dialog.Title
-              className="text-lg font-semibold text-gray-800"
+              className="text-lg font-bold text-foreground"
               dir={isRTL ? "rtl" : "ltr"}
             >
               {t("title")}
@@ -43,9 +43,10 @@ export default function LanguageSwitcherModal() {
                       locale={locale}
                     >
                       <Button
-                        variant={"ghost"}
+                        variant={isActive ? "fill" : "bordered"}
                         size={"large"}
-                        className="flex items-center justify-center h-32 w-full bg-gray-100 rounded-md font-bold text-xl"
+                        color={isActive ? "primary" : "default"}
+                        className="flex items-center justify-center h-32 w-full rounded-md font-bold text-xl"
                         vibrateOnTap
                       >
                         {t(locale)}

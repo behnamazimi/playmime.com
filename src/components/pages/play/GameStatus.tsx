@@ -19,25 +19,27 @@ const GameStatus = ({
   return (
     <>
       <div
-        className={`relative flex justify-center items-center p-2 py-12 w-full text-gray-500 h-40 rounded-sm ${
-          isRunning ? "bg-blue-50" : "bg-gray-50"
+        className={`relative flex justify-center items-center p-2 py-12 w-full h-40 rounded-lg border transition-all duration-300 ${
+          isRunning
+            ? "glass-dark-strong border-primary/50 bg-primary/5"
+            : "glass-dark border-primary/20"
         }`}
       >
         {isRunning ? (
           <>
-            <span className="absolute w-full p-2 flex items-center justify-center text-3xl font-semibold">
+            <span className="absolute w-full p-2 flex items-center justify-center text-3xl md:text-4xl font-bold text-primary">
               {currentWord?.word}
             </span>
-            <span className="word-category absolute bottom-4 right-4 font-normal text-sm">
+            <span className="word-category absolute bottom-4 right-4 font-normal text-sm text-muted-foreground">
               {currentWord?.category}
             </span>
           </>
         ) : (
-          <span className="flex flex-col gap-4">
-            <span className="text-xl font-semibold">
+          <span className="flex flex-col gap-4 items-center">
+            <span className="text-xl font-semibold text-foreground">
               {t("shared.hiddenWordTitleForTeam", { team: currentTeam.teamId })}
             </span>
-            <EyeSlashIcon className="h-10 w-10 text-gray-500" />
+            <EyeSlashIcon className="h-10 w-10 text-muted-foreground" />
           </span>
         )}
       </div>
