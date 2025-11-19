@@ -25,14 +25,14 @@ export default function HeadsUpInstructions({ open, onClose }: Props) {
       }}
     >
       <Portal>
-        <Dialog.Backdrop className="fixed inset-0 bg-black/30 backdrop-blur-xs z-50" />
+        <Dialog.Backdrop className="fixed inset-0 bg-black/60 backdrop-blur-md z-50" />
         <Dialog.Positioner className="fixed inset-0 flex items-center justify-center z-50">
           <Dialog.Content
-            className="w-full max-w-md bg-white shadow-lg rounded-lg p-6 space-y-4"
+            className="w-full max-w-md glass-dark-strong border border-primary/50 rounded-xl p-6 space-y-4 shadow-lg"
             dir={isRTL ? "rtl" : "ltr"}
           >
             <div className="flex justify-between items-center mb-4">
-              <Dialog.Title className="text-lg font-semibold text-gray-800">
+              <Dialog.Title className="text-lg font-bold text-foreground">
                 {t("headsUp.instructions.title")}
               </Dialog.Title>
               <Dialog.CloseTrigger asChild>
@@ -42,12 +42,15 @@ export default function HeadsUpInstructions({ open, onClose }: Props) {
                 />
               </Dialog.CloseTrigger>
             </div>
-            <Dialog.Description dir={isRTL ? "rtl" : "ltr"}>
+            <Dialog.Description
+              className="text-muted-foreground"
+              dir={isRTL ? "rtl" : "ltr"}
+            >
               <div className="space-y-4">
                 <p>{t("headsUp.instructions.description")}</p>
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
-                    <span className="animate-tilt-down">
+                    <span className="animate-tilt-down text-primary">
                       <DevicePhoneMobileIcon
                         className={"w-8 h-8-once rotate-90"}
                       />
@@ -56,14 +59,14 @@ export default function HeadsUpInstructions({ open, onClose }: Props) {
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <span className="animate-tilt-down">
+                    <span className="animate-tilt-down text-primary">
                       <DevicePhoneMobileIcon className={"w-8 h-8 rotate-90"} />
                     </span>
                     <p>{t("headsUp.instructions.correctGuess")}</p>
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <span className="animate-tilt-up">
+                    <span className="animate-tilt-up text-primary">
                       <DevicePhoneMobileIcon className={"w-8 h-8 rotate-90"} />
                     </span>
                     <p>{t("headsUp.instructions.passWord")}</p>

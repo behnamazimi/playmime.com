@@ -21,14 +21,18 @@ export default function BlogList({
   if (slugs.length === 0) return null;
 
   return (
-    <div className={`border-t pt-6 text-sm text-gray-500 ${className}`}>
-      <h4 className="text-base font-semibold mb-4">{title}</h4>
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+    <div
+      className={`border-t border-primary/20 pt-6 text-sm text-muted-foreground ${className}`}
+    >
+      <h4 className="text-lg font-bold mb-4 text-foreground text-neon-cyan">
+        {title}
+      </h4>
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {slugs.map((slug) => (
           <li key={slug}>
             <Link
               href={`/blog/${slug}`}
-              className="hover:text-primary transition-colors"
+              className="hover:text-neon-cyan transition-colors duration-300 block"
             >
               {slug
                 .split("-")
