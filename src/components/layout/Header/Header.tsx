@@ -18,7 +18,7 @@ const Header = () => {
           width={32}
           height={32}
         />
-        <h1 className="text-2xl font-semibold">{t("Metadata.appName")}</h1>
+        <span className="text-2xl font-semibold">{t("Metadata.appName")}</span>
       </Link>
       <div className="flex gap-4 items-center flex-1 justify-end">
         <MainMenu />
