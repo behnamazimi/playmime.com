@@ -68,7 +68,7 @@
     "jest-environment-jsdom": "^30.2.0",
     "postcss": "^8.5.6",
     "prettier": "3.7.3",
-    "serwist": "^9.0.13",
+    "serwist": "^9.2.3",
     "tailwindcss": "^4.1.16",
     "tailwindcss-animate": "^1.0.7",
     "ts-node": "^10.9.2",
