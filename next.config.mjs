@@ -13,16 +13,15 @@ const withSerwist = withSerwistInit({
   disable: process.env.NODE_ENV === "development",
 });
 
-const withNextIntl = createNextIntlPlugin("src/i18n/request.ts");
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const withMDX = createMDX({
-  options: {
-    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
-  },
+  remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
 });
 
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  turbopack: {},
   async rewrites() {
     return [
       {
