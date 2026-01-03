@@ -35,7 +35,7 @@
     "idb": "^8.0.3",
     "is-ip": "^5.0.1",
     "next": "16.1.0",
-    "next-intl": "^4.5.7",
+    "next-intl": "^4.7.0",
     "next-navigation-guard": "^0.1.2",
     "node-cache": "^5.1.2",
     "posthog-js": "^1.309.1",
