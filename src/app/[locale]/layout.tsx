@@ -1,4 +1,4 @@
-import type { Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import Providers from "@/app/[locale]/providers";
 import React, { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
@@ -14,8 +14,14 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Document from "@/components/layout/Document";
 import InstallPromptIos from "@/components/layout/InstallPromptIos";
+import { getAlternates } from "@/utils/getAlternates";
 
-export const generateMetadata = async () => {
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> => {
+  const { locale } = await params;
   const t = await getTranslations("Metadata");
 
   return {
@@ -25,6 +31,7 @@ export const generateMetadata = async () => {
       template: t("titleTemplate"),
     },
     description: t("description"),
+    alternates: getAlternates(locale),
     appleWebApp: {
       capable: true,
       statusBarStyle: "default",
