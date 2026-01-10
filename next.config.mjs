@@ -2,8 +2,6 @@ import withSerwistInit from "@serwist/next";
 import createNextIntlPlugin from "next-intl/plugin";
 import { withSentryConfig } from "@sentry/nextjs";
 import createMDX from "@next/mdx";
-import remarkMdxFrontmatter from "remark-mdx-frontmatter";
-import remarkFrontmatter from "remark-frontmatter";
 
 const withSerwist = withSerwistInit({
   // Note: This is only an example. If you use Pages Router,
@@ -16,7 +14,10 @@ const withSerwist = withSerwistInit({
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const withMDX = createMDX({
-  remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+  options: {
+    remarkPlugins: ["remark-frontmatter", "remark-mdx-frontmatter"],
+    rehypePlugins: [],
+  },
 });
 
 const nextConfig = {
