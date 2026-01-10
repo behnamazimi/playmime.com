@@ -1,5 +1,6 @@
 import { Locale, locales } from "@/i18n/config";
 import { getPageContent } from "@/utils/getPageContent";
+import { getAlternates } from "@/utils/getAlternates";
 
 const getAboutContent = (locale: Locale) => {
   return getPageContent(locale, "about");
@@ -20,6 +21,7 @@ export const generateMetadata = async ({
   return {
     title: metadata.title,
     description: metadata.description,
+    alternates: getAlternates(locale, "/about"),
   };
 };
 

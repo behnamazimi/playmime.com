@@ -4,6 +4,7 @@ import Link from "@/i18n/routing/Link";
 import { getPageContent } from "@/utils/getPageContent";
 import BlogList from "@/components/common/BlogList";
 import { getTranslations } from "next-intl/server";
+import { getAlternates } from "@/utils/getAlternates";
 
 const getHowToPlayContent = (locale: Locale) => {
   return getPageContent(locale, "how-to-play");
@@ -24,6 +25,7 @@ export const generateMetadata = async ({
   return {
     title: metadata.title,
     description: metadata.description,
+    alternates: getAlternates(locale, "/how-to-play"),
   };
 };
 

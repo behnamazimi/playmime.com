@@ -4,6 +4,7 @@ import Link from "@/i18n/routing/Link";
 import { getBlogPageContent } from "@/utils/getPageContent";
 import { getTranslations } from "next-intl/server";
 import { setRequestLocale } from "next-intl/server";
+import { getAlternates } from "@/utils/getAlternates";
 
 // Function to get content metadata for all valid slugs
 const getAllContentMetadata = async (locale: Locale) => {
@@ -43,6 +44,7 @@ export const generateMetadata = async ({
   return {
     title: t("title"),
     description: t("description"),
+    alternates: getAlternates(locale, "/blog"),
   };
 };
 

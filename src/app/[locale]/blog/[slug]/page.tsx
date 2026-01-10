@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { BLOG_ITEMS } from "@/constants/blog";
 import BlogList from "@/components/common/BlogList";
+import { getAlternates } from "@/utils/getAlternates";
 
 // Function to get content based on locale and slug
 const getContentBySlug = async (locale: Locale, slug: string) => {
@@ -50,6 +51,7 @@ export const generateMetadata = async ({
   return {
     title: content.metadata.title,
     description: content.metadata.description,
+    alternates: getAlternates(locale, `/blog/${slug}`),
   };
 };
 

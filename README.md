@@ -1,4 +1,4 @@
-# [Playmime.com 🎭](https://playmime.com)
+# [Playmime.com 🎭](https://www.playmime.com)
 
 A fun and easy-to-use charades game platform designed for everyone! Playmime is an open-source project that brings
 people together through laughter, acting, and guessing—perfect for game nights, parties, or just a casual family
@@ -20,8 +20,8 @@ or adding support for your language, this is a community-driven platform for eve
 
 Playmime currently supports the following languages:
 
-- [English](https://playmime.com/en)
-- [Farsi - فارسی](https://playmime.com/fa)
+- [English](https://www.playmime.com/en)
+- [Farsi - فارسی](https://www.playmime.com/fa)
 
 ### Contribution Opportunities ✨
 
