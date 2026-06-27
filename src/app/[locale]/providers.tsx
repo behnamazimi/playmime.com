@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, PropsWithChildren } from "react";
-import { Cookies, CookiesProvider } from "react-cookie";
+import { CookiesProvider } from "react-cookie";
 import { OneWordPerTurnGameProvider } from "@/contexts/games/OneWordPerTurnGameContext";
 import { QuickPlayGameProvider } from "@/contexts/games/QuickPlayGameContext";
 import { LanguageSwitcherProvider } from "@/contexts/LanguageSwitcherContext";
@@ -9,14 +9,10 @@ import { NavigationGuardProvider } from "next-navigation-guard";
 import { SoundFxProvider } from "@/contexts/SoundFxContext";
 import { HeadsUpGameProvider } from "@/contexts/games/HeadsUpGameContext";
 
-const Providers: FC<
-  PropsWithChildren & {
-    cookies: Record<string, string>;
-  }
-> = ({ children, cookies }) => {
+const Providers: FC<PropsWithChildren> = ({ children }) => {
   return (
     <NavigationGuardProvider>
-      <CookiesProvider cookies={new Cookies(cookies)}>
+      <CookiesProvider>
         <SoundFxProvider>
           <LanguageSwitcherProvider>
             <HeadsUpGameProvider>

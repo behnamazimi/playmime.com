@@ -3,7 +3,6 @@ import Providers from "@/app/[locale]/providers";
 import React, { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import { cookies } from "next/headers";
 import { THEME_COLOR } from "@/constants/app";
 import { getTranslations } from "next-intl/server";
 import isValidLocale from "@/utils/isValidLocale";
@@ -65,6 +64,8 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+export const revalidate = 86400;
+
 export const viewport: Viewport = {
   themeColor: THEME_COLOR,
 };
@@ -83,18 +84,10 @@ export default async function RootLayout({
     notFound();
   }
 
-  const cookiesObject = (await cookies()).getAll().reduce(
-    (acc, { name, value }) => {
-      acc[name] = value;
-      return acc;
-    },
-    {} as Record<string, string>
-  );
-
   return (
     <Document locale={locale as Locale}>
       <NextIntlClientProvider>
-        <Providers cookies={cookiesObject}>
+        <Providers>
           <Header />
           <main>{children}</main>
           <Footer />

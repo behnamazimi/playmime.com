@@ -7,6 +7,8 @@ import {
 } from "@/utils/indexedDb";
 import { Language } from "@/types";
 
+const STATUS_FRESHNESS_MS = 24 * 60 * 60 * 1000;
+
 export class SyncService {
   constructor(
     private readonly apiService: ApiService,
@@ -77,6 +79,17 @@ export class SyncService {
 
   public async syncWordBank() {
     const recentSync = await getRecentSyncDetails(this.language);
+
+    const isFreshCompleteSync =
+      recentSync?.succeeded &&
+      recentSync.lastVersion &&
+      recentSync.versionsDone.includes(recentSync.lastVersion) &&
+      Date.now() - recentSync.timestamp < STATUS_FRESHNESS_MS;
+
+    if (isFreshCompleteSync) {
+      return;
+    }
+
     const { wordBankVersions, dataStructureVersion } =
       await this.apiService.fetchStatus();
 

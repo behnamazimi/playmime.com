@@ -1,6 +1,11 @@
 import getPaginatedWords from "@/utils/getPaginatedWords";
 import { BaseWord, Language } from "@/types";
 
+const DEFAULT_PAGE_SIZE = 1500;
+
+const CACHE_CONTROL =
+  "public, s-maxage=31536000, stale-while-revalidate=86400";
+
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ language: Language; version: string }> }
@@ -14,7 +19,7 @@ export async function GET(
   }
   const { searchParams } = new URL(request.url);
   const page = searchParams.get("page") ?? "1";
-  const pageSize = searchParams.get("pageSize") ?? "200";
+  const pageSize = searchParams.get("pageSize") ?? String(DEFAULT_PAGE_SIZE);
   const startIndex = (parseInt(page) - 1) * parseInt(pageSize);
   const chunkSize = parseInt(pageSize);
 
@@ -40,12 +45,15 @@ export async function GET(
       global.cacheUser.set(requestCacheKey, paginatedWords, 60);
     }
 
-    return Response.json({
-      version,
-      language,
-      lastPage,
-      words,
-    });
+    return Response.json(
+      {
+        version,
+        language,
+        lastPage,
+        words,
+      },
+      { headers: { "Cache-Control": CACHE_CONTROL } }
+    );
   } catch (error) {
     return Response.json(
       { error: error instanceof Error ? error.message : String(error) },
