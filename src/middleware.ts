@@ -41,7 +41,8 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico, sitemap.xml, robots.txt (metadata files)
      * - manifest.webmanifest, icons, screenshots (PWA files)
+     * - ingest (PostHog proxy rewrites)
      */
-    "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|manifest.webmanifest|icons|screenshots).*)",
+    "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|manifest.webmanifest|icons|screenshots|ingest).*)",
   ],
 };
