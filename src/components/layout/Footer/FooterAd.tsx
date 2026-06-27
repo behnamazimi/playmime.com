@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { AD_EVENTS, trackAdEvent } from "@/utils/analytics";
 
 const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
-const slotId = process.env.NEXT_PUBLIC_ADSENSE_SLOT_ID;
-const adsEnabled = Boolean(clientId && slotId);
+const adsEnabled = Boolean(clientId);
+const slotId = "9632820730";
 
 const UNFILLED_TIMEOUT_MS = 5000;
 const VIEWABLE_DELAY_MS = 1000;
