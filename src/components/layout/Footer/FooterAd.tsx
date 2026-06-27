@@ -1,16 +1,16 @@
 "use client";
 
-import Script from "next/script";
 import { useCallback, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { AD_EVENTS, trackAdEvent } from "@/utils/analytics";
 
 const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
-const SLOT_ID = "9632820730";
-const adsEnabled = Boolean(clientId && SLOT_ID);
+const slotId = process.env.NEXT_PUBLIC_ADSENSE_SLOT_ID;
+const adsEnabled = Boolean(clientId && slotId);
 
 const UNFILLED_TIMEOUT_MS = 5000;
 const VIEWABLE_DELAY_MS = 1000;
+const SCRIPT_WAIT_TIMEOUT_MS = 10000;
 
 const FooterAd = () => {
   const adRef = useRef<HTMLModElement>(null);
@@ -28,7 +28,7 @@ const FooterAd = () => {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
       trackAdEvent(AD_EVENTS.IMPRESSION, {
         page_path: pathname,
-        slot_id: SLOT_ID,
+        slot_id: slotId,
         client_id: clientId,
       });
     } catch (error) {
@@ -48,7 +48,31 @@ const FooterAd = () => {
 
     if (window.adsbygoogle) {
       requestAd();
+      return;
     }
+
+    const interval = window.setInterval(() => {
+      if (window.adsbygoogle) {
+        window.clearInterval(interval);
+        requestAd();
+      }
+    }, 100);
+
+    const timeout = window.setTimeout(() => {
+      window.clearInterval(interval);
+      if (!pushedRef.current) {
+        trackAdEvent(AD_EVENTS.ERROR, {
+          page_path: pathname,
+          error: "script_load_timeout",
+          stage: "script",
+        });
+      }
+    }, SCRIPT_WAIT_TIMEOUT_MS);
+
+    return () => {
+      window.clearInterval(interval);
+      window.clearTimeout(timeout);
+    };
   }, [pathname, requestAd]);
 
   useEffect(() => {
@@ -161,36 +185,20 @@ const FooterAd = () => {
   if (!adsEnabled) return null;
 
   return (
-    <>
-      <Script
-        async
-        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${clientId}`}
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-        onLoad={requestAd}
-        onError={() =>
-          trackAdEvent(AD_EVENTS.ERROR, {
-            page_path: pathname,
-            error: "script_load_failed",
-            stage: "script",
-          })
-        }
+    <div className="my-3 w-full overflow-hidden">
+      <p className="mb-1 text-[10px] uppercase tracking-wide text-gray-300">
+        Ad
+      </p>
+      <ins
+        ref={adRef}
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client={clientId}
+        data-ad-slot={slotId}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
       />
-      <div className="my-3 w-full overflow-hidden">
-        <p className="mb-1 text-[10px] uppercase tracking-wide text-gray-300">
-          Ad
-        </p>
-        <ins
-          ref={adRef}
-          className="adsbygoogle"
-          style={{ display: "block" }}
-          data-ad-client={clientId}
-          data-ad-slot={SLOT_ID}
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-      </div>
-    </>
+    </div>
   );
 };
 

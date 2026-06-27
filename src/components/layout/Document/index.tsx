@@ -20,9 +20,19 @@ type Props = {
 export default function Document({ children, locale }: Props) {
   const isRtlLocale = rtlLocales.includes(locale);
   const fontStyles = isRtlLocale ? vazirMatn.className : nunito.className;
+  const adsenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 
   return (
     <html lang={locale} dir={isRtlLocale ? "rtl" : "ltr"}>
+      <head>
+        {adsenseClientId ? (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
+            crossOrigin="anonymous"
+          />
+        ) : null}
+      </head>
       <Script id="google-tag-manager">
         {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
