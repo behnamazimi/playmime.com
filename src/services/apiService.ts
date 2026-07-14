@@ -16,9 +16,6 @@ export class ApiService {
       return { ...defaultStatus, ...data };
     } catch (error) {
       console.error("[fetchStatus]", error);
-      import("@/utils/reportError").then(({ default: report }) => {
-        report(error);
-      });
       return defaultStatus;
     }
   }
@@ -37,9 +34,6 @@ export class ApiService {
       return await response.json();
     } catch (error) {
       console.error(`[fetchWords] Page ${page}`, error);
-      import("@/utils/reportError").then(({ default: report }) => {
-        report(error);
-      });
       return { words: [], lastPage: 0, error: String(error) };
     }
   }
