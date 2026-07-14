@@ -4,7 +4,8 @@ const NEXTJS_CONTROL_FLOW_ERRORS = new Set(["NEXT_REDIRECT", "NEXT_NOT_FOUND"]);
 
 // Automatically handled by Next.js. Initializes PostHog for client-side instrumentation.
 posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-  api_host: "/ingest",
+  api_host:
+    process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://t.playmime.com",
   ui_host: "https://eu.posthog.com",
   defaults: "2025-05-24",
   autocapture: false,
