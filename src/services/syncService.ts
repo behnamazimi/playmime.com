@@ -60,10 +60,6 @@ export class SyncService {
           "[syncWordsByVersion] Error storing words:",
           storageError
         );
-
-        import("@/utils/reportError").then(({ default: report }) => {
-          report(storageError);
-        });
       }
 
       // Avoid rate limits

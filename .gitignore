@@ -47,7 +47,4 @@ public/swe-worker*
 .env*.local
 .swc
 
-# Sentry Config File
-.env.sentry-build-plugin
-
 .env.local
