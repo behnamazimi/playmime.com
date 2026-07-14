@@ -1,6 +1,5 @@
 import { version } from "../../../../package.json";
 import SyncWords from "@/components/common/SyncWords";
-import FooterAd from "@/components/layout/Footer/FooterAd";
 import { useTranslations } from "next-intl";
 import Link from "@/i18n/routing/Link";
 import React from "react";
@@ -28,8 +27,6 @@ const Footer = () => {
           Github
         </a>
       </nav>
-
-      <FooterAd />
 
       <div className="flex items-center justify-center gap-2">
         <p className="text-gray-400 text-xs">
