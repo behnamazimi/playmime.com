@@ -4,7 +4,7 @@ import { CheckIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import BaseButton from "@/components/common/Button/BaseButton";
 import { useOneWordPerTurnGame } from "@/contexts/games/OneWordPerTurnGameContext";
 import { useTranslations } from "next-intl";
-import redirect from "@/i18n/routing/redirect";
+import useClientRedirect from "@/hooks/useClientRedirect";
 import { useHideLanguageSwitcherToggle } from "@/contexts/LanguageSwitcherContext";
 import useKeepScreenAwake from "@/hooks/useKeepScreenAwake";
 import GameLayout from "@/components/pages/play/GameLayout";
@@ -24,12 +24,18 @@ export default function PlayOneWord() {
 
   const currentTeam = getCurrentTeam();
   useKeepScreenAwake(!!currentTeam);
-  if (!currentTeam) {
-    redirect("/play");
+  const redirectTo = !currentTeam
+    ? "/play"
+    : state.status === "finalized"
+      ? "/play/one-word-per-turn/results"
+      : null;
+
+  if (useClientRedirect(redirectTo)) {
+    return null;
   }
 
-  if (state.status === "finalized") {
-    redirect("/play/one-word-per-turn/results");
+  if (!currentTeam) {
+    return null;
   }
 
   const isRunning = state.status === "running";

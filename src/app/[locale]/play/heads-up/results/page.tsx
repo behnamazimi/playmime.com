@@ -4,7 +4,7 @@ import PageTitle from "@/components/common/PageTitle";
 import ResultItem from "@/components/pages/play/components/ResultItem";
 import BackToHomeCTA from "@/components/pages/play/components/BackToHomeCTA";
 import { useTranslations } from "next-intl";
-import redirect from "@/i18n/routing/redirect";
+import useClientRedirect from "@/hooks/useClientRedirect";
 import { useHeadsUpGame } from "@/contexts/games/HeadsUpGameContext";
 
 export default function HeadsUpGameResults() {
@@ -13,8 +13,12 @@ export default function HeadsUpGameResults() {
     state: { status, players },
   } = useHeadsUpGame();
 
+  if (useClientRedirect(status !== "finalized" ? "/" : null)) {
+    return null;
+  }
+
   if (status !== "finalized") {
-    redirect("/");
+    return null;
   }
 
   return (

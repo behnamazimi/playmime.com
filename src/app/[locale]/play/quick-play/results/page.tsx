@@ -5,15 +5,19 @@ import PageTitle from "@/components/common/PageTitle";
 import TeamResult from "@/components/pages/play/components/ResultItem";
 import BackToHomeCTA from "@/components/pages/play/components/BackToHomeCTA";
 import { useTranslations } from "next-intl";
-import redirect from "@/i18n/routing/redirect";
+import useClientRedirect from "@/hooks/useClientRedirect";
 
 export default function QuickPlayGameResults() {
   const t = useTranslations("play");
   const {
     state: { status, teams },
   } = useQuickPlayGame();
+  if (useClientRedirect(status !== "finalized" ? "/" : null)) {
+    return null;
+  }
+
   if (status !== "finalized") {
-    redirect("/");
+    return null;
   }
 
   return (

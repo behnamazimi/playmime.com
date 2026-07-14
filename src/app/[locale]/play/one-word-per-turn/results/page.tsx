@@ -5,7 +5,7 @@ import PageTitle from "@/components/common/PageTitle";
 import ResultItem from "@/components/pages/play/components/ResultItem";
 import BackToHomeCTA from "@/components/pages/play/components/BackToHomeCTA";
 import { useTranslations } from "next-intl";
-import redirect from "@/i18n/routing/redirect";
+import useClientRedirect from "@/hooks/useClientRedirect";
 
 export default function OneWordPerTurnGameResults() {
   const t = useTranslations("play");
@@ -14,8 +14,12 @@ export default function OneWordPerTurnGameResults() {
     state: { status, teams },
   } = useOneWordPerTurnGame();
 
+  if (useClientRedirect(status !== "finalized" ? "/" : null)) {
+    return null;
+  }
+
   if (status !== "finalized") {
-    redirect("/");
+    return null;
   }
 
   return (

@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 import BaseButton from "@/components/common/Button/BaseButton";
 import PageLeaveConfirmModal from "@/components/pages/play/components/PageLeaveConfirmModal";
-import redirect from "@/i18n/routing/redirect";
+import useClientRedirect from "@/hooks/useClientRedirect";
 import { useTranslations } from "next-intl";
 import useRouter from "@/i18n/routing/useRouter";
 import { useHideLanguageSwitcherToggle } from "@/contexts/LanguageSwitcherContext";
@@ -88,11 +88,18 @@ export default function HeadsUpGame() {
     }
   }, []);
 
-  if (!currentPlayer) {
-    redirect("/play");
+  const redirectTo = !currentPlayer
+    ? "/play"
+    : state.status === "finalized"
+      ? "/play/heads-up/results"
+      : null;
+
+  if (useClientRedirect(redirectTo)) {
+    return null;
   }
-  if (state.status === "finalized") {
-    redirect("/play/heads-up/results");
+
+  if (!currentPlayer) {
+    return null;
   }
 
   // Show message for non-mobile devices
